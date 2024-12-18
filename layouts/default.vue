@@ -9,13 +9,18 @@
         <div
           v-if="isShow && isMainPage"
           ref="stickyContainerRef"
-          class="sticky top-0 w-full p-gap only-desktop"
+          :class="['top-0 w-full p-gap only-desktop z-0', {
+            'sticky': !isSafari()
+          }]"
         >
           <LogoImg ref="logoRef" />
         </div>
       </transition>
 
-      <HeaderWidget is-reversed />
+      <HeaderWidget
+        class="z-10"
+        is-reversed
+      />
     </div>
 
     <main>
@@ -29,9 +34,15 @@
 <script setup lang="ts">
 import type { VNodeRef } from 'vue'
 
-import { LogoImg } from '@/shared/ui'
+import { isSafari } from '@/global/lib'
+
+import { LogoImg } from '@/global/ui'
 import { HeaderWidget } from '@/widgets/Header'
-import { FooterWidget } from '~/widgets/Footer'
+import { FooterWidget } from '@/widgets/Footer'
+
+defineOptions({
+  name: 'LayoutDefault'
+})
 
 const logoRef = ref<VNodeRef | null>(null);
 const stickyContainerRef = ref<VNodeRef | null>(null);

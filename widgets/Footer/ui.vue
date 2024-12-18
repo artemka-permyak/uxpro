@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { EmailAndPhone, SocialLinks } from '#shared/ui/ContactsLinks'
+import { EmailAndPhone, SocialLinks } from '@/global/ui/ContactsLinks'
 
 defineOptions({
   name: 'FooterWidget'

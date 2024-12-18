@@ -330,7 +330,7 @@
 </template>
 
 <script setup lang="ts">
-import { getSplitBlockTitle, SplitBlock } from '@/shared/ui'
+import { getSplitBlockTitle, SplitBlock } from '@/global/ui'
 import { ProjectPageHeader } from '@/widgets/ProjectPage'
 import ReviewQuotes from '@/public/svgs/reviewQuotes.svg'
 import ContactUsFeature from '@/features/ContactUs.vue'

@@ -53,11 +53,11 @@
 </template>
 
 <script setup lang="ts">
-import { EmailAndPhone, SocialLinks } from '#shared/ui/ContactsLinks'
+import { EmailAndPhone, SocialLinks } from '@/global/ui/ContactsLinks'
 
-import HeaderMenuWidget from '~/widgets/Header/HeaderMenu.vue'
-import { useHeaderStore } from '#shared/store/header'
-import ContactUsFeature from '~/features/ContactUs.vue'
+import HeaderMenuWidget from '@/widgets/Header/HeaderMenu.vue'
+import { useHeaderStore } from '@/global/store/header'
+import ContactUsFeature from '@/features/ContactUs.vue'
 
 defineOptions({
   name: 'HeaderWidget',

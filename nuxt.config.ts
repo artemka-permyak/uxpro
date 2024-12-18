@@ -1,13 +1,11 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
-
   devtools: { enabled: true },
 
   css: [
     'normalize.css',
-    '@/shared/styles/index.css'
+    '@/global/styles/index.css'
   ],
 
   postcss: {
@@ -30,6 +28,6 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       svgLoader(),
-    ]
+    ],
   },
 })

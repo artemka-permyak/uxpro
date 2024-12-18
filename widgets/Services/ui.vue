@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { getSplitBlockTitle } from '#shared/ui'
+import { getSplitBlockTitle } from '@/global/ui'
 
 defineOptions({
   name: 'ServicesWidget'

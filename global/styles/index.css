@@ -4,43 +4,43 @@
 
 @font-face {
     font-family: 'Aeonik Pro';
-    src: url('/shared/fonts/AeonikPro-Regular.otf') format('otf'),
-    url('/shared/fonts/AeonikPro-Regular.woff') format('woff'),
-    url('/shared/fonts/AeonikPro-Regular.woff2') format('woff2');
+    src: url('/global/fonts/AeonikPro-Regular.otf') format('otf'),
+    url('/global/fonts/AeonikPro-Regular.woff') format('woff'),
+    url('/global/fonts/AeonikPro-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Aeonik Pro';
-    src: url('/shared/fonts/AeonikPro-Bold.otf') format('otf'),
-    url('/shared/fonts/AeonikPro-Bold.woff') format('woff'),
-    url('/shared/fonts/AeonikPro-Bold.woff2') format('woff2');
+    src: url('/global/fonts/AeonikPro-Bold.otf') format('otf'),
+    url('/global/fonts/AeonikPro-Bold.woff') format('woff'),
+    url('/global/fonts/AeonikPro-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Aeonik Pro';
-    src: url('/shared/fonts/AeonikPro-Light.otf') format('otf'),
-    url('/shared/fonts/AeonikPro-Light.woff') format('woff'),
-    url('/shared/fonts/AeonikPro-Light.woff2') format('woff2');
+    src: url('/global/fonts/AeonikPro-Light.otf') format('otf'),
+    url('/global/fonts/AeonikPro-Light.woff') format('woff'),
+    url('/global/fonts/AeonikPro-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Soyuz Grotesk';
-    src: url('/shared/fonts/SoyuzGrotesk-Bold.otf') format('otf'),
-    url('/shared/fonts/SoyuzGrotesk-Bold.woff') format('woff');
+    src: url('/global/fonts/SoyuzGrotesk-Bold.otf') format('otf'),
+    url('/global/fonts/SoyuzGrotesk-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Soyuz Grotesk';
-    src: url('/shared/fonts/SoyuzGrotesk-Bold.otf') format('otf'),
-    url('/shared/fonts/SoyuzGrotesk-Bold.woff') format('woff');
+    src: url('/global/fonts/SoyuzGrotesk-Bold.otf') format('otf'),
+    url('/global/fonts/SoyuzGrotesk-Bold.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }

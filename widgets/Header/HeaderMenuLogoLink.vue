@@ -8,5 +8,5 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '#shared/ui/Logo.vue'
+import Logo from '@/global/ui/Logo.vue'
 </script>

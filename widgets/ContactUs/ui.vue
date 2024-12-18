@@ -60,8 +60,8 @@
 
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
-import { SplitBlock, InputUi, TextareaUi, ButtonUi } from '@/shared/ui'
-import { plural } from '#shared/lib'
+import { SplitBlock, InputUi, TextareaUi, ButtonUi } from '@/global/ui'
+import { plural } from '@/global/lib'
 
 defineOptions({
   name: 'ContactUsWidget',

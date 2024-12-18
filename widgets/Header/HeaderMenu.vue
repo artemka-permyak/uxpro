@@ -41,7 +41,7 @@
           <div class="flex pb-[1.6rem]">
             <HeaderMenuLogoLink
               class="grow"
-              @click.native="handleCloseModalBurger"
+              @click="handleCloseModalBurger"
             />
 
             <Close
@@ -84,11 +84,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ValueOf } from '@/shared/types'
+import type { ValueOf } from '@/global/types'
 import ContactUsFeature from '@/features/ContactUs.vue'
 import HeaderMenuLogoLink from '@/widgets/Header/HeaderMenuLogoLink.vue'
 import Close from '@/public/svgs/close.svg'
-import { EmailAndPhone, SocialLinks } from '#shared/ui/ContactsLinks'
+import { EmailAndPhone, SocialLinks } from '@/global/ui/ContactsLinks'
 
 defineOptions({
   name: 'HeaderMenuWidget',

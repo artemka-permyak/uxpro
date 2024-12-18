@@ -11,7 +11,7 @@
       class="t1sb peer w-full bg-transparent border-b border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem]"
       @input="handleInput"
     >
-    <MaskInput
+    <MaskInputUi
       v-else
       v-bind="$attrs"
       :id="id"
@@ -44,14 +44,11 @@
 </template>
 
 <script setup lang="ts">
-import { MaskInput } from 'vue-3-mask';
+import MaskInputUi from '@/global/ui/Input/MaskInput.vue'
 
 defineOptions({
   name: 'InputUi'
 })
-
-const PHONE_REGEX = /^\+7 \(\d{3}\) \d{3} \d{4}$/;
-const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const props = defineProps<{
   type?: 'email' | 'phone' | 'text',
@@ -83,63 +80,8 @@ const mask = computed(() => {
   }
 })
 
-// const isEmptyAfterPressed = ref<boolean>(false);
-// const isPressed = ref<boolean>(false);
-// const isMaskSuccess = ref<boolean>(false);
-// const errorMessage = ref<string | null>(null)
-
 const handleInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
   emit('update:modelValue', value)
-
-  // if (type.value === 'phone') {
-  //   if (isMaskSuccess.value) {
-  //     validatePhone(value)
-  //     validatePhone(value.slice(0, value.length - 1))
-  //   } else {
-  //     validatePhone(value)
-  //   }
-  // } else if (type.value === 'email') {
-  //   if (isMaskSuccess.value) {
-  //     validateEmail(value)
-  //     validateEmail(value.slice(0, value.length - 1))
-  //   } else {
-  //     validateEmail(value)
-  //   }
-  // }
-
-  // if (!value) {
-  //   isEmptyAfterPressed.value = true
-  //   errorMessage.value = 'Обязательное поле'
-  // } else {
-  //   isEmptyAfterPressed.value = false;
-  // }
 }
-
-// function validatePhone(value: string) {
-//   if (PHONE_REGEX.test(value)) {
-//     errorMessage.value = null;
-//     isMaskSuccess.value = true;
-//   } else {
-//     errorMessage.value = 'Неверный формат номера телефона';
-//     isMaskSuccess.value = false;
-//   }
-// }
-//
-// function validateEmail(value: string) {
-//   if (EMAIL_REGEX.test(value)) {
-//     errorMessage.value = null;
-//     isMaskSuccess.value = true;
-//   } else {
-//     errorMessage.value = 'Неверный формат почты';
-//     isMaskSuccess.value = false;
-//   }
-// }
-
-// watch(
-//   () => error.value,
-//   () => {
-//     errorMessage.value = error.value || null;
-//   }
-// )
 </script>

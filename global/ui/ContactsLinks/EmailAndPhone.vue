@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { EMAIL, PHONE } from '@/shared/const'
+import { EMAIL, PHONE } from '@/global/const'
 
 defineOptions({
   name: 'EmailAndPhone'

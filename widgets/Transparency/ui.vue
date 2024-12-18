@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { getSplitBlockTitle, SplitBlock } from '@/shared/ui'
+import { getSplitBlockTitle, SplitBlock } from '@/global/ui'
 import ContactUsFeature from '~/features/ContactUs.vue'
 
 defineOptions({
