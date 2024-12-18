@@ -1,0 +1,19 @@
+{
+//  "compilerOptions": {
+//    "target": "esnext",
+//    "module": "esnext",
+//    "moduleResolution": "node",
+//    "strict": true,
+//    "esModuleInterop": true,
+//    "skipLibCheck": true,
+//    "forceConsistentCasingInFileNames": true,
+//    "isolatedModules": true,
+//    "noEmit": true
+//  },
+//  "include": [
+//    "pages/**/*.ts",
+//    "components/**/*.ts",
+//    "store/**/*.ts"
+//  ],
+  "extends": "./.nuxt/tsconfig.json"
+}

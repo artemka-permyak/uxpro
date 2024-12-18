@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Aeonik Pro';
+    src: url('/shared/fonts/AeonikPro-Regular.otf') format('otf'),
+    url('/shared/fonts/AeonikPro-Regular.woff') format('woff'),
+    url('/shared/fonts/AeonikPro-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aeonik Pro';
+    src: url('/shared/fonts/AeonikPro-Bold.otf') format('otf'),
+    url('/shared/fonts/AeonikPro-Bold.woff') format('woff'),
+    url('/shared/fonts/AeonikPro-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aeonik Pro';
+    src: url('/shared/fonts/AeonikPro-Light.otf') format('otf'),
+    url('/shared/fonts/AeonikPro-Light.woff') format('woff'),
+    url('/shared/fonts/AeonikPro-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Soyuz Grotesk';
+    src: url('/shared/fonts/SoyuzGrotesk-Bold.otf') format('otf'),
+    url('/shared/fonts/SoyuzGrotesk-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Soyuz Grotesk';
+    src: url('/shared/fonts/SoyuzGrotesk-Bold.otf') format('otf'),
+    url('/shared/fonts/SoyuzGrotesk-Bold.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* transitions */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all var(--default-transition-duration);
+}
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+:root {
+    --default-transition-duration: .3s;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Aeonik Pro', sans-serif;
+    font-weight: 500;
+    user-select: none;
+    word-break: break-word;
+}
+
+body {
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    width: max-content;
+}
+
+.animated-link {
+    position: relative;
+}
+
+.animated-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: .2rem;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.animated-link:hover::after {
+    width: 100%;
+}
+
+/*classes*/
+
+.h1 {
+    font-size: 6.4rem;
+    line-height: 7rem;
+}
+
+.h2 {
+    font-size: 4.8rem;
+    line-height: 5.4rem;
+}
+
+.h3 {
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+}
+
+.t1sb,
+.t1 {
+    font-size: 2.4rem;
+    line-height: 3rem;
+}
+
+.t1sb {
+    font-weight: 500;
+}
+
+.t1 {
+    font-weight: 400;
+}
+
+@media (max-width: 76.8rem) {
+    .h1 {
+        font-size: 3.2rem;
+        line-height: 3.8rem;
+    }
+
+    .h2 {
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
+
+    .t1sb,
+    .t1 {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+    }
+}
+
+/* only media query */
+.only-mobile {
+    @media (min-width: 1440px) {
+        display: none;
+    }
+}
+
+.only-desktop {
+    @media (max-width: 1439px) {
+        display: none;
+    }
+}
