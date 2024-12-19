@@ -3,7 +3,7 @@
     name: 'LogoImg',
   })
 
-  const LOGO_PATH = '/images/logo.png'
+  const LOGO_PATH = 'http://uxpro.ru/images/logo.png'
 </script>
 
 <template>

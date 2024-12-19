@@ -1,13 +1,13 @@
 <template>
   <footer class="flex flex-col gap-[9.6rem] pt-[19.2rem] px-gap mb:px-mbGap mb:pt-[12.8rem]">
     <NuxtImg
-      src="/images/footer-bg.png"
+      src="http://uxpro.ru/images/footer-bg.png"
       alt="Footer"
       class="only-desktop"
     />
 
     <NuxtImg
-      src="/images/footer-mobile-bg.png"
+      src="http://uxpro.ru/images/footer-mobile-bg.png"
       alt="Footer"
       class="only-mobile"
     />

@@ -34,13 +34,13 @@
 
         <div class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap">
           <NuxtImg
-            src="/images/header-bg.png"
+            src="http://uxpro.ru/images/header-bg.png"
             alt="Header bg"
             class="object-cover only-desktop"
           />
 
           <NuxtImg
-            src="/images/header-mobile-bg.png"
+            src="http://uxpro.ru/images/header-mobile-bg.png"
             alt="Header bg"
             class="object-cover mx-auto only-mobile"
           />
