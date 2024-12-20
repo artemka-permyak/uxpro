@@ -7,6 +7,7 @@
 
       <NuxtImg
         :src="project?.app_image"
+        format="webp"
         alt="Главное изображение"
         class="w-full p-gap object-cover mb:px-0 mb:py-mbGap"
       />
@@ -139,6 +140,8 @@
             :key="`${block.title}-image-${imageIndex}`"
             :src="image"
             :alt="`${block.title} Изображение`"
+            format="webp"
+            loading="lazy"
             :class="[{
               'col-span-2': block.images_mosaic === 'top' && imageIndex === 0,
               'row-span-2': block.images_mosaic === 'left' && imageIndex === 1,
@@ -155,6 +158,8 @@
             :key="`${block.title}-image-mobile-${imageIndex}`"
             :src="image"
             :alt="`${block.title} Изображение`"
+            format="webp"
+            loading="lazy"
           />
         </div>
       </div>
@@ -190,6 +195,8 @@
                 :src="image"
                 :alt="`${block.title} ${itemContent.title} Контент Изображение`"
                 :class="`h-auto flex-1 max-w-[calc(100% / ${itemContent.images.length})] mb:snap-center`"
+                format="webp"
+                loading="lazy"
                 @load="getCenteredBlockImageDimensions(block, itemContentIndex, imageIndex)"
               />
             </div>
@@ -202,6 +209,8 @@
             :key="`centered-block-image-${imageIndex}`"
             :src="image"
             :alt="`${block.title} Изображение`"
+            format="webp"
+            loading="lazy"
           />
         </div>
       </div>
@@ -263,6 +272,8 @@
               :src="block.reviewer_photo"
               alt="Клиент"
               class="w-full"
+              format="webp"
+              loading="lazy"
             />
 
             <div

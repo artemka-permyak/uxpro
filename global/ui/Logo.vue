@@ -12,5 +12,7 @@
   <NuxtImg
     :src="LOGO_PATH"
     alt="Logo"
+    format="webp"
+    preload
   />
 </template>

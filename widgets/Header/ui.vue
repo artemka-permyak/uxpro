@@ -35,12 +35,16 @@
         <NuxtImg
           :src="getImageDomainLink('/images/header-bg.png')"
           alt="Header bg"
+          format="webp"
+          preload
           class="object-cover only-desktop"
         />
 
         <NuxtImg
           :src="getImageDomainLink('/images/header-mobile-bg.png')"
           alt="Header bg"
+          format="webp"
+          preload
           class="object-cover mx-auto only-mobile"
         />
       </div>
