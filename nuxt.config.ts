@@ -13,7 +13,7 @@ export default defineNuxtConfig({
           'http-equiv': 'Content-Security-Policy',
           content: 'upgrade-insecure-requests',
         } : {},
-        // <meta name="google-site-verification" content="Gi3XVUeVE1iajZmK4RWzziUDv3YzbC8dys2nPpfBR5k" />
+
         { name: 'google-site-verification', content: 'Gi3XVUeVE1iajZmK4RWzziUDv3YzbC8dys2nPpfBR5k' },
 
         { key: 'og:title', property: 'og:title', content: 'Uxpro' },
