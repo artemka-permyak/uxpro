@@ -141,8 +141,13 @@ const FORM_INPUTS = computed(() => {
   ]
 })
 
-function handleSubmitForm() {
-  validateForm()
+async function handleSubmitForm() {
+  if (validateForm()) {
+    await $fetch('/api/sendMail', {
+      method: 'post',
+      body: formValues.value,
+    })
+  }
 }
 
 function validateForm() {
@@ -178,6 +183,7 @@ function validateForm() {
       return null
     })
     .filter(Boolean)
+    .filter(item => item?.error)
 
   const errorsRequired = FORM_INPUTS.value
     .filter(input => !input.value)
@@ -189,6 +195,12 @@ function validateForm() {
 
     return;
   }
+
+  if (errorsRest.length) {
+    return;
+  }
+
+  return true;
 }
 
 function setError(id: string, error: string) {

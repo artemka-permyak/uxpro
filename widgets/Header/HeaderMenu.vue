@@ -84,7 +84,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ValueOf } from '@/global/types'
+import {disablePageScroll, enablePageScroll} from '@fluejs/noscroll';
 import ContactUsFeature from '@/features/ContactUs.vue'
 import HeaderMenuLogoLink from '@/widgets/Header/HeaderMenuLogoLink.vue'
 import Close from '@/public/svgs/close.svg'
@@ -137,6 +137,14 @@ const isActiveLink = computed(() => {
 })
 
 const isShowModalBurger = ref(false);
+
+watch(() => isShowModalBurger.value, value => {
+  if (value) {
+    disablePageScroll()
+  } else {
+    enablePageScroll()
+  }
+})
 
 function handleClickBurger() {
   isShowModalBurger.value = true

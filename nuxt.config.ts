@@ -30,4 +30,6 @@ export default defineNuxtConfig({
       svgLoader(),
     ],
   },
+
+  compatibilityDate: '2024-12-19',
 })

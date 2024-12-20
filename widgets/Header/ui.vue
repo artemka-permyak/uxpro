@@ -34,13 +34,13 @@
 
         <div class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap">
           <NuxtImg
-            src="http://uxpro.ru/images/header-bg.png"
+            :src="getImageDomainLink('/images/header-bg.png')"
             alt="Header bg"
             class="object-cover only-desktop"
           />
 
           <NuxtImg
-            src="http://uxpro.ru/images/header-mobile-bg.png"
+            :src="getImageDomainLink('/images/header-mobile-bg.png')"
             alt="Header bg"
             class="object-cover mx-auto only-mobile"
           />
@@ -55,8 +55,10 @@
 <script setup lang="ts">
 import { EmailAndPhone, SocialLinks } from '@/global/ui/ContactsLinks'
 
-import HeaderMenuWidget from '@/widgets/Header/HeaderMenu.vue'
 import { useHeaderStore } from '@/global/store/header'
+import { getImageDomainLink } from '@/global/lib'
+
+import HeaderMenuWidget from '@/widgets/Header/HeaderMenu.vue'
 import ContactUsFeature from '@/features/ContactUs.vue'
 
 defineOptions({
@@ -91,7 +93,15 @@ const store = useHeaderStore();
 
 const route = useRoute()
 
-store.changeTitle(PAGES_HEADERS[route.fullPath as '/' | '/contact-us'])
+watch(() => route.fullPath, () => {
+  changeTitle()
+}, {
+  immediate: true
+})
+
+function changeTitle() {
+  store.changeTitle(PAGES_HEADERS[route.fullPath as '/' | '/contact-us'])
+}
 
 const isShow = isShowFullHeader();
 </script>
