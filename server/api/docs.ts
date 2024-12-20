@@ -2,7 +2,7 @@ import fs from 'fs'
 import yaml from 'yaml';
 
 export default defineEventHandler((event) => {
-  const file = fs.readFileSync('./server/lib/swaggerDocs.yaml', 'utf8');
+  const file = fs.readFileSync('./public/server/swaggerDocs.yaml', 'utf8');
   const swaggerSpec = yaml.parse(file);
 
   setHeaders(event, {

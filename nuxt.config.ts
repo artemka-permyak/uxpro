@@ -31,12 +31,18 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/image',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    '@nuxtjs/sitemap',
   ],
 
   image: {
     placeholder: 'blur',
     blur: 30,
+  },
+
+  site: {
+    url: process.env.DOMAIN_NAME,
+    name: 'uxpro',
   },
 
   vite: {

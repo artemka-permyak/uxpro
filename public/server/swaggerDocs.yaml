@@ -431,6 +431,8 @@ paths:
 
   /api/projects/{projectId}/blocks:
     get:
+      tags:
+        - Блоки
       summary: Получение блоков проекта
       parameters:
         - in: path
@@ -529,6 +531,8 @@ paths:
                           nullable: true
 
     post:
+      tags:
+        - Блоки
       summary: Создание блока для проекта
       parameters:
         - in: path
@@ -595,6 +599,8 @@ paths:
 
   /api/projects/{projectId}/blocks/{blockId}:
     delete:
+      tags:
+        - Блоки
       summary: Удаление блока проекта
       parameters:
         - in: path
@@ -625,6 +631,8 @@ paths:
                     example: 'Block deleted successfully'
 
     put:
+      tags:
+        - Блоки
       summary: Редактирование блока проекта
       parameters:
         - in: path
