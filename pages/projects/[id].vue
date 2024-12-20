@@ -8,6 +8,7 @@
       <NuxtImg
         :src="project?.app_image"
         format="webp"
+        preload
         alt="Главное изображение"
         class="w-full p-gap object-cover mb:px-0 mb:py-mbGap"
       />
@@ -194,7 +195,10 @@
                 :key="`centered-block-content-item-image-${imageIndex}`"
                 :src="image"
                 :alt="`${block.title} ${itemContent.title} Контент Изображение`"
-                :class="`h-auto flex-1 max-w-[calc(100% / ${itemContent.images.length})] mb:snap-center`"
+                :class="`h-auto flex-1 mb:snap-center`"
+                :style="{
+                  width: `calc(100% / ${itemContent.images.length}`,
+                }"
                 format="webp"
                 loading="lazy"
                 @load="getCenteredBlockImageDimensions(block, itemContentIndex, imageIndex)"

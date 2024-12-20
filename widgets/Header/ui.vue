@@ -58,9 +58,9 @@
     <transition name="fade">
       <div
         v-if="isShowStickyTopHeader"
-        class="fixed max-w-[192rem] mx-auto top-0 left-0 right-0 px-gap mb:px-mbGap z-20"
+        class="fixed bg-black top-0 left-0 right-0 z-20"
       >
-        <HeaderMenuWidget />
+        <HeaderMenuWidget class="max-w-[192rem] mx-auto px-gap mb:px-mbGap" />
       </div>
     </transition>
   </header>
