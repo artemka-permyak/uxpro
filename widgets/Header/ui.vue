@@ -8,9 +8,9 @@
     <transition name="fade">
       <div
         v-if="isShow"
-        :class="['flex flex-col mb:flex-col-reverse mb:gap-gap pb-gap mb:pb-0', {
-          'pb-gap': !props.isReversed,
-          'flex-col-reverse gap-[1.6rem] pb-0': props.isReversed,
+        :class="['flex flex-col mb:flex-col-reverse mb:gap-mbGap pb-0', {
+          'gap-gap': !props.isReversed,
+          'flex-col-reverse gap-mbGap': props.isReversed,
         }]"
       >
         <div class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]">

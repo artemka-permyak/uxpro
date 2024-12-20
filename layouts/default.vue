@@ -7,11 +7,9 @@
     >
       <transition name="fade">
         <div
-          v-if="isShow && isMainPage"
+          v-if="isShow && isMain"
           ref="stickyContainerRef"
-          :class="['top-0 w-full p-gap only-desktop z-0', {
-            'sticky': !isSafari()
-          }]"
+          class="sticky top-0 w-full p-gap only-desktop z-0"
         >
           <LogoImg ref="logoRef" />
         </div>
@@ -19,7 +17,7 @@
 
       <HeaderWidget
         class="z-10"
-        is-reversed
+        :is-reversed="!isMain"
       />
     </div>
 
@@ -34,8 +32,6 @@
 <script setup lang="ts">
 import type { VNodeRef } from 'vue'
 
-import { isSafari } from '@/global/lib'
-
 import { LogoImg } from '@/global/ui'
 import { HeaderWidget } from '@/widgets/Header'
 import { FooterWidget } from '@/widgets/Footer'
@@ -48,7 +44,6 @@ const logoRef = ref<VNodeRef | null>(null);
 const stickyContainerRef = ref<VNodeRef | null>(null);
 
 const isShow = isShowFullHeader();
-const route = useRoute()
 
 function handleScroll() {
   const scrollY = window.scrollY;
@@ -70,9 +65,7 @@ function handleScroll() {
   }
 }
 
-const isMainPage = computed(() => {
-  return route.fullPath === '/'
-})
+const isMain = isMainPage()
 
 onMounted(() => {
   handleScroll();

@@ -16,7 +16,6 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-
   try {
     await transporter.sendMail({
       from: `"Сайт uxpro.ru" <${process.env.SMTP_USER}>`,

@@ -7,8 +7,9 @@
         v-for="menuItem in MENU_ITEMS"
         :key="menuItem.id"
         :class="['flex items-center justify-center min-w-[17.5rem] p-[1.6rem] transition-colors', {
-          'text-white bg-black hover:text-black hover:bg-white': isActiveLink.to !== menuItem.to,
+          'text-white hover:text-black hover:bg-white': isActiveLink.to !== menuItem.to,
           'text-black bg-white hover:text-white hover:bg-black': isActiveLink.to === menuItem.to,
+          'cursor-not-allowed': menuItem.disabled,
         }]"
         :to="menuItem.to"
       >
@@ -57,9 +58,11 @@
               <nuxt-link
                 v-for="menuItem in MENU_ITEMS"
                 :key="`mobile-${menuItem.id}`"
-                class="flex items-center justify-center"
+                :class="['flex items-center justify-center', {
+                  'text-grey': menuItem.disabled
+                }]"
                 :to="menuItem.to"
-                @click="handleCloseModalBurger"
+                @click="menuItem.disabled ? undefined : handleCloseModalBurger()"
               >
                 {{ menuItem.title }}
               </nuxt-link>
@@ -105,12 +108,14 @@ const MENU_ITEMS = [
   {
     title: 'Портфолио',
     id: MENU_ITEMS_ID.PORTFOLIO,
-    to: '/portfolio',
+    to: '',
+    disabled: true,
   },
   {
     title: 'Услуги',
     id: MENU_ITEMS_ID.SERVICES,
-    to: '/services',
+    to: '',
+    disabled: true,
   },
   {
     title: 'О нас',
@@ -120,7 +125,8 @@ const MENU_ITEMS = [
   {
     title: 'Контакты',
     id: MENU_ITEMS_ID.CONTACT,
-    to: '/contacts',
+    to: '',
+    disabled: true,
   },
 ]
 
@@ -154,5 +160,3 @@ function handleCloseModalBurger() {
   isShowModalBurger.value = false
 }
 </script>
-
-<style scoped></style>

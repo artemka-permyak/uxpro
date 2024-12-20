@@ -9,10 +9,10 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       title: 'Uxpro',
       meta: [
-        {
+        process.env.NODE_ENV === 'production' ? {
           'http-equiv': 'Content-Security-Policy',
           content: 'upgrade-insecure-requests',
-        }
+        } : {},
       ]
     }
   },
@@ -43,6 +43,12 @@ export default defineNuxtConfig({
     plugins: [
       svgLoader(),
     ],
+  },
+
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
   },
 
   compatibilityDate: '2024-12-19',
