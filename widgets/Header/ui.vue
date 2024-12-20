@@ -48,7 +48,19 @@
       </div>
     </transition>
 
-    <HeaderMenuWidget class="px-gap border-t border-solid border-darkGrey mb:px-mbGap" />
+    <HeaderMenuWidget
+      ref="headerMenuWidget"
+      class="px-gap border-t border-solid border-darkGrey mb:px-mbGap"
+    />
+
+    <transition name="fade">
+      <div
+        v-if="isShowStickyTopHeader"
+        class="fixed max-w-[192rem] mx-auto top-0 left-0 right-0 px-gap mb:px-mbGap z-20"
+      >
+        <HeaderMenuWidget />
+      </div>
+    </transition>
   </header>
 </template>
 
@@ -104,5 +116,24 @@ function changeTitle() {
 }
 
 const isShow = isShowFullHeader();
+
+const isShowStickyTopHeader = ref(false)
+const observer = ref<IntersectionObserver | null>(null)
+const headerMenuWidget = ref<Element | null>(null)
+
+onMounted(() => {
+  observer.value = new IntersectionObserver(entries => {
+    const entry = entries[0]
+
+    isShowStickyTopHeader.value = !entry?.isIntersecting
+  }, {
+    rootMargin: '0px 0px 200px 0px',
+    threshold: 0
+  })
+
+  if (headerMenuWidget.value) {
+    observer.value.observe(headerMenuWidget.value.$el)
+  }
+})
 </script>
 

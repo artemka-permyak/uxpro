@@ -8,12 +8,12 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Uxpro',
-      meta: [
-        process.env.NODE_ENV === 'production' ? {
-          'http-equiv': 'Content-Security-Policy',
-          content: 'upgrade-insecure-requests',
-        } : {},
-      ]
+      // meta: [
+        // process.env.NODE_ENV === 'production' ? {
+        //   'http-equiv': 'Content-Security-Policy',
+        //   content: 'upgrade-insecure-requests',
+        // } : {},
+      // ]
     }
   },
 
