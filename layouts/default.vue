@@ -5,15 +5,13 @@
         'border-b border-solid border-darkGrey pb-[3.2rem] mb:border-none mb:pb-0': isShow
       }]"
     >
-      <transition name="fade">
-        <div
-          v-if="isShow && isMain"
-          ref="stickyContainerRef"
-          class="sticky top-0 w-full p-gap only-desktop z-0"
-        >
-          <LogoImg ref="logoRef" />
-        </div>
-      </transition>
+      <div
+        v-if="isShow && isMain"
+        ref="stickyContainerRef"
+        class="sticky top-0 w-full p-gap only-desktop z-0"
+      >
+        <LogoImg ref="logoRef" />
+      </div>
 
       <HeaderWidget
         class="z-10"

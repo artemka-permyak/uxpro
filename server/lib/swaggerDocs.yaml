@@ -1,0 +1,696 @@
+openapi: 3.0.0
+info:
+  title: Документация api
+  version: 1.0.0
+paths:
+  /api/projects:
+    get:
+      tags:
+        - Проекты
+      summary: Получение всех проектов
+      description: Возвращает список всех доступных проектов
+      responses:
+        200:
+          description: Список проектов
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        title:
+                          type: string
+                          example: "Цифровой профиль"
+                        description:
+                          type: array
+                          items:
+                            type: string
+                            example: "Описание проекта"
+                        publish_year:
+                          type: string
+                          example: "2024"
+                        completed_works_titles:
+                          type: array
+                          items:
+                            type: string
+                            example: "Исследования"
+                        preview_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        preview_description:
+                          type: string
+                          example: "Снимает нагрузку с родителей школьников"
+                        app_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                            example: "Web"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+                        updated_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+
+    post:
+      tags:
+        - Проекты
+      summary: Создание нового проекта
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: "Цифровой профиль"
+                previewDescription:
+                  type: string
+                  example: "Снимает нагрузку с родителей школьников"
+                description:
+                  type: string
+                  example: "Описание проекта"
+                publishYear:
+                  type: string
+                  example: "2024"
+                appImage:
+                  type: string
+                  format: url
+                  example: "https://uxpro.ru/images/digital-profile/app-image.png"
+                previewImage:
+                  type: string
+                  format: url
+                  example: "https://uxpro.ru/images/digital-profile/app-image.png"
+                tags:
+                  type: array
+                  items:
+                    type: string
+                    example: "Web"
+                completedWorksTitles:
+                  type: array
+                  items:
+                    type: string
+                    example: "Исследования"
+      responses:
+        '200':
+          description: Новый созданный проект
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        title:
+                          type: string
+                          example: "Цифровой профиль"
+                        description:
+                          type: array
+                          items:
+                            type: string
+                            example: "Описание проекта"
+                        publish_year:
+                          type: string
+                          example: "2024"
+                        completed_works_titles:
+                          type: array
+                          items:
+                            type: string
+                            example: "Исследования"
+                        preview_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        preview_description:
+                          type: string
+                          example: "Снимает нагрузку с родителей школьников"
+                        app_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                            example: "Web"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+                        updated_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+
+  /api/projects/{id}:
+    get:
+      tags:
+        - Проекты
+      summary: Получение проекта по id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: id проекта
+      responses:
+        200:
+          description: Проект найден
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        title:
+                          type: string
+                          example: "Цифровой профиль"
+                        description:
+                          type: array
+                          items:
+                            type: string
+                            example: "Описание проекта"
+                        publish_year:
+                          type: string
+                          example: "2024"
+                        completed_works_titles:
+                          type: array
+                          items:
+                            type: string
+                            example: "Исследования"
+                        preview_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        preview_description:
+                          type: string
+                          example: "Снимает нагрузку с родителей школьников"
+                        app_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                            example: "Web"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+                        updated_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+        404:
+          description: Проект не найден
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: 'Project not found'
+
+    delete:
+      tags:
+        - Проекты
+      summary: Удаление проекта по id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id проекта
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Проект был успешно удален
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Проект был успешно удален'
+        404:
+          description: Проект не найден
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Проект не найден
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'An error occurred while deleting the project'
+
+    put:
+      tags:
+        - Проекты
+      summary: Обновление проекта по id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id проекта
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: "Цифровой профиль"
+                previewDescription:
+                  type: string
+                  example: "Снимает нагрузку с родителей школьников"
+                description:
+                  type: string
+                  example: "Описание проекта"
+                publishYear:
+                  type: string
+                  example: "2024"
+                appImage:
+                  type: string
+                  format: url
+                  example: "https://uxpro.ru/images/digital-profile/app-image.png"
+                previewImage:
+                  type: string
+                  format: url
+                  example: "https://uxpro.ru/images/digital-profile/app-image.png"
+                tags:
+                  type: array
+                  items:
+                    type: string
+                    example: "Web"
+                completedWorksTitles:
+                  type: array
+                  items:
+                    type: string
+                    example: "Исследования"
+      responses:
+        200:
+          description: Обновленный проект
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        title:
+                          type: string
+                          example: "Цифровой профиль"
+                        description:
+                          type: array
+                          items:
+                            type: string
+                            example: "Описание проекта"
+                        publish_year:
+                          type: string
+                          example: "2024"
+                        completed_works_titles:
+                          type: array
+                          items:
+                            type: string
+                            example: "Исследования"
+                        preview_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        preview_description:
+                          type: string
+                          example: "Снимает нагрузку с родителей школьников"
+                        app_image:
+                          type: string
+                          format: url
+                          example: "http://uxpro.ru/images/digital-profile/app-image.png"
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                            example: "Web"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+                        updated_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-12T16:25:32.213Z"
+        404:
+          description: Проект не найден
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Проект не найден
+
+  /api/projects/{projectId}/blocks:
+    get:
+      summary: Получение блоков проекта
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          description: id проекта
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Список блоков
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 9
+                        project_id:
+                          type: integer
+                          example: 2
+                        type:
+                          type: string
+                          example: "splitBlock"
+                        title:
+                          type: string
+                          example: "Исследование"
+                        content:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              smallTitle:
+                                type: string
+                                example: "#интервью"
+                              dedicatedDescription:
+                                type: array
+                                items:
+                                  type: string
+                                  example: "«У меня из-за сильной занятости на работе нет времени особо вникать, какая успеваемость в школе. Хорошо, что у дочери не возникает проблем в учёбе»"
+                        images:
+                          type: array
+                          items:
+                            type: string
+                            example: "http://uxpro.ru/images/digital-profile/study-1.png"
+                        ordinary_title:
+                          type: string
+                          example: ''
+                          nullable: true
+                        ordinary_content:
+                          type: string
+                          example: ''
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-18T12:43:04.837Z"
+                        updated_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-18T13:13:26.420Z"
+                        images_mosaic:
+                          type: string
+                          example: "left"
+                          nullable: true
+                        description:
+                          type: string
+                          example: "Провели интервью с родителями школьников. Получили ответы на главные вопросы: как относятся к процессу школьного образования, на что обращают внимание, следят ли за успеваемостью"
+                        order:
+                          type: integer
+                          example: 2
+                        review:
+                          type: string
+                          example: ''
+                          nullable: true
+                        reviewer_name:
+                          type: string
+                          example: ''
+                          nullable: true
+                        reviewer_photo:
+                          type: string
+                          example: ''
+                          nullable: true
+                        reviewer_job_title:
+                          type: string
+                          example: ''
+                          nullable: true
+
+    post:
+      summary: Создание блока для проекта
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          description: id проекта
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                review:
+                  type: string
+                photo:
+                  type: string
+                name:
+                  type: string
+                job_title:
+                  type: string
+                title:
+                  type: string
+                content:
+                  type: object
+                images:
+                  type: array
+                  items:
+                    type: object
+                ordinary_title:
+                  type: string
+                ordinary_content:
+                  type: object
+                images_mosaic:
+                  type: string
+                  enum: [ 'left', 'top' ]
+      responses:
+        200:
+          description: Новый созданный блок
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      type:
+                        type: string
+                        example: 'review'
+                      content:
+                        type: object
+                        example: { "review": "Great project!", "photo": "image.jpg", "name": "John", "jobTitle": "Developer" }
+
+  /api/projects/{projectId}/blocks/{blockId}:
+    delete:
+      summary: Удаление блока проекта
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          description: id проекта
+          schema:
+            type: integer
+        - in: path
+          name: blockId
+          required: true
+          description: id блока
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Блок был успешно удален
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Block deleted successfully'
+
+    put:
+      summary: Редактирование блока проекта
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          description: id проекта
+          schema:
+            type: integer
+        - in: path
+          name: blockId
+          required: true
+          description: id блока
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                review:
+                  type: string
+                photo:
+                  type: string
+                name:
+                  type: string
+                job_title:
+                  type: string
+                title:
+                  type: string
+                content:
+                  type: object
+                images:
+                  type: array
+                  items:
+                    type: object
+                ordinary_title:
+                  type: string
+                ordinary_content:
+                  type: object
+                images_mosaic:
+                  type: string
+                  enum: [ 'left', 'top' ]
+      responses:
+        200:
+          description: The updated block
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      type:
+                        type: string
+                        example: 'review'
+                      content:
+                        type: object
+                        example: { "review": "Updated project review!", "photo": "image.jpg", "name": "John", "jobTitle": "Developer" }

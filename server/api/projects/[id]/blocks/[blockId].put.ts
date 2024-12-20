@@ -1,80 +1,5 @@
 import { getErrorResponse, getSuccessResponse, query } from '~/server/lib';
 
-/**
- * @openapi
- * /api/projects/{projectId}/blocks/{blockId}:
- *   put:
- *     summary: Edit a block for a project
- *     description: Updates a specific block of a project by providing the updated block data
- *     parameters:
- *       - in: path
- *         name: projectId
- *         required: true
- *         description: The ID of the project
- *         schema:
- *           type: integer
- *       - in: path
- *         name: blockId
- *         required: true
- *         description: The ID of the block to be edited
- *         schema:
- *           type: integer
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               type:
- *                 type: string
- *               review:
- *                 type: string
- *               photo:
- *                 type: string
- *               name:
- *                 type: string
- *               job_title:
- *                 type: string
- *               title:
- *                 type: string
- *               content:
- *                 type: object
- *               images:
- *                 type: array
- *                 items:
- *                   type: object
- *               ordinary_title:
- *                 type: string
- *               ordinary_content:
- *                 type: object
- *               images_mosaic:
- *                 type: string
- *                 enum: ['left', 'top']
- *     responses:
- *       200:
- *         description: The updated block
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                   example: true
- *                 data:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       example: 1
- *                     type:
- *                       type: string
- *                       example: 'review'
- *                     content:
- *                       type: object
- *                       example: { "review": "Updated project review!", "photo": "image.jpg", "name": "John", "jobTitle": "Developer" }
- */
 export default defineEventHandler(async (event) => {
   try {
     const { id: projectId, blockId } = event.context.params || {};
@@ -156,7 +81,7 @@ export default defineEventHandler(async (event) => {
     setFields.push('updated_at = CURRENT_TIMESTAMP');
 
     if (setFields.length === 1) {
-      return getErrorResponse('No fields to update');
+      return getErrorResponse('Нет полей для обновления');
     }
 
     const queryText = `
@@ -170,7 +95,7 @@ export default defineEventHandler(async (event) => {
     const { rows } = await query(queryText, values);
 
     if (rows.length === 0) {
-      return getErrorResponse('Block not found');
+      return getErrorResponse('Блок не найден');
     }
 
     return getSuccessResponse(rows[0]);

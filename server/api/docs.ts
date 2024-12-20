@@ -1,18 +1,10 @@
-import swaggerJSDoc from 'swagger-jsdoc'
-
-const swaggerSpec = swaggerJSDoc({
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'Документация API',
-      version: '1.0.0',
-      description: 'Документация API для UXPRO',
-    },
-  },
-  apis: ['./server/api/**/*.ts'],
-});
+import fs from 'fs'
+import yaml from 'yaml';
 
 export default defineEventHandler((event) => {
+  const file = fs.readFileSync('./server/lib/swaggerDocs.yaml', 'utf8');
+  const swaggerSpec = yaml.parse(file);
+
   setHeaders(event, {
     'Content-Type': 'text/html',
   });

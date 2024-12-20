@@ -5,48 +5,46 @@
       'flex-col-reverse gap-[1.6rem]': props.isReversed,
     }]"
   >
-    <transition name="fade">
-      <div
-        v-if="isShow"
-        :class="['flex flex-col mb:flex-col-reverse mb:gap-mbGap pb-0', {
-          'gap-gap': !props.isReversed,
-          'flex-col-reverse gap-mbGap': props.isReversed,
-        }]"
-      >
-        <div class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]">
-          <h1
-            class="h1 w-full grow"
-            v-html="store.getTitle"
-          />
+    <div
+      v-if="isShow"
+      :class="['flex flex-col mb:flex-col-reverse mb:gap-mbGap pb-0', {
+        'gap-gap': !props.isReversed,
+        'flex-col-reverse gap-mbGap': props.isReversed,
+      }]"
+    >
+      <div class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]">
+        <h1
+          class="h1 w-full grow"
+          v-html="store.getTitle"
+        />
 
-          <div class="w-full flex grow only-desktop">
-            <EmailAndPhone class="gap-[1.2rem]" />
+        <div class="w-full flex grow only-desktop">
+          <EmailAndPhone class="gap-[1.2rem]" />
 
-            <SocialLinks class="items-end justify-end" />
-          </div>
-
-          <ContactUsFeature
-            size="small"
-            class="only-mobile"
-            as-button
-          />
+          <SocialLinks class="items-end justify-end" />
         </div>
 
-        <div class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap">
-          <NuxtImg
-            :src="getImageDomainLink('/images/header-bg.png')"
-            alt="Header bg"
-            class="object-cover only-desktop"
-          />
-
-          <NuxtImg
-            :src="getImageDomainLink('/images/header-mobile-bg.png')"
-            alt="Header bg"
-            class="object-cover mx-auto only-mobile"
-          />
-        </div>
+        <ContactUsFeature
+          size="small"
+          class="only-mobile"
+          as-button
+        />
       </div>
-    </transition>
+
+      <div class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap">
+        <NuxtImg
+          :src="getImageDomainLink('/images/header-bg.png')"
+          alt="Header bg"
+          class="object-cover only-desktop"
+        />
+
+        <NuxtImg
+          :src="getImageDomainLink('/images/header-mobile-bg.png')"
+          alt="Header bg"
+          class="object-cover mx-auto only-mobile"
+        />
+      </div>
+    </div>
 
     <HeaderMenuWidget
       ref="headerMenuWidget"
