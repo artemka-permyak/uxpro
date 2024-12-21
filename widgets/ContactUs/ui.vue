@@ -1,7 +1,7 @@
 <template>
   <SplitBlock
     id="contactUsFormWidget"
-    class="px-gap mb:px-[1.6rem] "
+    class="px-gap mb:px-[1.6rem]"
   >
     <template #left>
       <span class="t1sb">

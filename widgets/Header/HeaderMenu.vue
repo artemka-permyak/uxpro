@@ -144,6 +144,14 @@ defineOptions({
 
 const isShowModalBurger = ref(false);
 
+watch(() => isShowModalBurger.value, value => {
+  if (value) {
+    disablePageScroll()
+  } else {
+    enablePageScroll()
+  }
+})
+
 function handleClickBurger() {
   isShowModalBurger.value = true
 
