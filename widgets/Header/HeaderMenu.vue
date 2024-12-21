@@ -32,70 +32,20 @@
         class="w-full h-[.2rem] bg-white"
       />
     </div>
-
-    <transition name="fade">
-      <div
-        v-if="isShowModalBurger"
-        class="fixed inset-0 bg-[#090909CC] backdrop-blur z-20"
-      >
-        <div class="h-full flex flex-col gap-[1.6rem] p-[1.6rem]">
-          <div class="flex pb-[1.6rem]">
-            <HeaderMenuLogoLink
-              class="grow"
-              @click="handleCloseModalBurger"
-            />
-
-            <Close
-              width="24"
-              height="24"
-              class="text-white"
-              @click="handleCloseModalBurger"
-            />
-          </div>
-
-          <div class="flex flex-col justify-between grow">
-            <!--            <div class="flex flex-col gap-[1.6rem]">-->
-            <!--              <nuxt-link-->
-            <!--                v-for="menuItem in MENU_ITEMS"-->
-            <!--                :key="`mobile-${menuItem.id}`"-->
-            <!--                :class="['flex items-center justify-center', {-->
-            <!--                  'text-grey': menuItem.disabled-->
-            <!--                }]"-->
-            <!--                :to="menuItem.to"-->
-            <!--                @click="menuItem.disabled ? undefined : handleCloseModalBurger()"-->
-            <!--              >-->
-            <!--                {{ menuItem.title }}-->
-            <!--              </nuxt-link>-->
-            <!--            </div>-->
-
-            <div class="flex flex-col gap-[2.4rem]">
-              <EmailAndPhone />
-
-              <SocialLinks is-small-gap />
-
-              <ContactUsFeature
-                size="small"
-                as-button
-                @click="handleCloseModalBurger"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import {disablePageScroll, enablePageScroll} from '@fluejs/noscroll';
 import ContactUsFeature from '@/features/ContactUs.vue'
 import HeaderMenuLogoLink from '@/widgets/Header/HeaderMenuLogoLink.vue'
-import Close from '@/public/svgs/close.svg'
-import { EmailAndPhone, SocialLinks } from '@/global/ui/ContactsLinks'
 
 defineOptions({
   name: 'HeaderMenuWidget',
 });
+
+const emit = defineEmits<{
+  (event: 'open:modal-burger'): void
+}>()
 
 // const MENU_ITEMS_ID = {
 //   PORTFOLIO: 'portfolio',
@@ -142,25 +92,7 @@ defineOptions({
 //   return MENU_ITEMS[activeIndex]
 // })
 
-const isShowModalBurger = ref(false);
-
-watch(() => isShowModalBurger.value, value => {
-  if (value) {
-    disablePageScroll()
-  } else {
-    enablePageScroll()
-  }
-})
-
 function handleClickBurger() {
-  isShowModalBurger.value = true
-
-  disablePageScroll()
-}
-
-function handleCloseModalBurger() {
-  isShowModalBurger.value = false
-
-  enablePageScroll()
+  emit('open:modal-burger');
 }
 </script>

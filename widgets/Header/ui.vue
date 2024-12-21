@@ -53,6 +53,7 @@
     <HeaderMenuWidget
       ref="headerMenuWidget"
       class="px-gap border-t border-solid border-darkGrey mb:px-mbGap"
+      @open:modal-burger="handleOpenModalBurger"
     />
 
     <transition name="fade">
@@ -60,7 +61,10 @@
         v-if="isShowStickyTopHeader"
         class="fixed bg-black top-0 left-0 right-0 z-20"
       >
-        <HeaderMenuWidget class="max-w-[192rem] mx-auto shadow-xl px-gap mb:px-mbGap" />
+        <HeaderMenuWidget
+          class="max-w-[192rem] mx-auto shadow-xl px-gap mb:px-mbGap"
+          @open:modal-burger="handleOpenModalBurger"
+        />
       </div>
     </transition>
   </header>
@@ -81,6 +85,10 @@ defineOptions({
 
 const props = defineProps<{
   isReversed?: boolean
+}>()
+
+const emit = defineEmits<{
+  (event: 'open:modal-burger'): void
 }>()
 
 const PAGES_HEADERS = {
@@ -137,5 +145,9 @@ onMounted(() => {
     observer.value.observe(headerMenuWidget.value.$el)
   }
 })
+
+function handleOpenModalBurger() {
+  emit('open:modal-burger');
+}
 </script>
 
