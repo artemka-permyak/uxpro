@@ -1,19 +1,32 @@
 import nodemailer from 'nodemailer';
-import { defineEventHandler, readBody } from 'h3';
-import { EMAIL } from '~/global/const'
 import { getErrorResponse, getSuccessResponse } from '~/server/lib'
+import { EMAIL } from '~/global/const'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPassword = process.env.SMTP_PASSWORD;
+
+  if (!smtpHost || !smtpPort || !smtpUser || !smtpPassword) {
+    return getErrorResponse({
+      message: 'SMTP настройки не указаны в .env файле',
+    });
+  }
+
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || '',
-    port: process.env.SMTP_PORT || '',
+    host: smtpHost,
+    port: smtpPort,
     secure: false,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASSWORD,
+    tls: {
+      rejectUnauthorized: false,
     },
+    auth: {
+      user: smtpUser,
+      pass: smtpPassword,
+    }
   });
 
   try {
