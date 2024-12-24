@@ -10,7 +10,7 @@
       <slot />
     </span>
 
-    <span class="absolute inset-0 -z-10 bg-white translate-y-[-110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" />
+    <span class="absolute inset-0 bg-white translate-y-[-110%] transition-transform group-hover:translate-y-0" />
   </nuxt-link>
 </template>
 
