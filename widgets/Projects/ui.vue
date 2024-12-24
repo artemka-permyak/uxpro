@@ -22,20 +22,20 @@
           </div>
         </div>
 
-        <div class="group w-max flex items-center gap-[.8rem] t1sb group-hover:text-black group-hover:bg-white transition-colors mb:w-full">
+        <div class="group w-max flex items-center gap-[.8rem] t1sb group-hover:text-black group-hover:bg-white transition-colors mb:w-full mb:inline-block">
           <ArrowRight
             width="20"
             height="20"
-            class="min-w-[2rem]"
+            class="min-w-[2rem] mb:inline-block"
           />
 
-          <p class="text-black bg-white mb:w-full">
+          <p class="text-black bg-white mb:inline-block mb:mx-[.8rem]">
             {{ project.title }}
           </p>
 
-          <div class="w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white group-hover:bg-black" />
+          <div class="w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white group-hover:bg-black mb:inline-block mb:mr-[.8rem]" />
 
-          <p>
+          <p class="mb:inline">
             {{ project.preview_description }}
           </p>
         </div>
