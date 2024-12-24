@@ -1,15 +1,19 @@
 <template>
   <section class="grid grid-cols-2 gap-y-[12.8rem] px-gap mb:px-mbGap mb:flex mb:flex-col mb:gap-[6.4rem]">
-    <nuxt-link
+    <div
       v-for="(project, index) in projects"
       :key="project.id"
-      class="w-full flex"
-      :to="`projects/${project.id}`"
+      :class="['w-full flex', {
+        'self-baseline': index % 2 === 0,
+      }]"
     >
-      <div class="group w-max flex flex-col gap-[1.6rem] cursor-pointer mb:w-full">
+      <nuxt-link
+        class="group w-max flex flex-col gap-[1.6rem] cursor-pointer mb:w-full"
+        :to="`projects/${project.id}`"
+      >
         <div class="group overflow-hidden">
           <div
-            :class="['group-hover:scale-110 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
+            :class="['group-hover:scale-105 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
               'w-[63rem] h-[63rem]': index % 2 === 0,
               'h-[70.7rem]': index % 2 === 1,
             }]"
@@ -39,8 +43,8 @@
             {{ project.preview_description }}
           </p>
         </div>
-      </div>
-    </nuxt-link>
+      </nuxt-link>
+    </div>
   </section>
 </template>
 

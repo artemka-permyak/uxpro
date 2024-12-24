@@ -1,26 +1,29 @@
 <template>
-  <div :class="['flex grow flex-col justify-end', {
-    'gap-[1.6rem]': !props.isSmallGap,
-    'gap-[0.8rem]': props.isSmallGap,
-  }]">
-    <a
+  <div
+    :class="['flex grow flex-col justify-end', {
+      'gap-[1.6rem]': !props.isSmallGap,
+      'gap-[0.8rem]': props.isSmallGap,
+    }]"
+  >
+    <AnimatedLink
       :href="`mailto:${EMAIL}`"
-      class="animated-link t1sb"
+      class="t1sb"
     >
       {{ EMAIL }}
-    </a>
+    </AnimatedLink>
 
-    <a
+    <AnimatedLink
       :href="`tel:${PHONE}`"
-      class="animated-link t1sb"
+      class="t1sb"
     >
       {{ PHONE }}
-    </a>
+    </AnimatedLink>
   </div>
 </template>
 
 <script setup lang="ts">
 import { EMAIL, PHONE } from '@/global/const'
+import AnimatedLink from '~/global/ui/AnimatedLink.vue'
 
 defineOptions({
   name: 'EmailAndPhone'

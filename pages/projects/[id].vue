@@ -263,19 +263,19 @@
               v-if="index === 1"
               width="608"
               height="608"
-              class="w-full only-desktop"
+              class="w-full h-full only-desktop"
             />
 
             <ReviewQuotes
               v-if="index === 1"
-              class="w-full only-mobile"
+              class="w-full h-full only-mobile"
             />
 
             <NuxtImg
               v-if="index === 2"
               :src="block.reviewer_photo"
               alt="Клиент"
-              class="w-full"
+              class="w-full h-full object-cover"
               format="webp"
               loading="lazy"
             />

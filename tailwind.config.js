@@ -31,6 +31,10 @@ export default {
       screens: {
         mb: { max: '1439px' },
       },
+
+      transitionDuration: {
+        DEFAULT: '300ms',
+      },
     }
   },
   plugins: []

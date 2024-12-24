@@ -1,36 +1,41 @@
 <template>
-  <nuxt-link
-    :class="['group flex w-full items-center transition-colors hover:text-black hover:bg-white', {
-      'gap-[1.2rem]': isSmall,
-      'gap-[2.4rem] h2 mb:gap-[1.6rem]': isLarge,
-      'text-white': !asButton,
-      't1sb min-h-[4.8rem] bg-white px-[2.4rem] py-[1.2rem] text-black w-max': asButton,
-    }]"
+  <component
+    :is="asButton ? 'nuxt-link' : AnimatedLink"
     :to="PATH"
+    class="group w-full"
     @click="handleClick"
   >
-    <span>
-      Связаться с нами
-    </span>
+    <div
+      :class="['flex items-center', {
+        'gap-[1.2rem]': isSmall,
+        'gap-[2.4rem] h2 mb:gap-[1.6rem]': isLarge,
+        't1sb min-h-[4.8rem] bg-white px-[2.4rem] py-[1.2rem] text-black w-max': asButton,
+      }]"
+    >
+      <span>
+        Связаться с нами
+      </span>
 
-    <div class="flex justify-end group-hover:grow">
-      <ArrowRight
-        :width="iconSize"
-        :height="iconSize"
-        class="only-desktop"
-      />
+      <div class="flex justify-end transition-transform group-hover:translate-x-[.8rem]">
+        <ArrowRight
+          :width="iconSize"
+          :height="iconSize"
+          class="only-desktop"
+        />
 
-      <ArrowRight
-        :width="mobileIconSize"
-        :height="mobileIconSize"
-        class="only-mobile"
-      />
+        <ArrowRight
+          :width="mobileIconSize"
+          :height="mobileIconSize"
+          class="only-mobile"
+        />
+      </div>
     </div>
-  </nuxt-link>
+  </component>
 </template>
 
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
+import AnimatedLink from '~/global/ui/AnimatedLink.vue'
 
 defineOptions({
   name: 'ContactUsFeature'

@@ -79,6 +79,11 @@
 </template>
 
 <script setup lang="ts">
+import { gsap } from 'gsap'
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+
+// Подключение плагина для прокрутки
+gsap.registerPlugin(ScrollToPlugin);
 import type { VNodeRef } from 'vue'
 
 import { LogoImg } from '@/global/ui'
@@ -89,6 +94,7 @@ import { EmailAndPhone, SocialLinks } from '~/global/ui/ContactsLinks'
 import HeaderMenuLogoLink from '~/widgets/Header/HeaderMenuLogoLink.vue'
 import Close from 'public/svgs/close.svg'
 import { disablePageScroll, enablePageScroll } from '@fluejs/noscroll'
+import { SmoothScroll } from '@/global/lib'
 
 defineOptions({
   name: 'LayoutDefault'
@@ -100,6 +106,8 @@ const stickyContainerRef = ref<VNodeRef | null>(null);
 const isShow = isShowFullHeader();
 
 const isShowModalBurger = ref(false);
+
+const isMain = isMainPage()
 
 watch(() => isShowModalBurger.value, value => {
   if (value) {
@@ -137,15 +145,22 @@ function handleScroll() {
   }
 }
 
-const isMain = isMainPage()
+function handleWheel(event: WheelEvent) {
+  const direction = event.deltaY >= 0
+}
 
 onMounted(() => {
   handleScroll();
 
   window.addEventListener('scroll', handleScroll)
+
+  window.addEventListener('wheel', handleWheel)
+
+  new SmoothScroll(document, 25, 10)
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('wheel', handleWheel)
 });
 </script>

@@ -5,19 +5,21 @@
       'gap-[1.2rem]': props.isSmallGap,
     }]"
   >
-    <a
+    <AnimatedLink
       v-for="link in SOCIAL_LINKS"
       :key="link.id"
       :href="link.to"
       target="_blank"
-      class="animated-link t1sb"
+      class="t1sb"
     >
       {{ link.title }}
-    </a>
+    </AnimatedLink>
   </div>
 </template>
 
 <script setup lang="ts">
+import AnimatedLink from '~/global/ui/AnimatedLink.vue'
+
 defineOptions({
   name: 'SocialLinks'
 })

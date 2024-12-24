@@ -78,25 +78,6 @@ a {
     width: max-content;
 }
 
-.animated-link {
-    position: relative;
-}
-
-.animated-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: .2rem;
-    background-color: white;
-    transition: width 0.3s ease;
-}
-
-.animated-link:hover::after {
-    width: 100%;
-}
-
 /*classes*/
 
 .h1 {
@@ -149,12 +130,12 @@ a {
 /* only media query */
 .only-mobile {
     @media (min-width: 1440px) {
-        display: none;
+        display: none !important;
     }
 }
 
 .only-desktop {
     @media (max-width: 1439px) {
-        display: none;
+        display: none !important;
     }
 }
