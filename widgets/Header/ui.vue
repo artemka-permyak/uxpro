@@ -1,16 +1,14 @@
 <template>
   <header
-    :class="['relative overflow-hidden flex flex-col bg-black mb:flex-col-reverse mb:gap-gap mb:pb-[1.6rem]', {
+    :class="['relative overflow-hidden flex flex-col-reverse bg-black mb:flex-col-reverse mb:gap-gap mb:pb-mbGap', {
       'pb-[47.6rem]': !isShow,
-      'flex-col-reverse gap-[1.6rem]': props.isReversed,
+      'gap-mbGap': isMain,
+      'gap-[6.4rem]': !isMain,
     }]"
   >
     <div
       v-if="isShow"
-      :class="['flex flex-col mb:flex-col-reverse mb:gap-mbGap pb-0', {
-        'gap-gap': !props.isReversed,
-        'flex-col-reverse gap-mbGap': props.isReversed,
-      }]"
+      class="flex flex-col-reverse mb:flex-col-reverse mb:gap-mbGap pb-0 gap-mbGap"
     >
       <div class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]">
         <h1
@@ -31,7 +29,10 @@
         />
       </div>
 
-      <div class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap">
+      <div
+        v-if="isMain"
+        class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap"
+      >
         <NuxtImg
           :src="getImageDomainLink('/images/header-bg.png')"
           alt="Header bg"
@@ -83,13 +84,11 @@ defineOptions({
   name: 'HeaderWidget',
 });
 
-const props = defineProps<{
-  isReversed?: boolean
-}>()
-
 const emit = defineEmits<{
   (event: 'open:modal-burger'): void
 }>()
+
+const isMain = isMainPage()
 
 const PAGES_HEADERS = {
   '/': `
@@ -135,9 +134,8 @@ onMounted(() => {
   observer.value = new IntersectionObserver(entries => {
     const entry = entries[0]
 
-    isShowStickyTopHeader.value = !entry?.isIntersecting
+    isShowStickyTopHeader.value = !entry?.isIntersecting && entry.boundingClientRect.bottom < 0;
   }, {
-    rootMargin: '0px 0px 200px 0px',
     threshold: 0
   })
 

@@ -2,7 +2,7 @@
   <div class="flex flex-col max-w-[192rem] m-auto text-white pb-[2.4rem] mb:pb-mbGap">
     <div
       :class="[{
-        'border-b border-solid border-darkGrey pb-[3.2rem] mb:border-none mb:pb-0': isShow
+        'pb-[3.2rem] mb:border-none mb:pb-0': isShow
       }]"
     >
       <div
@@ -15,7 +15,6 @@
 
       <HeaderWidget
         class="z-10"
-        :is-reversed="!isMain"
         @open:modal-burger="handleOpenModalBurger"
       />
     </div>

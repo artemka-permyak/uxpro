@@ -1,30 +1,19 @@
 <template>
   <nuxt-link
-    :class="['group flex w-full items-center transition-colors', {
+    :class="['group flex w-full items-center transition-colors hover:text-black hover:bg-white', {
       'gap-[1.2rem]': isSmall,
-      'gap-[2.4rem] h1 mb:gap-[1.6rem]': isLarge,
-      'text-white': !asButton && !isActive,
+      'gap-[2.4rem] h2 mb:gap-[1.6rem]': isLarge,
+      'text-white': !asButton,
       't1sb min-h-[4.8rem] bg-white px-[2.4rem] py-[1.2rem] text-black w-max': asButton,
-      'text-black bg-white hover:text-white hover:bg-black': isActive,
-      'hover:text-black hover:bg-white': !isActive
     }]"
     :to="PATH"
     @click="handleClick"
   >
-    <span
-      :class="[{
-        'border-b-white border-b-4 mb:border-b-[.3rem]': isLarge && !asButton && !withoutBorder,
-      }]"
-    >
+    <span>
       Связаться с нами
     </span>
 
-    <div
-      :class="['flex justify-end', {
-        'grow': isActive,
-        'group-hover:grow': !isActive,
-      }]"
-    >
+    <div class="flex justify-end group-hover:grow">
       <ArrowRight
         :width="iconSize"
         :height="iconSize"
@@ -49,8 +38,6 @@ defineOptions({
 
 const PATH = '/contact-us'
 
-const isActive = isActiveLinks(PATH);
-
 const props = defineProps<{
   size: 'small' | 'large',
   asButton?: boolean,
@@ -66,7 +53,7 @@ const isSmall = computed(() => {
 })
 
 const iconSize = computed(() => {
-  return isLarge.value ? 64 : 20
+  return isLarge.value ? 48 : 20
 })
 
 const mobileIconSize = computed(() => {

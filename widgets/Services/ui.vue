@@ -22,7 +22,7 @@
           {{ service.title }}
         </h1>
 
-        <div class="t1sb w-[46rem] mb:w-full">
+        <div class="t1sb w-[46rem] text-grey mb:w-full">
           {{ service.description }}
         </div>
       </div>

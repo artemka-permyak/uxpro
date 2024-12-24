@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Uxpro',
+      title: 'UxPRO',
       meta: [
         process.env.NODE_ENV === 'production' ? {
           'http-equiv': 'Content-Security-Policy',
@@ -16,11 +16,11 @@ export default defineNuxtConfig({
 
         { name: 'google-site-verification', content: 'Gi3XVUeVE1iajZmK4RWzziUDv3YzbC8dys2nPpfBR5k' },
 
-        { key: 'og:title', property: 'og:title', content: 'Uxpro' },
-        { key: 'og:description', property: 'og:description', content: 'Uxpro' },
+        { key: 'og:title', property: 'og:title', content: 'UxPRO' },
+        { key: 'og:description', property: 'og:description', content: 'UxPRO' },
 
-        { key: 'twitter:title', name: 'twitter:title', content: 'Uxpro' },
-        { key: 'twitter:description', name: 'twitter:description', content: 'Uxpro' },
+        { key: 'twitter:title', name: 'twitter:title', content: 'UxPRO' },
+        { key: 'twitter:description', name: 'twitter:description', content: 'UxPRO' },
       ]
     }
   },
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
 
   site: {
     url: process.env.DOMAIN_NAME,
-    name: 'uxpro',
+    name: 'UxPRO',
   },
 
   vite: {

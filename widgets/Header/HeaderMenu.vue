@@ -1,6 +1,8 @@
 <template>
   <div class="relative z-10 h-[5.9rem] w-full flex items-center gap-gap bg-black mb:gap-mbGap">
-    <HeaderMenuLogoLink class="mb:grow" />
+    <div class="grow">
+      <HeaderMenuLogoLink />
+    </div>
 
     <div class="flex grow only-desktop">
       <!--      <nuxt-link-->
