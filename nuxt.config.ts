@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'UxPRO',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ],
       meta: [
         process.env.NODE_ENV === 'production' ? {
           'http-equiv': 'Content-Security-Policy',
