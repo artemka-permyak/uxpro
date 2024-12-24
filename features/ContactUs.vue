@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="asButton ? 'nuxt-link' : AnimatedLink"
+    :is="asButton ? NuxtLink : AnimatedLink"
     :to="PATH"
     class="group w-full"
     @click="handleClick"
@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
 import AnimatedLink from '~/global/ui/AnimatedLink.vue'
+import { NuxtLink } from '#components'
 
 defineOptions({
   name: 'ContactUsFeature'
