@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: blocks; Type: TABLE; Schema: public; Owner: artem
+-- Name: blocks; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.blocks (
@@ -46,10 +46,10 @@ CREATE TABLE public.blocks (
 );
 
 
-ALTER TABLE public.blocks OWNER TO artem;
+ALTER TABLE public.blocks OWNER TO postgres;
 
 --
--- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: artem
+-- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.blocks_id_seq
@@ -61,17 +61,17 @@ CREATE SEQUENCE public.blocks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.blocks_id_seq OWNER TO artem;
+ALTER TABLE public.blocks_id_seq OWNER TO postgres;
 
 --
--- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: artem
+-- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.blocks_id_seq OWNED BY public.blocks.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: artem
+-- Name: projects; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.projects (
@@ -89,10 +89,10 @@ CREATE TABLE public.projects (
 );
 
 
-ALTER TABLE public.projects OWNER TO artem;
+ALTER TABLE public.projects OWNER TO postgres;
 
 --
--- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: artem
+-- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.projects_id_seq
@@ -104,31 +104,31 @@ CREATE SEQUENCE public.projects_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.projects_id_seq OWNER TO artem;
+ALTER TABLE public.projects_id_seq OWNER TO postgres;
 
 --
--- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: artem
+-- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.projects_id_seq OWNED BY public.projects.id;
 
 
 --
--- Name: blocks id; Type: DEFAULT; Schema: public; Owner: artem
+-- Name: blocks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocks ALTER COLUMN id SET DEFAULT nextval('public.blocks_id_seq'::regclass);
 
 
 --
--- Name: projects id; Type: DEFAULT; Schema: public; Owner: artem
+-- Name: projects id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.projects_id_seq'::regclass);
 
 
 --
--- Data for Name: blocks; Type: TABLE DATA; Schema: public; Owner: artem
+-- Data for Name: blocks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.blocks (id, project_id, type, title, content, images, ordinary_title, ordinary_content, created_at, updated_at, images_mosaic, description, "order", review, reviewer_name, reviewer_photo, reviewer_job_title) FROM stdin;
@@ -145,7 +145,7 @@ COPY public.blocks (id, project_id, type, title, content, images, ordinary_title
 
 
 --
--- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: artem
+-- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.projects (id, title, description, publish_year, completed_works_titles, preview_image, preview_description, app_image, tags, created_at, updated_at) FROM stdin;
@@ -157,21 +157,21 @@ COPY public.projects (id, title, description, publish_year, completed_works_titl
 
 
 --
--- Name: blocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: artem
+-- Name: blocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.blocks_id_seq', 9, true);
 
 
 --
--- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: artem
+-- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.projects_id_seq', 4, true);
 
 
 --
--- Name: blocks blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: artem
+-- Name: blocks blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocks
@@ -179,7 +179,7 @@ ALTER TABLE ONLY public.blocks
 
 
 --
--- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: artem
+-- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.projects
@@ -187,7 +187,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
--- Name: blocks blocks_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: artem
+-- Name: blocks blocks_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocks
@@ -195,7 +195,7 @@ ALTER TABLE ONLY public.blocks
 
 
 --
--- Name: TABLE projects; Type: ACL; Schema: public; Owner: artem
+-- Name: TABLE projects; Type: ACL; Schema: public; Owner: postgres
 --
 
 GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.projects TO PUBLIC;
