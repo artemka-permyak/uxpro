@@ -3,7 +3,7 @@
     :href="props.href"
     :to="props.to"
     v-bind="$attrs"
-    class="relative overflow-hidden group transition-colors hover:text-black"
+    class="relative z-10 overflow-hidden group transition-colors hover:text-black"
     @click="handleClick"
   >
     <span class="relative z-10">
