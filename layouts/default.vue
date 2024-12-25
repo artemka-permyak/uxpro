@@ -156,7 +156,7 @@ onMounted(() => {
 
   window.addEventListener('wheel', handleWheel)
 
-  new SmoothScroll(document, 25, 10)
+  new SmoothScroll(document, 35, 10)
 });
 
 onBeforeUnmount(() => {

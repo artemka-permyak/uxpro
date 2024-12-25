@@ -66,7 +66,7 @@ function handleMouse(type: 'enter' | 'leave') {
 }
 
 function handleResize() {
-  buttonWidth.value = buttonRef.value?.offsetWidth || 0
+  buttonWidth.value = buttonRef.value?.offsetWidth ? buttonRef.value?.offsetWidth + 1 : 0
 }
 
 onMounted(() => {

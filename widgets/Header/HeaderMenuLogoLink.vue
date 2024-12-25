@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    class="block h-[2.7rem] px-[2.4rem] mb:px-0"
+    class="block h-[2.7rem]"
     to="/"
   >
     <Logo class="h-full" />

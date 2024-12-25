@@ -3,14 +3,14 @@
     :href="props.href"
     :to="props.to"
     v-bind="$attrs"
-    class="relative text-white overflow-hidden group transition-colors hover:text-black"
+    class="relative overflow-hidden group transition-colors hover:text-black"
     @click="handleClick"
   >
     <span class="relative z-10">
       <slot />
     </span>
 
-    <span class="absolute inset-0 bg-white translate-y-[-110%] transition-transform group-hover:translate-y-0" />
+    <span class="absolute inset-0 -z-10 bg-white translate-y-[-110%] transition-transform group-hover:translate-y-0" />
   </nuxt-link>
 </template>
 
