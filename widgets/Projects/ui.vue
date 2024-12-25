@@ -16,7 +16,7 @@
       >
         <div class="group overflow-hidden">
           <div
-            :class="['group-hover:scale-105 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
+            :class="['group-hover:scale-105 duration-500 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
               'w-[63rem] h-[63rem]': index % 2 === 0,
               'h-[70.7rem]': index % 2 === 1,
             }]"
