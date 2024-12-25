@@ -12,7 +12,7 @@
       <div
         v-for="(service, index) in SERVICES"
         :key="service.id"
-        class="flex items-end px-[2.4rem] py-gap border-b border-b-darkGrey hover:text-black hover:bg-white hover:translate-x-[1.6rem] transition-all mb:flex-col mb:px-mbGap mb:py-[2.4rem] mb:gap-[1.6rem] mb:hover:translate-x-0"
+        class="group flex items-end px-[2.4rem] py-gap border-b border-b-darkGrey hover:text-black hover:bg-white hover:translate-x-[1.6rem] transition-all mb:flex-col mb:px-mbGap mb:py-[2.4rem] mb:gap-[1.6rem] mb:hover:translate-x-0"
       >
         <p class="w-[20.6rem] text-[2rem] leading-[2rem] only-desktop">
           {{ getSplitBlockTitle(`0${index + 1}`) }}
@@ -22,7 +22,7 @@
           {{ service.title }}
         </h1>
 
-        <div class="t1sb w-[46rem] text-grey mb:w-full">
+        <div class="t1sb w-[46rem] text-grey transition-colors group-hover:text-black mb:w-full">
           {{ service.description }}
         </div>
       </div>
