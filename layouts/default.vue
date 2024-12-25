@@ -79,11 +79,6 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from 'gsap'
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-
-// Подключение плагина для прокрутки
-gsap.registerPlugin(ScrollToPlugin);
 import type { VNodeRef } from 'vue'
 
 import { LogoImg } from '@/global/ui'
@@ -109,6 +104,10 @@ const isShowModalBurger = ref(false);
 
 const isMain = isMainPage()
 
+const smoothScroll = ref<SmoothScroll | null>(null)
+
+const route = useRoute()
+
 watch(() => isShowModalBurger.value, value => {
   if (value) {
     disablePageScroll()
@@ -116,6 +115,15 @@ watch(() => isShowModalBurger.value, value => {
     enablePageScroll()
   }
 })
+
+watch(
+  () => route.path,
+  () => {
+    nextTick(() => {
+      smoothScroll.value?.resetPos();
+    })
+  },
+);
 
 function handleOpenModalBurger() {
   isShowModalBurger.value = true
@@ -145,22 +153,15 @@ function handleScroll() {
   }
 }
 
-function handleWheel(event: WheelEvent) {
-  const direction = event.deltaY >= 0
-}
-
 onMounted(() => {
   handleScroll();
 
   window.addEventListener('scroll', handleScroll)
 
-  window.addEventListener('wheel', handleWheel)
-
-  new SmoothScroll(document, 35, 10)
+  smoothScroll.value = new SmoothScroll(document, 35, 10)
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('wheel', handleWheel)
 });
 </script>

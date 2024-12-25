@@ -1,15 +1,18 @@
 <template>
   <section class="grid grid-cols-2 gap-y-[12.8rem] px-gap mb:px-mbGap mb:flex mb:flex-col mb:gap-[6.4rem]">
     <div
-      v-for="(project, index) in projects"
+      v-for="(project, index) in props.projects"
       :key="project.id"
       :class="['w-full flex', {
         'self-baseline': index % 2 === 0,
       }]"
     >
       <nuxt-link
-        class="group w-max flex flex-col gap-[1.6rem] cursor-pointer mb:w-full"
-        :to="`projects/${project.id}`"
+        :class="['group w-max flex flex-col gap-[1.6rem] mb:w-full', {
+          'cursor-pointer': project.id === 1,
+          'cursor-not-allowed': project.id !== 1,
+        }]"
+        :to="project.id === 1 ? `projects/${project.id}` : ''"
       >
         <div class="group overflow-hidden">
           <div

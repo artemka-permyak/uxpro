@@ -20,6 +20,12 @@ export default class SmoothScroll {
     this.target.addEventListener('wheel', this.handleScroll.bind(this), { passive: false });
   }
 
+  public resetPos() {
+    this.pos = 0;
+
+    this.target.scrollTop = 0;
+  }
+
   private handleScroll(e: WheelEvent): void {
     e.preventDefault();
 

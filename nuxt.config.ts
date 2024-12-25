@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-
+  
   css: [
     'normalize.css',
     '@/global/styles/index.css'
