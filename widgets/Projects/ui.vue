@@ -3,7 +3,7 @@
     <div
       v-for="(items, index) in reducedProjects"
       :key="`wrapper-projects-${index}`"
-      :class="'w-full flex gap-[12.8rem]'"
+      class="w-full flex mb:flex-col mb:gap-[6.4rem]"
     >
       <div
         v-for="(project, projectIndex) in items"
@@ -13,19 +13,21 @@
         }]"
       >
         <nuxt-link
-          :class="['group flex w-fit', {
-          'cursor-pointer': project.id === 1,
-          'cursor-not-allowed': project.id !== 1,
-        }]"
+          :class="['group flex', {
+            'cursor-pointer': project.id === 1,
+            'cursor-not-allowed': project.id !== 1,
+            'w-fit mb:w-full': !((index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1)),
+            'w-[63rem] self-baseline mb:w-full': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
+          }]"
           :to="project.id === 1 ? `projects/${project.id}` : ''"
         >
-          <div class="flex flex-col gap-mbGap">
+          <div class="w-full flex flex-col gap-mbGap">
             <div class="group overflow-hidden">
               <div
                 :class="['group-hover:scale-105 duration-500 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
-              'w-[63rem] h-[63rem]': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
-              'h-[70.7rem]': (index % 2 === 1 && projectIndex % 2 === 0) || (index % 2 === 0 && projectIndex % 2 === 1),
-            }]"
+                  'w-[63rem] h-[63rem] mb:w-full mb:h-[32.8rem]': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
+                  'h-[70.7rem] mb:w-full mb:h-[32.8rem]': (index % 2 === 1 && projectIndex % 2 === 0) || (index % 2 === 0 && projectIndex % 2 === 1),
+                }]"
               >
                 <NuxtImg
                   :src="project?.preview_image"
@@ -35,20 +37,20 @@
               </div>
             </div>
 
-            <div class="group w-max flex items-center gap-[.8rem] t1sb group-hover:text-black group-hover:bg-white transition-colors mb:w-full mb:inline-block">
+            <div class="group t1sb group-hover:text-black group-hover:bg-white transition-colors w-full inline-block">
               <ArrowRight
                 width="20"
                 height="20"
-                class="min-w-[2rem] mb:inline-block"
+                class="min-w-[2rem] inline-block align-middle mb-[.25rem]"
               />
 
-              <p class="text-black bg-white mb:inline-block mb:mx-[.8rem]">
+              <p class="text-black bg-white inline-block mx-[.8rem]">
                 {{ project.title }}
               </p>
 
-              <div class="w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white group-hover:bg-black mb:inline-block mb:mr-[.8rem]" />
+              <div class="w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white group-hover:bg-black inline-block mr-[.8rem] mb-[.25rem] align-middle" />
 
-              <p class="mb:inline">
+              <p class="inline">
                 {{ project.preview_description }}
               </p>
             </div>
