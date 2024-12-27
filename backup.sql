@@ -2,12 +2,13 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.15 (Homebrew)
--- Dumped by pg_dump version 14.15 (Homebrew)
+-- Dumped from database version 17.2
+-- Dumped by pg_dump version 17.2 (Homebrew)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -61,7 +62,7 @@ CREATE SEQUENCE public.blocks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.blocks_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.blocks_id_seq OWNER TO postgres;
 
 --
 -- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -104,7 +105,7 @@ CREATE SEQUENCE public.projects_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.projects_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.projects_id_seq OWNER TO postgres;
 
 --
 -- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -149,10 +150,10 @@ COPY public.blocks (id, project_id, type, title, content, images, ordinary_title
 --
 
 COPY public.projects (id, title, description, publish_year, completed_works_titles, preview_image, preview_description, app_image, tags, created_at, updated_at) FROM stdin;
-1	Цифровой профиль	{"Цифровой профиль снимает нагрузку с родителей школьников. Больше не нужно проверять тетради и дневники, высчитывать вероятные оценки за четверть — достаточно просто зайти в профиль","В нём собрана вся информация — успеваемость, посещаемость, статистика, достижения, события"}	2024	{Исследования,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	http://uxpro.ru/images/digital-profile/app-image.png	Снимает нагрузку с родителей школьников	http://uxpro.ru/images/digital-profile/app-image.png	{Web,Mobile,Desktop,Образование,Платформа,Ученик,Учитель,Школа}	2024-12-12 21:25:32.21398	2024-12-12 21:25:32.21398
-2	Jarvis	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/digital-profile/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/digital-profile/app-image.png	{Web}	2024-12-25 18:45:37.624012	2024-12-25 18:45:37.624012
-3	Jarvis	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/digital-profile/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/digital-profile/app-image.png	{Web}	2024-12-25 18:45:39.425885	2024-12-25 18:45:39.425885
-4	Jarvis	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/digital-profile/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/digital-profile/app-image.png	{Web}	2024-12-25 18:45:39.837841	2024-12-25 18:45:39.837841
+1	Цифровой профиль	{"Цифровой профиль снимает нагрузку с родителей школьников. Больше не нужно проверять тетради и дневники, высчитывать вероятные оценки за четверть — достаточно просто зайти в профиль","В нём собрана вся информация — успеваемость, посещаемость, статистика, достижения, события"}	2024	{Исследования,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	https://uxpro.ru/images/digital-profile/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/digital-profile/app-image.png	{Web,Mobile,Desktop,Образование,Платформа,Ученик,Учитель,Школа}	2024-12-12 21:25:32.21398	2024-12-12 21:25:32.21398
+2	Profibonus	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/profibonus/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/profibonus/app-image.png	{Web}	2024-12-25 18:45:37.624012	2024-12-25 18:45:37.624012
+3	Programmatica	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/programmatica/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/programmatica/app-image.png	{Web}	2024-12-25 18:45:39.425885	2024-12-25 18:45:39.425885
+4	Jarvis	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/jarvis/app-image.png	Разработка личного кабинета	https://uxpro.ru/images/jarvis/app-image.png	{Web}	2024-12-25 18:45:39.837841	2024-12-25 18:45:39.837841
 \.
 
 
