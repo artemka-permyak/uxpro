@@ -17,7 +17,7 @@
             'cursor-pointer': project.id === 1,
             'cursor-not-allowed': project.id !== 1,
             'w-full': !((index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1)),
-            'w-[63rem] self-baseline mb:w-full': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
+            'w-[65.1rem] self-baseline mb:w-full': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
           }]"
           :to="project.id === 1 ? `projects/${project.id}` : ''"
         >
