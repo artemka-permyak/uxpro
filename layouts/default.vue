@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col max-w-[192rem] m-auto text-white pb-[2.4rem] mb:pb-mbGap">
     <div
-      :class="[{
-        'pb-[3.2rem] mb:border-none mb:pb-0': isShow
+      :class="['mb:border-none mb:pb-0', {
+        'pb-[3.2rem]': isMain || isContacts,
       }]"
     >
       <div
-        v-if="isShow && isMain"
+        v-if="isMain"
         ref="stickyContainerRef"
         class="sticky top-0 w-full p-gap only-desktop z-0"
       >
@@ -98,11 +98,10 @@ defineOptions({
 const logoRef = ref<VNodeRef | null>(null);
 const stickyContainerRef = ref<VNodeRef | null>(null);
 
-const isShow = isShowFullHeader();
-
 const isShowModalBurger = ref(false);
 
 const isMain = isMainPage()
+const isContacts = isContactsPage()
 
 const smoothScroll = ref<SmoothScroll | null>(null)
 

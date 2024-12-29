@@ -3,7 +3,7 @@
     <NuxtImg
       :src="getImageDomainLink('/images/footer-bg.png')"
       alt="Footer"
-      class="only-desktop"
+      class="only-desktop object-contain"
     />
 
     <NuxtImg

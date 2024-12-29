@@ -1,16 +1,16 @@
 <template>
   <header
-    :class="['relative overflow-hidden flex flex-col-reverse bg-black mb:flex-col-reverse mb:gap-gap mb:pb-mbGap', {
-      'pb-[47.6rem]': !isShow,
+    :class="['relative overflow-hidden flex flex-col-reverse bg-black mb:flex-col-reverse mb:gap-gap', {
       'gap-mbGap': isMain,
-      'gap-[6.4rem]': !isMain,
+      'gap-[6.4rem]': !isMain && !isContacts,
+      'gap-[3.2rem]': !isMain,
     }]"
   >
-    <div
-      v-if="isShow"
-      class="flex flex-col-reverse mb:flex-col-reverse mb:gap-mbGap pb-0 gap-mbGap"
-    >
-      <div class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]">
+    <div class="flex flex-col-reverse mb:flex-col-reverse mb:gap-mbGap pb-0 gap-mbGap">
+      <div
+        v-if="isShow"
+        class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]"
+      >
         <h1
           class="h1 w-full grow"
           v-html="store.getTitle"
@@ -23,6 +23,7 @@
         </div>
 
         <ContactUsFeature
+          v-if="!isContacts"
           size="small"
           class="only-mobile"
           as-button
@@ -30,18 +31,22 @@
       </div>
 
       <div
-        v-if="isMain"
-        class="relative h-[39rem] px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap"
+        :class="[`relative px-gap overflow-hidden mb:h-[43rem] mb:px-mbGap`, {
+          'only-desktop h-[34.8rem]': !isMain,
+          'h-[45rem]': isMain
+        }]"
       >
         <NuxtImg
-          :src="getImageDomainLink('/images/header-bg.png')"
+          :key="`${isMain}-${isContacts}-key`"
+          :src="bgImageDesktopSrc"
           alt="Header bg"
           format="webp"
           preload
-          class="object-cover only-desktop"
+          class="object-cover only-desktop w-full h-full"
         />
 
         <NuxtImg
+          v-if="isMain"
           :src="getImageDomainLink('/images/header-mobile-bg.png')"
           alt="Header bg"
           format="webp"
@@ -89,6 +94,7 @@ const emit = defineEmits<{
 }>()
 
 const isMain = isMainPage()
+const isContacts = isContactsPage()
 
 const PAGES_HEADERS = {
   '/': `
@@ -113,6 +119,16 @@ const PAGES_HEADERS = {
 const store = useHeaderStore();
 
 const route = useRoute()
+
+const bgImageDesktopSrc = computed(() => {
+  const path = isMain.value
+    ? 'header-bg.png'
+    : isContacts.value
+    ? 'contacts/contacts-bg.png'
+      : 'project/project-bg.png'
+
+  return getImageDomainLink(`/images/${path}`)
+})
 
 watch(() => route.fullPath, () => {
   changeTitle()
