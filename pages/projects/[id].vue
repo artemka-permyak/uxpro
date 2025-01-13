@@ -37,12 +37,31 @@
                   {{ block.title }}
                 </h1>
 
-                <p
-                  v-if="block.description"
-                  class="t1sb"
+                <div
+                  v-if="block.description?.length"
+                  class="flex flex-col gap-gap"
                 >
-                  {{ block.description }}
-                </p>
+                  <p
+                    v-for="(description, descriptionIndex) in block.description"
+                    :key="`description-${descriptionIndex}`"
+                    class="t1sb"
+                  >
+                    {{ description }}
+                  </p>
+                </div>
+
+                <div
+                  v-if="block.dedicated_description?.length"
+                  class="flex flex-col gap-gap"
+                >
+                  <p
+                    v-for="(description, descriptionIndex) in block.dedicated_description"
+                    :key="`dedicated-description-${descriptionIndex}`"
+                    class="t1sb text-grey"
+                  >
+                    {{ description }}
+                  </p>
+                </div>
               </div>
 
               <template v-if="block.content?.length">
@@ -76,18 +95,31 @@
 
                 <div
                   v-if="block.type === 'splitBlock'"
-                  class="flex flex-col gap-[12.8rem]"
+                  class="flex flex-col gap-[12.8rem] mb:gap-[6.4rem]"
                 >
                   <div
                     v-for="(itemContent, itemContentIndex) in block.content"
                     :key="`content-item-${itemContentIndex}`"
                     class="flex flex-col gap-[2.4rem]"
                   >
-                    <p class="t1sb">
+                    <h1
+                      v-if="itemContent.title"
+                      class="h1"
+                    >
+                      {{ itemContent.title }}
+                    </h1>
+
+                    <p
+                      v-if="itemContent.smallTitle"
+                      class="t1sb"
+                    >
                       {{ itemContent.smallTitle }}
                     </p>
 
-                    <div class="t1 flex flex-col gap-[2.4rem] text-grey">
+                    <div
+                      v-if="itemContent.dedicatedDescription"
+                      class="t1 flex flex-col gap-[2.4rem] text-grey"
+                    >
                       <p
                         v-for="(description, descriptionIndex) in itemContent.dedicatedDescription"
                         :key="`split-block-description-${descriptionIndex}`"
@@ -122,6 +154,31 @@
                         Еще {{ itemContent.dedicatedDescription.length - 1 }}
                       </div>
                     </div>
+
+                    <div
+                      v-if="itemContent.statistics"
+                      class="grid grid-cols-2 gap-[6.4rem]"
+                    >
+                      <div
+                        v-for="(statisticsItem, statisticsItemIndex) in itemContent.statistics"
+                        :key="`split-block-statistics-item-${statisticsItemIndex}`"
+                        class="flex flex-col gap-mbGap w-full grow"
+                      >
+                        <h1
+                          v-if="statisticsItem.title"
+                          class="text-[12.8rem] leading-[12.8rem] mb:text-[6.4rem] mb:leading-[7rem]"
+                        >
+                          {{ statisticsItem.title }}
+                        </h1>
+
+                        <p
+                          v-if="statisticsItem.description"
+                          class="t1sb text-grey"
+                        >
+                          {{ statisticsItem.description }}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </template>
@@ -130,38 +187,60 @@
         </SplitBlock>
 
         <div
-          v-if="block.images?.length"
+          v-if="block.media?.length"
           :class="['gap-gap only-desktop', {
-            'flex flex-col': !block.images_mosaic,
-            'grid grid-cols-2': block.images_mosaic,
+            'flex flex-col': !block.media_position || ['one-to-one'].includes(block.media_position),
+            'grid grid-cols-2': ['one-to-two', 'horizontal-two-to-one', 'one-to-two-to-one', 'two-to-two'].includes(block.media_position),
           }]"
         >
-          <NuxtImg
-            v-for="(image, imageIndex) in block.images"
-            :key="`${block.title}-image-${imageIndex}`"
-            :src="image"
-            :alt="`${block.title} Изображение`"
-            format="webp"
-            loading="lazy"
-            :class="[{
-              'col-span-2': block.images_mosaic === 'top' && imageIndex === 0,
-              'row-span-2': block.images_mosaic === 'left' && imageIndex === 1,
-            }]"
-          />
+          <template v-for="(media, mediaIndex) in block.media">
+            <NuxtImgWithDescription
+              v-if="getFileType(media.src) === 'image'"
+              :key="`${block.title}-image-media-${mediaIndex}`"
+              :src="media.src"
+              :alt="`${block.title} Изображение`"
+              format="webp"
+              loading="lazy"
+              :description="media.description"
+              :class="[{
+                'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,
+                'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,
+              }]"
+            />
+            <VideoUi
+              v-else
+              :key="`${block.title}-video-media-${mediaIndex}`"
+              :src="media.src"
+              :poster="media.poster"
+              :class="[{
+                'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,
+                'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,
+              }]"
+            />
+          </template>
         </div>
 
         <div
-          v-if="block.images?.length"
+          v-if="block.media?.length"
           class="flex flex-col gap-mbGap only-mobile"
         >
-          <NuxtImg
-            v-for="(image, imageIndex) in block.images"
-            :key="`${block.title}-image-mobile-${imageIndex}`"
-            :src="image"
-            :alt="`${block.title} Изображение`"
-            format="webp"
-            loading="lazy"
-          />
+          <template v-for="(media, mediaIndex) in block.media">
+            <NuxtImgWithDescription
+              v-if="getFileType(media.src) === 'image'"
+              :key="`${block.title}-image-media-mobile-${mediaIndex}`"
+              :src="media.src"
+              :alt="`${block.title} Изображение`"
+              format="webp"
+              loading="lazy"
+              :description="media.description"
+            />
+            <VideoUi
+              v-else
+              :key="`${block.title}-video-media-${mediaIndex}`"
+              :src="media.src"
+              :poster="media.poster"
+            />
+          </template>
         </div>
       </div>
 
@@ -197,7 +276,7 @@
                 :alt="`${block.title} ${itemContent.title} Контент Изображение`"
                 :class="`h-auto flex-1 mb:snap-center`"
                 :style="{
-                  width: `calc(100% / ${itemContent.images.length}`,
+                  width: `calc(100% / ${itemContent.images.length})`,
                 }"
                 format="webp"
                 loading="lazy"
@@ -209,9 +288,9 @@
 
         <div class="flex flex-col gap-[6.4rem]">
           <NuxtImg
-            v-for="(image, imageIndex) in block.images"
-            :key="`centered-block-image-${imageIndex}`"
-            :src="image"
+            v-for="(media, mediaIndex) in block.media"
+            :key="`centered-block-media-${mediaIndex}`"
+            :src="media.src"
             :alt="`${block.title} Изображение`"
             format="webp"
             loading="lazy"
@@ -234,7 +313,7 @@
             </h1>
           </div>
 
-          <div class="only-desktop h1 w-[121.1rem]">
+          <div class="only-desktop h1 w-[121.1rem] flex flex-col gap-[6.4rem]">
             <p
               v-for="(itemReview, itemReviewIndex) in block.review"
               :key="`review-item-${itemReviewIndex}`"
@@ -243,7 +322,7 @@
             </p>
           </div>
 
-          <div class="only-mobile t1sb w-full">
+          <div class="only-mobile t1sb w-full flex flex-col gap-mbGap">
             <p
               v-for="(itemReview, itemReviewIndex) in block.review"
               :key="`review-item-mobile-${itemReviewIndex}`"
@@ -253,26 +332,59 @@
           </div>
         </div>
 
-        <div class="w-full flex gap-[1.6rem] mb:flex-col">
+        <div class="w-full h-[60.8rem] flex gap-[1.6rem] mb:h-auto mb:flex-col">
           <div
             v-for="index in 3"
             :key="`review-photo-${index}`"
-            class="w-full"
+            class="w-full only-desktop"
+            :style="{
+              display: index === 2 && !block.reviewer_photo ? 'none' : '',
+              minWidth: index === 1 && !block.reviewer_photo ? '60.8rem' : '',
+              width: index === 1 && !block.reviewer_photo ? '60.8rem' : '',
+            }"
           >
             <ReviewQuotes
               v-if="index === 1"
               width="608"
               height="608"
-              class="w-full h-full only-desktop"
-            />
-
-            <ReviewQuotes
-              v-if="index === 1"
-              class="w-full h-full only-mobile"
+              class="w-full h-full"
             />
 
             <NuxtImg
-              v-if="index === 2"
+              v-if="index === 2 && block.reviewer_photo"
+              :src="block.reviewer_photo"
+              alt="Клиент"
+              class="w-full h-full object-cover"
+              format="webp"
+              loading="lazy"
+            />
+
+            <div
+              v-if="index === 3"
+              class="w-full h-full flex flex-col justify-end gap-[1rem] bg-darkGrey p-gap mb:aspect-square"
+            >
+              <h2 class="h2">
+                {{ block.reviewer_name }}
+              </h2>
+
+              <p class="t1sb">
+                {{ block.reviewer_job_title }}
+              </p>
+            </div>
+          </div>
+
+          <div
+            v-for="index in 3"
+            :key="`mobile-review-photo-${index}`"
+            class="w-full only-mobile"
+          >
+            <ReviewQuotes
+              v-if="index === 1"
+              class="w-full h-full"
+            />
+
+            <NuxtImg
+              v-if="index === 2 && block.reviewer_photo"
               :src="block.reviewer_photo"
               alt="Клиент"
               class="w-full h-full object-cover"
@@ -349,6 +461,9 @@ import { getSplitBlockTitle, SplitBlock } from '@/global/ui'
 import { ProjectPageHeader } from '@/widgets/ProjectPage'
 import ReviewQuotes from '@/public/svgs/reviewQuotes.svg'
 import ContactUsFeature from '@/features/ContactUs.vue'
+import { getFileType } from '@/global/lib'
+import VideoUi from '@/global/ui/Video.vue'
+import NuxtImgWithDescription from '@/features/NuxtImgWithDescription.vue'
 
 defineOptions({
   name: 'ProjectPage',

@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
     const { id: projectId, blockId } = event.context.params || {};
     const body = await readBody(event);
 
-    const { type, review, reviewer_photo, reviewer_name, reviewer_job_title, title, description, content, images, ordinary_title, ordinary_content, images_mosaic, order } = body;
+    const { type, review, reviewer_photo, reviewer_name, reviewer_job_title, title, description, dedicatedDescription, content, media, media_position, order } = body;
 
     const setFields = [];
     const values = [];
@@ -53,25 +53,21 @@ export default defineEventHandler(async (event) => {
       setFields.push('description = $' + (values.length + 1));
       values.push(description);
     }
+    if (dedicatedDescription) {
+      setFields.push('dedicated_description = $' + (values.length + 1));
+      values.push(dedicatedDescription);
+    }
     if (content) {
       setFields.push('content = $' + (values.length + 1));
       values.push(JSON.stringify(content));
     }
-    if (images) {
-      setFields.push('images = $' + (values.length + 1));
-      values.push(JSON.stringify(images));
+    if (media) {
+      setFields.push('media = $' + (values.length + 1));
+      values.push(JSON.stringify(media));
     }
-    if (ordinary_title) {
-      setFields.push('ordinary_title = $' + (values.length + 1));
-      values.push(ordinary_title);
-    }
-    if (ordinary_content) {
-      setFields.push('ordinary_content = $' + (values.length + 1));
-      values.push(JSON.stringify(ordinary_content));
-    }
-    if (images_mosaic) {
-      setFields.push('images_mosaic = $' + (values.length + 1));
-      values.push(images_mosaic);
+    if (media_position) {
+      setFields.push('media_position = $' + (values.length + 1));
+      values.push(media_position);
     }
     if (order) {
       setFields.push('"order" = $' + (values.length + 1));

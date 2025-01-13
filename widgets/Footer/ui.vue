@@ -13,7 +13,7 @@
     />
 
     <div class="w-full flex justify-between mb:flex-col mb:justify-start mb:gap-gap">
-      <div class="flex flex-col gap-gap w-[44.4rem] mb:order-1 mb:w-full mb:gap-[2.4rem]">
+      <div class="flex flex-col gap-gap w-[47rem] mb:order-1 mb:w-full mb:gap-[2.4rem]">
         <EmailAndPhone is-small-gap />
 
         <span class="t1sb">
@@ -48,7 +48,7 @@ defineOptions({
 })
 
 const LABELS = {
-  address: 'Петербург, ул. Льва Толстого 1-3',
+  address: 'В Петербурге на улице Льва Толстого 1-3',
   mainText: 'Ведем путь к идеальным цифровым решениям',
 }
 

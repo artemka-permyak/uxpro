@@ -5,7 +5,7 @@
       :projects="data?.data"
     />
 
-    <TransparencyWidget />
+    <ApproachWidget />
 
     <ServicesWidget />
   </div>
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { ProjectsWidget } from '~/widgets/Projects'
-import { TransparencyWidget } from '~/widgets/Transparency'
+import { ApproachWidget } from '~/widgets/Approach'
 import { ServicesWidget } from '~/widgets/Services'
 
 defineOptions({

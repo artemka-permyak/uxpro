@@ -14,7 +14,7 @@
       </div>
 
       <HeaderWidget
-        class="z-10"
+        class="z-20"
         @open:modal-burger="handleOpenModalBurger"
       />
     </div>

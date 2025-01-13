@@ -14,12 +14,12 @@
       >
         <nuxt-link
           :class="['group flex', {
-            'cursor-pointer': project.id === 1,
-            'cursor-not-allowed': project.id !== 1,
+            'cursor-pointer': [1, 2].includes(project.id),
+            'cursor-not-allowed': ![1, 2].includes(project.id),
             'w-full': !((index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1)),
             'w-[65.1rem] self-baseline mb:w-full': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
           }]"
-          :to="project.id === 1 ? `projects/${project.id}` : ''"
+          :to="[1, 2].includes(project.id) ? `projects/${project.id}` : ''"
         >
           <div class="w-full flex flex-col gap-mbGap">
             <div class="group overflow-hidden">
@@ -73,7 +73,7 @@ const props = defineProps<{
 }>()
 
 const reducedProjects = computed(() => {
-  return props.projects.reduce((total, currentValue, currentIndex) => {
+  return props.projects.reduce((total, currentValue) => {
     const lastIndex = total.length ? total.length - 1 : 0;
 
     const array = total[lastIndex]
@@ -91,6 +91,4 @@ const reducedProjects = computed(() => {
     return total
   }, [])
 })
-
-console.log(reducedProjects.value)
 </script>

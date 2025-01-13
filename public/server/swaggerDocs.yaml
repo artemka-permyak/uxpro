@@ -482,19 +482,11 @@ paths:
                                 items:
                                   type: string
                                   example: "«У меня из-за сильной занятости на работе нет времени особо вникать, какая успеваемость в школе. Хорошо, что у дочери не возникает проблем в учёбе»"
-                        images:
+                        media:
                           type: array
                           items:
                             type: string
                             example: "http://uxpro.ru/images/digital-profile/study-1.png"
-                        ordinary_title:
-                          type: string
-                          example: ''
-                          nullable: true
-                        ordinary_content:
-                          type: string
-                          example: ''
-                          nullable: true
                         created_at:
                           type: string
                           format: date-time
@@ -503,9 +495,9 @@ paths:
                           type: string
                           format: date-time
                           example: "2024-12-18T13:13:26.420Z"
-                        images_mosaic:
+                        media_position:
                           type: string
-                          example: "left"
+                          example: "one-to-two"
                           nullable: true
                         description:
                           type: string
@@ -562,17 +554,13 @@ paths:
                   type: string
                 content:
                   type: object
-                images:
+                media:
                   type: array
                   items:
                     type: object
-                ordinary_title:
+                media_position:
                   type: string
-                ordinary_content:
-                  type: object
-                images_mosaic:
-                  type: string
-                  enum: [ 'left', 'top' ]
+                  enum: [ 'one-to-two', 'two-to-one' ]
       responses:
         200:
           description: Новый созданный блок
@@ -668,17 +656,13 @@ paths:
                   type: string
                 content:
                   type: object
-                images:
+                media:
                   type: array
                   items:
                     type: object
-                ordinary_title:
+                media_position:
                   type: string
-                ordinary_content:
-                  type: object
-                images_mosaic:
-                  type: string
-                  enum: [ 'left', 'top' ]
+                  enum: [ 'one-to-two', 'two-to-one' ]
       responses:
         200:
           description: The updated block

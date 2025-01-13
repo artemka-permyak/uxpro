@@ -22,7 +22,12 @@
           {{ service.title }}
         </h1>
 
-        <div class="t1sb w-[46rem] text-grey transition-colors group-hover:text-black mb:w-full">
+        <div
+          class="t1sb max-w-[46rem] text-grey transition-colors group-hover:text-black mb:w-full"
+          :style="{
+            maxWidth: service.descriptionWidth
+          }"
+        >
           {{ service.description }}
         </div>
       </div>
@@ -44,19 +49,21 @@ const LABELS = {
 const SERVICES = [
   {
     title: 'Проектирование',
-    description: 'Мы разрабатываем современные системы идентификации',
+    description: 'Информационная архитектура, user flow, прототипы, ux-тесты и проектный контроль',
+    descriptionWidth: '50.6rem',
   },
   {
     title: 'Дизайн интерфейсов',
-    description: 'Наша команда создает инновационные решения для бизнеса',
+    description: 'Дизайн-концепции, дизайн-системы, контроль на этапе реализации',
   },
   {
     title: 'Исследования',
-    description: 'Наша студия специализируется на творческом дизайне',
+    description: 'Анализ метрик, основных user flow и эргономики интерфейса',
   },
   {
     title: 'UX/UI аудит',
-    description: 'Мы предлагаем комплексные услуги в области цифрового маркетинга',
+    description: 'Проверка гипотез, глубинные интервью и опросы, ux-тесты, работа со стейкхолдерами',
+    descriptionWidth: '55.7rem',
   }
 ].map((service, index) => ({
   ...service,
