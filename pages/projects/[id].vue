@@ -23,7 +23,7 @@
         v-if="['splitBlock', 'splitBlockDivided'].includes(block.type)"
         class="flex flex-col gap-[16rem] mb:gap-[8rem]"
       >
-        <SplitBlock>
+        <SplitBlock right-width="48%">
           <template #left>
             <h1 class="h1 mb:px-mbGap">
               {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
@@ -31,7 +31,7 @@
           </template>
 
           <template #right>
-            <div class="flex flex-col gap-[6.4rem] mb:gap-gap mb:px-mbGap">
+            <div class="flex flex-col gap-[12.8rem] mb:gap-gap mb:px-mbGap">
               <div class="flex flex-col gap-[2.4rem]">
                 <h1 class="h1">
                   {{ block.title }}
@@ -45,9 +45,8 @@
                     v-for="(description, descriptionIndex) in block.description"
                     :key="`description-${descriptionIndex}`"
                     class="t1sb"
-                  >
-                    {{ description }}
-                  </p>
+                    v-html="description"
+                  />
                 </div>
 
                 <div
@@ -438,21 +437,6 @@
         </template>
       </SplitBlock>
     </div>
-
-    <SplitBlock>
-      <template #right>
-        <div class="pt-[12.8rem] flex flex-col gap-[12.8rem] mb:pt-[6.4rem] mb:gap-[6.4rem] mb:px-mbGap">
-          <h1 class="h1">
-            От идеи до реализации: ваш путь к успешному UX/UI!
-          </h1>
-
-          <ContactUsFeature
-            size="large"
-            without-border
-          />
-        </div>
-      </template>
-    </SplitBlock>
   </div>
 </template>
 
@@ -475,16 +459,16 @@ const showedSplitBlocksContentSmallTitleIds = ref<string[]>([]);
 
 const centeredBlockImages = ref();
 
-const { data: projectData } = useAsyncData('projects', () => {
-  return $fetch(`/api/projects/${route.params.id}`)
+const { data: projectData } = useAsyncData('projects', async () => {
+  return await $fetch(`/api/projects/${route.params.id}`)
 })
 
 const project = computed(() => {
   return projectData?.value?.data;
 })
 
-const { data: blocksData } = useAsyncData('blocks', () => {
-  return $fetch(`/api/projects/${route.params.id}/blocks`)
+const { data: blocksData } = useAsyncData('blocks', async () => {
+  return await $fetch(`/api/projects/${route.params.id}/blocks`)
 })
 
 const blocks = computed(() => {

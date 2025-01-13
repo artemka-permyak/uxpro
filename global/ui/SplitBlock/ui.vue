@@ -31,14 +31,14 @@ defineOptions({
 })
 
 const props = defineProps<{
-  rightWidth?: string | number | null,
+  rightWidth?: string
   withGap?: boolean
 }>()
 
 const rightStyles = computed(() => {
   return props.rightWidth ? {
-    width: `${props.rightWidth}px`,
-    maxWidth: `${props.rightWidth}px`
+    width: `${props.rightWidth}`,
+    maxWidth: `${props.rightWidth}`
   } : undefined
 })
 </script>
