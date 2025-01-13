@@ -1,6 +1,6 @@
 <template>
   <SplitBlock
-    right-width="1140"
+    right-width="1140px"
     class="px-gap mb:px-[1.6rem]"
   >
     <template #left>
