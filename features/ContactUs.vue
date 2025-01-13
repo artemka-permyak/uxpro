@@ -1,7 +1,7 @@
 <template>
   <component
     :is="asButton ? NuxtLink : AnimatedLink"
-    :to="PATH"
+    :to="isContactUsPage ? '' : PATH"
     class="group w-full"
     @click="handleClick"
   >
@@ -68,8 +68,12 @@ const mobileIconSize = computed(() => {
 
 const route = useRoute()
 
+const isContactUsPage = computed(() => {
+  return route.fullPath.includes('/contact-us')
+})
+
 function handleClick() {
-  if (route.fullPath.includes('/contact-us')) {
+  if (isContactUsPage.value) {
       const form = document.querySelector('#contactUsFormWidget');
 
       if (form) {
