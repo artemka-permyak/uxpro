@@ -8,7 +8,6 @@ export default defineEventHandler(async (event) => {
       return getErrorResponse('Неправильные параметры запроса');
     }
 
-    // Выполняем запрос на удаление блока
     const { rowCount } = await query(
       `DELETE FROM blocks WHERE project_id = $1 AND id = $2 RETURNING *`,
       [id, blockId]

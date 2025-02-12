@@ -686,3 +686,282 @@ paths:
                       content:
                         type: object
                         example: { "review": "Updated project review!", "photo": "image.jpg", "name": "John", "jobTitle": "Developer" }
+
+  /api/last-projects:
+    get:
+      tags:
+        - Последние проекты
+      summary: Получить все последние проекты
+      description: Возвращает список всех проектов, отсортированных по позиции (1-6)
+      responses:
+        "200":
+          description: Успешный ответ с массивом проектов
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        is_nda:
+                          type: boolean
+                          example: false
+                        title:
+                          type: string
+                          example: "Проект UX"
+                        direction:
+                          type: string
+                          example: "Дизайн"
+                        deadline:
+                          type: string
+                          example: "2025-03-01"
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                          example: [ "UI/UX", "Figma" ]
+                        position:
+                          type: integer
+                          minimum: 1
+                          maximum: 6
+                          example: 2
+        "500":
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: "Ошибка сервера"
+
+    post:
+      tags:
+        - Последние проекты
+      summary: Создать новый проект на определённой позиции
+      description: Создаёт новый проект в указанной позиции (1-6). Если позиция уже занята, возвращается ошибка.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_nda:
+                  type: boolean
+                  example: false
+                title:
+                  type: string
+                  example: "Проект UX"
+                direction:
+                  type: string
+                  example: "Дизайн"
+                deadline:
+                  type: string
+                  example: "2025-03-01"
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  example: [ "UI/UX", "Figma" ]
+                position:
+                  type: integer
+                  minimum: 1
+                  maximum: 6
+                  example: 2
+      responses:
+        "200":
+          description: Успешное создание проекта
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 5
+                      is_nda:
+                        type: boolean
+                        example: false
+                      title:
+                        type: string
+                        example: "Проект UX"
+                      direction:
+                        type: string
+                        example: "Дизайн"
+                      deadline:
+                        type: string
+                        example: "2025-03-01"
+                      tags:
+                        type: array
+                        items:
+                          type: string
+                        example: [ "UI/UX", "Figma" ]
+                      position:
+                        type: integer
+                        minimum: 1
+                        maximum: 6
+                        example: 2
+        "400":
+          description: Ошибка валидации (например, позиция занята)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: "Позиция 2 уже занята"
+        "500":
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: "Ошибка сервера"
+
+  /api/last-projects/{position}:
+    put:
+      tags:
+        - Последние проекты
+      summary: Обновить проект по позиции
+      description: Редактирует проект, находящийся в указанной позиции (1-6). Можно обновлять только часть полей.
+      parameters:
+        - name: position
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 6
+          description: Позиция проекта (1-6)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_nda:
+                  type: boolean
+                  example: true
+                title:
+                  type: string
+                  example: "Обновленный проект"
+                direction:
+                  type: string
+                  example: "Разработка"
+                deadline:
+                  type: string
+                  example: "2025-03-10"
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  example: [ "JavaScript", "Vue" ]
+      responses:
+        "200":
+          description: Проект успешно обновлён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 5
+                      is_nda:
+                        type: boolean
+                        example: true
+                      title:
+                        type: string
+                        example: "Обновленный проект"
+                      direction:
+                        type: string
+                        example: "Разработка"
+                      deadline:
+                        type: string
+                        example: "2025-03-10"
+                      tags:
+                        type: array
+                        items:
+                          type: string
+                        example: [ "JavaScript", "Vue" ]
+                      position:
+                        type: integer
+                        minimum: 1
+                        maximum: 6
+                        example: 3
+        "400":
+          description: Ошибка валидации
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: "Некорректная позиция (должна быть от 1 до 6)"
+        "404":
+          description: Проект на указанной позиции не найден
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: "Проект на позиции 3 не найден"
+        "500":
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: "Ошибка сервера"
