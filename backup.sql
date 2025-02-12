@@ -72,6 +72,46 @@ ALTER SEQUENCE public.blocks_id_seq OWNED BY public.blocks.id;
 
 
 --
+-- Name: last_projects; Type: TABLE; Schema: public; Owner: artem
+--
+
+CREATE TABLE public.last_projects (
+    id integer NOT NULL,
+    is_nda boolean DEFAULT false,
+    title text NOT NULL,
+    direction text NOT NULL,
+    deadline text NOT NULL,
+    tags text[] NOT NULL,
+    "position" integer NOT NULL,
+    CONSTRAINT last_projects_position_check CHECK ((("position" >= 1) AND ("position" <= 6)))
+);
+
+
+ALTER TABLE public.last_projects OWNER TO artem;
+
+--
+-- Name: last_projects_id_seq; Type: SEQUENCE; Schema: public; Owner: artem
+--
+
+CREATE SEQUENCE public.last_projects_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.last_projects_id_seq OWNER TO artem;
+
+--
+-- Name: last_projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: artem
+--
+
+ALTER SEQUENCE public.last_projects_id_seq OWNED BY public.last_projects.id;
+
+
+--
 -- Name: projects; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -122,6 +162,13 @@ ALTER TABLE ONLY public.blocks ALTER COLUMN id SET DEFAULT nextval('public.block
 
 
 --
+-- Name: last_projects id; Type: DEFAULT; Schema: public; Owner: artem
+--
+
+ALTER TABLE ONLY public.last_projects ALTER COLUMN id SET DEFAULT nextval('public.last_projects_id_seq'::regclass);
+
+
+--
 -- Name: projects id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -156,6 +203,20 @@ COPY public.blocks (id, project_id, type, title, content, ordinary_title, ordina
 
 
 --
+-- Data for Name: last_projects; Type: TABLE DATA; Schema: public; Owner: artem
+--
+
+COPY public.last_projects (id, is_nda, title, direction, deadline, tags, "position") FROM stdin;
+2	t	Сервис по ведению внешней экономической деятельности	ВЭД	5 месяцев	{Проектирование,UX/UI}	2
+4	t	Мобильное приложение для модулей хранения	Startup	2 недели	{Проектирование}	4
+5	t	Корпоративный HR-сервис	HRM-система	2 месяца	{Проектирование,UX/UI}	5
+6	f	Рефакторинг системы лояльности	Сервис	3 месяца	{Исследование,Проектирование,UX/UI}	6
+1	t	Сервис транспортной телематики	Телематика	3 месяца	{Исследование,Проектирование,UX/UI}	1
+3	f	Сервис декларирования и прохождения таможенных процедур	ВЭД	5 месяцев	{Исследование,Проектирование,UX/UI}	3
+\.
+
+
+--
 -- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -171,14 +232,21 @@ COPY public.projects (id, title, description, publish_year, completed_works_titl
 -- Name: blocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.blocks_id_seq', 19, true);
+SELECT pg_catalog.setval('public.blocks_id_seq', 20, false);
+
+
+--
+-- Name: last_projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: artem
+--
+
+SELECT pg_catalog.setval('public.last_projects_id_seq', 6, true);
 
 
 --
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 4, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 5, false);
 
 
 --
@@ -187,6 +255,22 @@ SELECT pg_catalog.setval('public.projects_id_seq', 4, true);
 
 ALTER TABLE ONLY public.blocks
     ADD CONSTRAINT blocks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: last_projects last_projects_pkey; Type: CONSTRAINT; Schema: public; Owner: artem
+--
+
+ALTER TABLE ONLY public.last_projects
+    ADD CONSTRAINT last_projects_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: last_projects last_projects_position_key; Type: CONSTRAINT; Schema: public; Owner: artem
+--
+
+ALTER TABLE ONLY public.last_projects
+    ADD CONSTRAINT last_projects_position_key UNIQUE ("position");
 
 
 --
