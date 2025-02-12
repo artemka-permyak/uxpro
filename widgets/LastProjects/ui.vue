@@ -1,19 +1,23 @@
 <template>
-  <section class="flex flex-col gap-[6.4rem] px-gap">
-    <p class="text-grey text-[3.2rem] leading-[3.6rem] pl-[19.8rem]">
+  <section class="flex flex-col gap-[6.4rem] px-gap mb:gap-gap mb:px-mbGap">
+    <p class="only-desktop text-grey text-[3.2rem] leading-[3.6rem] pl-[19.8rem]">
       {{ LABELS.title }}
     </p>
 
-    <div class="flex h-[57.8rem]">
+    <p class="only-mobile t1sb text-grey">
+      {{ LABELS.title }}
+    </p>
+
+    <div class="w-full flex h-[57.8rem] mb:overflow-x-auto mb:snap-x">
       <div
         v-for="(project, index) in lastProjects"
         :key="project.id"
-        :class="['group w-full h-full', {
+        :class="['w-full h-full mb:min-w-[31rem] mb:snap-center', {
           'pt-[6.4rem]': index !== 0 && index % 3 === 1,
           'pb-[6.4rem]': index !== 0 && index % 3 === 2,
         }]"
       >
-        <div class="group group-hover:bg-white transition-colors w-full h-full flex flex-col gap-mbGap p-gap border border-darkGrey">
+        <div class="group hover:bg-white transition-colors w-full h-full flex flex-col gap-mbGap p-gap border border-darkGrey">
           <div class="group flex flex-col grow gap-mbGap">
             <div class="group flex justify-between gap-mbGap">
               <p class="text-[1.8rem] leading-[2.4rem] transition-colors group-hover:text-black">
