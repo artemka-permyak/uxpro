@@ -4,6 +4,15 @@
 
 @font-face {
     font-family: 'Aeonik Pro';
+    src: url('/global/fonts/AeonikPro-Light.otf') format('otf'),
+    url('/global/fonts/AeonikPro-Light.woff') format('woff'),
+    url('/global/fonts/AeonikPro-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aeonik Pro';
     src: url('/global/fonts/AeonikPro-Regular.otf') format('otf'),
     url('/global/fonts/AeonikPro-Regular.woff') format('woff'),
     url('/global/fonts/AeonikPro-Regular.woff2') format('woff2');
@@ -13,19 +22,19 @@
 
 @font-face {
     font-family: 'Aeonik Pro';
-    src: url('/global/fonts/AeonikPro-Bold.otf') format('otf'),
-    url('/global/fonts/AeonikPro-Bold.woff') format('woff'),
-    url('/global/fonts/AeonikPro-Bold.woff2') format('woff2');
-    font-weight: 700;
+    src: url('/global/fonts/AeonikPro-Medium.otf') format('otf'),
+    url('/global/fonts/AeonikPro-Medium.woff') format('woff'),
+    url('/global/fonts/AeonikPro-Medium.woff2') format('woff2');
+    font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Aeonik Pro';
-    src: url('/global/fonts/AeonikPro-Light.otf') format('otf'),
-    url('/global/fonts/AeonikPro-Light.woff') format('woff'),
-    url('/global/fonts/AeonikPro-Light.woff2') format('woff2');
-    font-weight: 300;
+    src: url('/global/fonts/AeonikPro-Bold.otf') format('otf'),
+    url('/global/fonts/AeonikPro-Bold.woff') format('woff'),
+    url('/global/fonts/AeonikPro-Bold.woff2') format('woff2');
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -63,7 +72,7 @@
 html {
     font-size: 10px;
     font-family: 'Aeonik Pro', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     word-break: break-word;
 }
 

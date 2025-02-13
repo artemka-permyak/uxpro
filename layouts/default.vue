@@ -157,7 +157,7 @@ onMounted(() => {
 
   window.addEventListener('scroll', handleScroll)
 
-  smoothScroll.value = new SmoothScroll(document, 35, 10)
+  // smoothScroll.value = new SmoothScroll(document, 35, 10)
 });
 
 onBeforeUnmount(() => {

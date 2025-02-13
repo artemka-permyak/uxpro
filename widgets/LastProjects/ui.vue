@@ -26,7 +26,7 @@
 
               <div
                 v-if="project.is_nda"
-                class="flex gap-[.2rem] text-[1.4rem] leading-[2rem] px-[1.2rem] py-[.4rem] font-bold rounded-full border border-white transition-colors group-hover:border-black group-hover:text-black"
+                class="flex gap-[.2rem] text-[1.4rem] leading-[2rem] px-[1.2rem] py-[.4rem] font-medium rounded-full border border-white transition-colors group-hover:border-black group-hover:text-black"
               >
                 <EyeClosedIcon
                   width="20"
@@ -51,7 +51,7 @@
                   {{ item.title }}
                 </p>
 
-                <p class="text-[1.6rem] leading-[2.2rem] font-bold transition-colors group-hover:text-black">
+                <p class="text-[1.6rem] leading-[2.2rem] font-medium transition-colors group-hover:text-black">
                   {{ item.value }}
                 </p>
               </div>
