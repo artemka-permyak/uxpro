@@ -20,7 +20,7 @@
         <div :class="['relative group hover:bg-white transition-colors w-full h-full flex flex-col gap-mbGap p-gap border-t border-b border-darkGrey', {
           'border-l border-r': index % 3 === 0,
           'border-r': index !== 0 && index % 3 === 1 || index === lastProjects.length - 1,
-          'before:h-[6.4rem] before:bg-darkGrey before:border-l before:border-darkGrey before:absolute before:left-[-.05rem] before:top-[-.05rem]': index !== 0 && index % 3 === 2,
+          'before:h-[6.4rem] before:bg-darkGrey before:border-l before:border-darkGrey before:absolute before:left-[-.05rem] before:top-[-.05rem] mb:before:left-[-.1rem] mb:before:top-[-.1rem]': index !== 0 && index % 3 === 2,
         }]">
           <div class="group flex flex-col grow gap-mbGap">
             <div class="group flex justify-between gap-mbGap">
