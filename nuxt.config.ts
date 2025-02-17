@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-  
+
   css: [
     'normalize.css',
     '@/global/styles/index.css'
@@ -54,6 +54,10 @@ export default defineNuxtConfig({
   site: {
     url: process.env.DOMAIN_NAME,
     name: 'UxPRO',
+  },
+
+  sitemap: {
+    sources: ['/api/__sitemap__/urls']
   },
 
   vite: {
