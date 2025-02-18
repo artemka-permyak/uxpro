@@ -1,22 +1,22 @@
 <template>
   <div
-    :class="['flex grow flex-col justify-end', {
+    :class="['flex', {
       'gap-[1.6rem]': !props.isSmallGap,
       'gap-[0.8rem]': props.isSmallGap,
     }]"
   >
     <AnimatedLink
+      :href="`tel:${PHONE}`"
+      class="t1sb"
+    >
+      {{ PHONE }},
+    </AnimatedLink>
+
+    <AnimatedLink
       :href="`mailto:${EMAIL}`"
       class="t1sb"
     >
       {{ EMAIL }}
-    </AnimatedLink>
-
-    <AnimatedLink
-      :href="`tel:${PHONE}`"
-      class="t1sb"
-    >
-      {{ PHONE }}
     </AnimatedLink>
   </div>
 </template>

@@ -17,9 +17,18 @@
         />
 
         <div class="w-full flex grow only-desktop">
-          <EmailAndPhone class="gap-[1.2rem]" />
+          <div class="flex flex-col gap-mbGap justify-end">
+            <SocialLinks
+              :show-only="['telegram']"
+            />
 
-          <SocialLinks class="items-end justify-end" />
+            <EmailAndPhone class="gap-[1.2rem]" />
+          </div>
+
+          <SocialLinks
+            class="w-full items-end justify-end"
+            :show-only="['dprofile', 'behance']"
+          />
         </div>
 
         <ContactUsFeature
@@ -99,20 +108,18 @@ const isContacts = isContactsPage()
 const PAGES_HEADERS = {
   '/': `
     Создаём дизайн
-    и проектируем цифровые
+    и проектируем сложные цифровые
     продукты
   `,
 
   '/contact-us': `
-    Напишите нам и мы
-    вместе придумаем
-    что-то крутое!
+    Давайте познакомимся и
+    обсудим ваш проект
   `,
 
   '/contact-us/': `
-    Напишите нам и мы
-    вместе придумаем
-    что-то крутое!
+    Давайте познакомимся и
+    обсудим ваш проект
   `
 }
 

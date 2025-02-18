@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col gap-[6.4rem] px-gap mb:gap-gap mb:px-mbGap">
-    <p class="only-desktop text-grey text-[3.2rem] leading-[3.6rem] pl-[19.8rem]">
+    <p class="only-desktop text-grey text-[3.2rem] leading-[3.6rem]">
       {{ LABELS.title }}
     </p>
 

@@ -6,7 +6,7 @@
     }]"
   >
     <AnimatedLink
-      v-for="link in SOCIAL_LINKS"
+      v-for="link in filteredSocialLinks"
       :key="link.id"
       :href="link.to"
       target="_blank"
@@ -19,32 +19,20 @@
 
 <script setup lang="ts">
 import AnimatedLink from '~/global/ui/AnimatedLink.vue'
+import { SOCIAL_LINKS } from '~/global/const'
 
 defineOptions({
   name: 'SocialLinks'
 })
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   isSmallGap?: boolean
-}>()
+  showOnly?: string[]
+}>(), {
+  showOnly: () => SOCIAL_LINKS.map(link => link.id)
+})
 
-const SOCIAL_LINKS = [
-  {
-    title: 'Telegram',
-    id: 'Telegram',
-    to: 'https://t.me/uxmerzlov',
-  },
-
-  {
-    title: 'Dprofile',
-    id: 'Dprofile',
-    to: 'https://dprofile.ru/ux.pro',
-  },
-
-  {
-    title: 'Behance',
-    id: 'Behance',
-    to: 'https://www.behance.net/merzlov',
-  },
-]
+const filteredSocialLinks = computed(() => {
+  return props.showOnly && props.showOnly.length ? SOCIAL_LINKS.filter(link => props.showOnly?.includes(link.id)) : SOCIAL_LINKS
+})
 </script>

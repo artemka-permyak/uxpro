@@ -43,7 +43,7 @@ defineOptions({
 })
 
 const LABELS = {
-  title: getSplitBlockTitle('Услуги'),
+  title: getSplitBlockTitle('Что можем предложить'),
 }
 
 const SERVICES = [

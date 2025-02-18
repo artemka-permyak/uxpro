@@ -24,7 +24,8 @@
           <div class="w-full flex flex-col gap-mbGap">
             <div class="group overflow-hidden">
               <div
-                :class="['group-hover:scale-105 duration-500 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
+                :class="[' duration-500 transition-transform overflow-hidden mb:w-[32.8rem] mb:h-[32.8rem]', {
+                  'group-hover:scale-105': [1, 2].includes(project.id),
                   'w-[63rem] h-[63rem] mb:w-full mb:h-[32.8rem]': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
                   'h-[70.7rem] mb:w-full mb:h-[32.8rem]': (index % 2 === 1 && projectIndex % 2 === 0) || (index % 2 === 0 && projectIndex % 2 === 1),
                 }]"
@@ -37,7 +38,11 @@
               </div>
             </div>
 
-            <div class="group t1sb group-hover:text-black group-hover:bg-white transition-colors w-full inline-block">
+            <div
+              :class="['group t1sb transition-colors w-full inline-block', {
+                'group-hover:text-black group-hover:bg-white': [1, 2].includes(project.id)
+              }]"
+            >
               <ArrowRight
                 width="20"
                 height="20"
@@ -48,7 +53,11 @@
                 {{ project.title }}
               </p>
 
-              <div class="w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white group-hover:bg-black inline-block mr-[.8rem] mb-[.25rem] align-middle" />
+              <div
+                :class="['w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white inline-block mr-[.8rem] mb-[.25rem] align-middle', {
+                  'group-hover:bg-black': [1, 2].includes(project.id)
+                }]"
+              />
 
               <p class="inline">
                 {{ project.preview_description }}
