@@ -57,14 +57,14 @@ const SERVICES = [
     description: 'Дизайн-концепции, дизайн-системы, контроль на этапе реализации',
   },
   {
-    title: 'Исследования',
-    description: 'Анализ метрик, основных user flow и эргономики интерфейса',
-  },
-  {
     title: 'UX/UI аудит',
     description: 'Проверка гипотез, глубинные интервью и опросы, ux-тесты, работа со стейкхолдерами',
     descriptionWidth: '55.7rem',
-  }
+  },
+  {
+    title: 'Исследования',
+    description: 'Анализ метрик, основных user flow и эргономики интерфейса',
+  },
 ].map((service, index) => ({
   ...service,
   id: `${service}-${index + 1}`
