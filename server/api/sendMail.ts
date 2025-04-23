@@ -20,9 +20,6 @@ export default defineEventHandler(async (event) => {
     host: smtpHost,
     port: smtpPort,
     secure: false,
-    tls: {
-      rejectUnauthorized: false,
-    },
     auth: {
       user: smtpUser,
       pass: smtpPassword,
