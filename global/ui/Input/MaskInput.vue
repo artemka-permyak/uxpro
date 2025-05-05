@@ -2,6 +2,7 @@
   <input
     ref="maskedInput"
     v-bind="$attrs"
+    :value="maskedValue"
     @input="handleInput"
   >
 </template>
@@ -18,6 +19,18 @@ const props = defineProps<{
   modelValue: string
 }>()
 
+const {
+  modelValue
+} = toRefs(props)
+
+const maskedValue = ref(applyMask(modelValue.value))
+
+watch(() => modelValue.value, (value) => {
+  maskedValue.value = applyMask(modelValue.value);
+
+  emit('update:modelValue', maskedValue.value);
+})
+
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void
 }>()
@@ -25,11 +38,11 @@ const emit = defineEmits<{
 function handleInput(event: Event) {
   const target = event.target as HTMLInputElement
 
-  const maskedValue = applyMask(target.value);
+  maskedValue.value = applyMask(target.value);
 
-  target.value = maskedValue;
+  target.value = maskedValue.value;
 
-  emit('update:modelValue', maskedValue);
+  emit('update:modelValue', maskedValue.value);
 }
 
 function applyMask(value: string) {

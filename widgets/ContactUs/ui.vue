@@ -11,7 +11,7 @@
 
     <template #right>
       <form
-        class="flex flex-col gap-[6.4rem]"
+        class="relative flex flex-col gap-[6.4rem]"
         @submit.prevent="handleSubmitForm"
       >
         <component
@@ -25,6 +25,16 @@
           :model-value="input.value"
           @update:model-value="handleChangeInput(input, $event)"
         />
+
+        <p class="text-grey t1">
+          Нажимая на «Отправить», вы соглашаетесь с <RouterLink
+            to="/policy"
+            target="_blank"
+            class="text-white underline"
+          >
+            политикой конфиденциальности
+          </RouterLink>
+        </p>
 
         <ButtonUi
           type="submit"
@@ -53,6 +63,37 @@
             height="16"
           />
         </ButtonUi>
+
+        <transition name="fade">
+          <div
+            v-if="['success', 'error'].includes(formState)"
+            class="absolute top-0 left-0 bottom-0 right-0 text-white bg-black flex flex-col gap-gap items-center justify-center"
+          >
+            <Check
+              v-if="formState === 'success'"
+              width="120"
+              height="120"
+            />
+
+            <Close
+              v-if="formState === 'error'"
+              width="120"
+              height="120"
+            />
+
+            <h3 class="h3">
+              {{ formState === 'success' ? 'Форма была успешно отправлена!' : 'Произошла ошибка при отправке формы.' }}
+            </h3>
+
+            <button
+              type="button"
+              class="border-b border-b-white"
+              @click="handleResetForm"
+            >
+              {{ formState === 'success' ? 'Отправить еще' : 'Попробовать еще раз' }}
+            </button>
+          </div>
+        </transition>
       </form>
     </template>
   </SplitBlock>
@@ -60,6 +101,8 @@
 
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
+import Close from 'public/svgs/close.svg'
+import Check from 'public/svgs/check.svg'
 import { SplitBlock, InputUi, TextareaUi, ButtonUi } from '@/global/ui'
 import { plural } from '@/global/lib'
 
@@ -73,19 +116,11 @@ const LABELS = {
 
 const REQUIRED_FIELD = 'Обязательное поле'
 
-const formValues = ref({
-  name: '',
-  phone: '',
-  email: '',
-  comment: '',
-})
+const formValues = ref(getDefaultFormValues())
 
-const formErrors = ref({
-  name: '',
-  phone: '',
-  email: '',
-  comment: '',
-})
+const formErrors = ref(getDefaultFormErrors())
+
+const formState = ref<'success' | 'idle' | 'error'>('idle')
 
 const FORM_INPUTS = computed(() => {
   return [
@@ -141,12 +176,41 @@ const FORM_INPUTS = computed(() => {
   ]
 })
 
+function getDefaultFormValues() {
+  return {
+    name: '',
+    phone: '',
+    email: '',
+    comment: '',
+  }
+}
+
+function getDefaultFormErrors() {
+  return {
+    name: '',
+    phone: '',
+    email: '',
+    comment: '',
+  }
+}
+
 async function handleSubmitForm() {
   if (validateForm()) {
-    await $fetch('/api/sendMail', {
-      method: 'post',
-      body: formValues.value,
+    // await $fetch('/api/sendMail', {
+    //   method: 'post',
+    //   body: formValues.value,
+    // })
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(true)
+      }, 1000)
     })
+      .then(() => {
+        formState.value = 'success'
+      })
+      .catch(() => {
+        formState.value = 'error'
+      })
   }
 }
 
@@ -244,5 +308,15 @@ function validateInput(id: string) {
       setError(input.id, REQUIRED_FIELD)
     }
   }
+}
+
+function handleResetForm() {
+  formState.value = 'idle'
+
+  formValues.value = getDefaultFormValues()
+
+  nextTick(() => {
+    formErrors.value = getDefaultFormErrors()
+  })
 }
 </script>

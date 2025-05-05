@@ -4,24 +4,25 @@
       v-if="!mask"
       v-bind="$attrs"
       :id="id"
-      v-model="modelValue"
+      :value="modelValue"
       :type="type"
       :placeholder="placeholder"
       autocomplete="off"
       class="t1sb peer w-full bg-transparent border-b border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem]"
       @input="handleInput"
     >
+
     <MaskInputUi
       v-else
       v-bind="$attrs"
       :id="id"
-      v-model="modelValue"
+      :model-value="modelValue"
       :mask="mask"
       :type="type"
       :placeholder="placeholder"
       autocomplete="off"
       class="t1sb peer w-full bg-transparent border-b border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem]"
-      @input="handleInput"
+      @update:model-value="handleUpdateModelValue"
     />
     <label
       :for="id"
@@ -82,6 +83,10 @@ const mask = computed(() => {
 
 const handleInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
+  emit('update:modelValue', value)
+}
+
+function handleUpdateModelValue(value: string) {
   emit('update:modelValue', value)
 }
 </script>

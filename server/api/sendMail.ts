@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
       from: `"Сайт uxpro.ru" <${process.env.SMTP_USER}>`,
       to: EMAIL,
       subject: `Комментарий от ${body.name}`,
-      text: `Сообщение от клиента:\n\nИмя: ${body.name}\nEmail: ${body.email}\nТелефон: ${body.phone}\nКомментарий: ${body.comment}`,
+      text: `Сообщение от клиента:\n\nИмя: ${body.name}\nПочта: ${body.email}\nТелефон: ${body.phone}\nКомментарий: ${body.comment}`,
     });
 
     return getSuccessResponse({

@@ -6,7 +6,10 @@
       'gap-[3.2rem]': !isMain,
     }]"
   >
-    <div class="flex flex-col-reverse mb:flex-col-reverse mb:gap-mbGap pb-0 gap-mbGap">
+    <div
+      v-if="isShowImgAndLinks"
+      class="flex flex-col-reverse mb:flex-col-reverse mb:gap-mbGap pb-0 gap-mbGap"
+    >
       <div
         v-if="isShow"
         class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]"
@@ -165,6 +168,10 @@ onMounted(() => {
   if (headerMenuWidget.value) {
     observer.value.observe(headerMenuWidget.value.$el)
   }
+})
+
+const isShowImgAndLinks = computed(() => {
+  return !['/policy', '/policy/'].includes(route.path)
 })
 
 function handleOpenModalBurger() {
