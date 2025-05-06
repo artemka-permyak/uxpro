@@ -196,14 +196,9 @@ function getDefaultFormErrors() {
 
 async function handleSubmitForm() {
   if (validateForm()) {
-    // await $fetch('/api/sendMail', {
-    //   method: 'post',
-    //   body: formValues.value,
-    // })
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true)
-      }, 1000)
+    await $fetch('/api/sendMail', {
+      method: 'post',
+      body: formValues.value,
     })
       .then(() => {
         formState.value = 'success'
