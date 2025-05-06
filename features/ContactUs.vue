@@ -69,7 +69,7 @@ const mobileIconSize = computed(() => {
 const route = useRoute()
 
 const isContactUsPage = computed(() => {
-  return route.fullPath.includes('/contact-us')
+  return route.path.includes('/contact-us')
 })
 
 function handleClick() {

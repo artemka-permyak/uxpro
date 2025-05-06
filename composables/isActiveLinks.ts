@@ -12,7 +12,7 @@ export default function isActiveLinks(paths: string | string[], isExact = true) 
           isLastSlash ? path.slice(0, path.length - 1) : `${path}/`
         ]
 
-        return isExact ? fullPaths.includes(route.fullPath) : route.fullPath.includes(path)
+        return isExact ? fullPaths.includes(route.path) : route.path.includes(path)
       })
     })
   } else {
@@ -25,7 +25,7 @@ export default function isActiveLinks(paths: string | string[], isExact = true) 
         isLastSlash ? paths.slice(0, paths.length - 1) : `${paths}/`
       ]
 
-      return isExact ? fullPaths.includes(route.fullPath) : route.fullPath.includes(paths)
+      return isExact ? fullPaths.includes(route.path) : route.path.includes(paths)
     })
   }
 }

@@ -140,7 +140,7 @@ const bgImageDesktopSrc = computed(() => {
   return getImageDomainLink(`/images/${path}`)
 })
 
-watch(() => route.fullPath, () => {
+watch(() => route.path, () => {
   changeTitle()
 }, {
   immediate: true
