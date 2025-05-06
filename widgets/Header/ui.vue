@@ -147,7 +147,7 @@ watch(() => route.fullPath, () => {
 })
 
 function changeTitle() {
-  store.changeTitle(PAGES_HEADERS[route.fullPath as '/' | '/contact-us'])
+  store.changeTitle(PAGES_HEADERS[route.path as '/' | '/contact-us'])
 }
 
 const isShow = isShowFullHeader();
