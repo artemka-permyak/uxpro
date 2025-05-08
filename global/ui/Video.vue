@@ -16,11 +16,13 @@ const props = withDefaults(defineProps<{
   src: string
   poster?: string
   loop?: boolean
+  playsinline?: boolean
 }>(), {
   autoplay: true,
   controls: false,
   muted: true,
   poster: '',
   loop: true,
+  playsinline: true
 })
 </script>
