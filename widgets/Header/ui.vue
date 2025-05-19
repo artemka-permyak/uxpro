@@ -14,24 +14,31 @@
         v-if="isShow"
         class="relative z-10 bg-black flex px-gap mb:px-mbGap mb:flex-col mb:gap-[2.4rem]"
       >
+        <CompanyAwards class="only-mobile pt-mbGap" />
+
         <h1
           class="h1 w-full grow"
           v-html="store.getTitle"
         />
 
-        <div class="w-full flex grow only-desktop">
-          <div class="flex flex-col gap-mbGap justify-end">
+        <div class="w-full grow flex items-end only-desktop">
+          <CompanyAwards class="shrink-0" />
+
+          <div class="w-full flex flex-col grow justify-end gap-gap">
+            <div class="flex flex-col gap-mbGap">
+              <SocialLinks
+                :show-only="['telegram']"
+                class="items-end"
+              />
+
+              <EmailAndPhone class="justify-end gap-[1.2rem]" />
+            </div>
+
             <SocialLinks
-              :show-only="['telegram']"
+              class="w-full !flex-row items-end justify-end"
+              :show-only="['dprofile', 'behance']"
             />
-
-            <EmailAndPhone class="gap-[1.2rem]" />
           </div>
-
-          <SocialLinks
-            class="w-full items-end justify-end"
-            :show-only="['dprofile', 'behance']"
-          />
         </div>
 
         <ContactUsFeature
@@ -95,7 +102,7 @@ import { useHeaderStore } from '@/global/store/header'
 import { getImageDomainLink } from '@/global/lib'
 
 import HeaderMenuWidget from '@/widgets/Header/HeaderMenu.vue'
-import ContactUsFeature from '@/features/ContactUs.vue'
+import { CompanyAwards, ContactUsFeature } from '@/features'
 
 defineOptions({
   name: 'HeaderWidget',
