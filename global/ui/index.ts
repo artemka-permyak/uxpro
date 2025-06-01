@@ -3,6 +3,7 @@ import LogoImg from '@/global/ui/Logo.vue'
 import { InputUi, MaskInputUi } from '~/global/ui/Input'
 import TextareaUi from '@/global/ui/Textarea.vue'
 import ButtonUi from '@/global/ui/Button.vue'
+import ArrowFilledLink from '@/global/ui/ArrowFilledLink.vue'
 
 export {
   SplitBlock,
@@ -14,4 +15,5 @@ export {
   MaskInputUi,
   TextareaUi,
   ButtonUi,
+  ArrowFilledLink,
 }

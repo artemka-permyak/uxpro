@@ -1,5 +1,5 @@
 <template>
-  <ContactUsWidget class="py-[6.4rem] px-gap" />
+  <ContactUsWidget class="pb-[6.4rem]" />
 </template>
 
 <script setup lang="ts">

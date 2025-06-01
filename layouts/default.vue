@@ -1,25 +1,20 @@
 <template>
   <div class="flex flex-col max-w-[192rem] m-auto text-white pb-[2.4rem] mb:pb-mbGap">
-    <div
-      :class="['mb:border-none mb:pb-0', {
-        'pb-[3.2rem]': isMain || isContacts,
-      }]"
+    <StickyHeader
+      v-if="route.name !== 'index'"
+      @open:modal-burger="handleOpenModalBurger"
+    />
+
+    <StickyHeader
+      v-if="route.name === 'index' && isShowStickyHeader"
+      @open:modal-burger="handleOpenModalBurger"
+    />
+
+    <main
+      :class="{
+        'pt-[12.4rem] mb:pt-[3.2rem]': !isMain,
+      }"
     >
-      <div
-        v-if="isMain"
-        ref="stickyContainerRef"
-        class="sticky top-0 w-full p-gap only-desktop z-0"
-      >
-        <LogoImg ref="logoRef" />
-      </div>
-
-      <HeaderWidget
-        class="z-20"
-        @open:modal-burger="handleOpenModalBurger"
-      />
-    </div>
-
-    <main>
       <slot />
     </main>
 
@@ -79,33 +74,30 @@
 </template>
 
 <script setup lang="ts">
-import type { VNodeRef } from 'vue'
-
-import { LogoImg } from '@/global/ui'
-import { HeaderWidget } from '@/widgets/Header'
 import { FooterWidget } from '@/widgets/Footer'
 import ContactUsFeature from '~/features/ContactUs.vue'
 import { EmailAndPhone, SocialLinks } from '~/global/ui/ContactsLinks'
 import HeaderMenuLogoLink from '~/widgets/Header/HeaderMenuLogoLink.vue'
 import Close from 'public/svgs/close.svg'
 import { disablePageScroll, enablePageScroll } from '@fluejs/noscroll'
-import { SmoothScroll } from '@/global/lib'
+import StickyHeader from '~/widgets/StickyHeader/ui.vue'
+import { useHeaderStore } from '~/global/store/header'
 
 defineOptions({
   name: 'LayoutDefault'
 })
 
-const logoRef = ref<VNodeRef | null>(null);
-const stickyContainerRef = ref<VNodeRef | null>(null);
+const headerStore = useHeaderStore()
 
-const isShowModalBurger = ref(false);
-
-const isMain = isMainPage()
-const isContacts = isContactsPage()
-
-const smoothScroll = ref<SmoothScroll | null>(null)
+const {
+  isShowStickyHeader
+} = storeToRefs(headerStore)
 
 const route = useRoute()
+
+const isShowModalBurger = ref(false)
+
+const isMain = isMainPage()
 
 watch(() => isShowModalBurger.value, value => {
   if (value) {
@@ -115,15 +107,6 @@ watch(() => isShowModalBurger.value, value => {
   }
 })
 
-watch(
-  () => route.path,
-  () => {
-    nextTick(() => {
-      smoothScroll.value?.resetPos();
-    })
-  },
-);
-
 function handleOpenModalBurger() {
   isShowModalBurger.value = true
 }
@@ -131,36 +114,4 @@ function handleOpenModalBurger() {
 function handleCloseModalBurger() {
   isShowModalBurger.value = false
 }
-
-function handleScroll() {
-  const scrollY = window.scrollY;
-  const stickyContainer = stickyContainerRef.value;
-  const el = logoRef.value?.$el
-
-  if (!el || !stickyContainer) return
-
-  if (scrollY >= el.clientHeight + 32) {
-    el.style.opacity = '0';
-    el.style.visibility = 'hidden';
-
-    stickyContainer.style.zIndex = '-1';
-  } else {
-    el.style.opacity = '';
-    el.style.visibility = '';
-
-    stickyContainer.style.zIndex = '';
-  }
-}
-
-onMounted(() => {
-  handleScroll();
-
-  window.addEventListener('scroll', handleScroll)
-
-  // smoothScroll.value = new SmoothScroll(document, 35, 10)
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-});
 </script>

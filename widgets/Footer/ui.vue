@@ -1,13 +1,13 @@
 <template>
   <footer class="flex flex-col gap-[9.6rem] pt-[19.2rem] px-gap mb:px-mbGap mb:pt-[12.8rem]">
     <NuxtImg
-      :src="getImageDomainLink('/images/footer-bg.png')"
+      :src="getDomainLink('/images/footer-bg.png')"
       alt="Footer"
       class="only-desktop object-contain"
     />
 
     <NuxtImg
-      :src="getImageDomainLink('/images/footer-mobile-bg.png')"
+      :src="getDomainLink('/images/footer-mobile-bg.png')"
       alt="Footer"
       class="only-mobile"
     />
@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import { EmailAndPhone, SocialLinks } from '@/global/ui/ContactsLinks'
-import { getImageDomainLink } from '@/global/lib'
+import { getDomainLink } from '@/global/lib'
 
 defineOptions({
   name: 'FooterWidget'

@@ -1,18 +1,14 @@
 <template>
   <div class="flex flex-col gap-[6.4rem] mb:gap-gap">
-    <p class="pl-[23rem] text-[3.2rem] text-grey leading-[3.6rem] only-desktop">
+    <BlockHeader class="px-gap">
       {{ LABELS.title }}
-    </p>
-
-    <p class="t1sb text-grey px-mbGap only-mobile">
-      {{ LABELS.title }}
-    </p>
+    </BlockHeader>
 
     <div class="flex flex-col border-t border-t-darkGrey">
       <div
         v-for="(service, index) in SERVICES"
         :key="service.id"
-        class="group flex items-end px-[2.4rem] py-gap border-b border-b-darkGrey hover:text-black hover:bg-white hover:translate-x-[1.6rem] transition-all mb:flex-col mb:px-mbGap mb:py-[2.4rem] mb:gap-[1.6rem] mb:hover:translate-x-0"
+        class="group flex items-end px-[2.4rem] py-gap border-b border-b-darkGrey hover:text-black hover:bg-white hover:translate-x-[1.6rem] transition-all mb:flex-col mb:px-mbGap mb:py-[2.4rem] mb:gap-[1.6rem] mb:hover:translate-x-0 mb:items-start"
       >
         <p class="w-[20.6rem] text-[2rem] leading-[2rem] only-desktop">
           {{ getSplitBlockTitle(`0${index + 1}`) }}
@@ -37,13 +33,14 @@
 
 <script setup lang="ts">
 import { getSplitBlockTitle } from '@/global/ui'
+import { BlockHeader } from '~/features'
 
 defineOptions({
   name: 'ServicesWidget'
 })
 
 const LABELS = {
-  title: getSplitBlockTitle('Что можем предложить'),
+  title: 'Услуги',
 }
 
 const SERVICES = [

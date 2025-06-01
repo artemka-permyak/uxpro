@@ -1,5 +1,5 @@
 import getDomainName from '~/global/lib/domainName'
 
-export default function getImageDomainLink(path: string) {
+export default function getDomainLink(path: string) {
   return `${getDomainName()}${path}`
 }

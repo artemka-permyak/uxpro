@@ -1,68 +1,118 @@
 <template>
-  <SplitBlock
+  <div
     id="contactUsFormWidget"
-    class="px-gap mb:px-[1.6rem]"
+    class="flex flex-col gap-gap"
   >
-    <template #left>
-      <span class="t1sb">
-        {{ LABELS.title }}
-      </span>
-    </template>
+    <div class="flex justify-between border-b border-darkGrey pb-gap px-gap mb:flex-col mb:gap-[3.2rem] mb:px-mbGap">
+      <h2
+        class="h2 only-desktop"
+        v-html="LABELS.title"
+      />
 
-    <template #right>
-      <form
-        class="relative flex flex-col gap-[6.4rem]"
-        @submit.prevent="handleSubmitForm"
-      >
-        <component
-          :is="input.component"
-          v-for="input in FORM_INPUTS"
-          :id="input.id"
-          :key="input.id"
-          :type="input.type"
-          :error="input.error"
-          :placeholder="input.placeholder"
-          :model-value="input.value"
-          @update:model-value="handleChangeInput(input, $event)"
+      <h1
+        class="h1 only-mobile"
+        v-html="LABELS.mobileTitle"
+      />
+
+      <div class="flex gap-[2.4rem] mb:flex-col mb:gap-[1.6rem]">
+        <NuxtImg
+          :src="getDomainLink('/images/contacts/sergey-logo.png')"
+          alt="Сергей UxPro"
+          class="w-[9rem] h-[9rem] rounded-full"
         />
 
-        <p class="text-grey t1">
-          Нажимая «Отправить», вы соглашаетесь с <RouterLink
-            to="/policy"
+        <div class="flex flex-col gap-[.8rem]">
+          <div
+            class="text-[1.6rem] leading-[2.2rem] only-desktop"
+            v-html="LABELS.description"
+          />
+
+          <div
+            class="text-[1.6rem] leading-[2.2rem] only-mobile"
+            v-html="LABELS.mobileDescription"
+          />
+
+          <ArrowFilledLink
+            :href="SOCIAL_LINKS_TO.TELEGRAM"
             target="_blank"
-            class="text-white underline"
+            :label="LABELS.telegram"
+          />
+        </div>
+
+        <EmailAndPhone class="only-mobile" />
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-[6.4rem]">
+      <form
+        class="relative flex flex-col gap-[6.4rem] px-gap grow mb:gap-[3.2rem] mb:px-mbGap"
+        @submit.prevent="handleSubmitForm"
+      >
+        <div class="w-[50%] mb:w-full">
+          <div
+            v-for="input in FORM_INPUTS"
+            :key="input.id"
+            :class="['pb-[6.4rem] last:pb-0 mb:pb-[3.2rem]', input.class]"
           >
-            политикой конфиденциальности
-          </RouterLink>
-        </p>
+            <component
+              :is="input.component"
+              :id="input.id"
+              :type="input.type"
+              :error="input.error"
+              :placeholder="input.placeholder"
+              :model-value="input.value"
+              @update:model-value="handleChangeInput(input, $event)"
+            />
+          </div>
+        </div>
 
-        <ButtonUi
-          type="submit"
-          size="large"
-          class="only-desktop"
-        >
-          Отправить
+        <div class="flex gap-gap">
+          <div class="flex flex-col gap-[6.4rem] mb:gap-[3.2rem]">
+            <p class="text-grey t1">
+              Нажимая «Отправить», вы соглашаетесь с <RouterLink
+                to="/policy"
+                target="_blank"
+                class="text-white underline"
+              >
+                политикой конфиденциальности
+              </RouterLink>
+            </p>
 
-          <ArrowRight
-            width="20"
-            height="20"
-          />
-        </ButtonUi>
+            <ButtonUi
+              type="submit"
+              size="large"
+              class="only-desktop"
+            >
+              Отправить
 
-        <ButtonUi
-          type="submit"
-          size="small"
-          class="only-mobile"
-        >
-          <span class="text-[1.8rem] leading-[2.1rem]">
-            Отправить
-          </span>
+              <ArrowRight
+                width="20"
+                height="20"
+              />
+            </ButtonUi>
 
-          <ArrowRight
-            width="16"
-            height="16"
-          />
-        </ButtonUi>
+            <ButtonUi
+              type="submit"
+              size="small"
+              class="only-mobile"
+            >
+              <span class="text-[1.8rem] leading-[2.1rem]">
+                Отправить
+              </span>
+
+              <ArrowRight
+                width="16"
+                height="16"
+              />
+            </ButtonUi>
+          </div>
+
+          <div class="flex flex-col gap-[1.6rem] items-end grow w-[50%] only-desktop">
+            <EmailAndPhone />
+
+            <DownloadPresentation />
+          </div>
+        </div>
 
         <transition name="fade">
           <div
@@ -95,23 +145,33 @@
           </div>
         </transition>
       </form>
-    </template>
-  </SplitBlock>
+
+      <DownloadPresentation class="px-[1.6rem] only-mobile" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
 import Close from 'public/svgs/close.svg'
 import Check from 'public/svgs/check.svg'
-import { SplitBlock, InputUi, TextareaUi, ButtonUi } from '@/global/ui'
-import { plural } from '@/global/lib'
+import { InputUi, TextareaUi, ButtonUi } from '@/global/ui'
+import { getDomainLink, plural } from '@/global/lib'
+import { ArrowFilledLink } from '~/global/ui'
+import { SOCIAL_LINKS_TO } from '~/global/const/contacts'
+import { EmailAndPhone } from '~/global/ui/ContactsLinks'
+import { DownloadPresentation } from '~/features'
 
 defineOptions({
   name: 'ContactUsWidget',
 })
 
 const LABELS = {
-  title: 'Оставьте свои данные здесь',
+  title: 'Давайте познакомимся<br> и обсудим ваш проект!',
+  mobileTitle: 'Давайте познакомимся и&nbsp;обсудим ваш проект!',
+  description: 'Хотите обсудить сотрудничество напрямую?<br> Свяжитесь со мной — буду рад помочь!',
+  mobileDescription: 'Хотите обсудить сотрудничество напрямую? Свяжитесь со мной — буду рад помочь!',
+  telegram: 'Telegram',
 }
 
 const REQUIRED_FIELD = 'Обязательное поле'
@@ -134,6 +194,7 @@ const FORM_INPUTS = computed(() => {
       validation: {
         min: 2,
       },
+      class: 'inline-block w-[50%] pr-[1.6rem] mb:block mb:w-full mb:pr-0'
     },
 
     {
@@ -147,6 +208,7 @@ const FORM_INPUTS = computed(() => {
       validation: {
         match: /^\+7 \(\d{3}\) \d{3} \d{4}.?$/,
       },
+      class: 'inline-block w-[50%] pl-[1.6rem] mb:block mb:w-full mb:pl-0',
     },
 
     {

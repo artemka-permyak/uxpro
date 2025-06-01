@@ -1,27 +1,20 @@
 <template>
-  <div class="relative z-10 h-[5.9rem] w-full flex items-center gap-gap bg-black mb:gap-mbGap">
-    <div class="grow">
+  <div class="relative z-10 h-[6.2rem] w-full flex items-center gap-gap bg-black mb:gap-mbGap">
+    <div class="grow w-[50%]">
       <HeaderMenuLogoLink />
     </div>
 
-    <div class="flex grow only-desktop">
-      <!--      <nuxt-link-->
-      <!--        v-for="menuItem in MENU_ITEMS"-->
-      <!--        :key="menuItem.id"-->
-      <!--        :class="['flex items-center justify-center min-w-[17.5rem] p-[1.6rem] transition-colors', {-->
-      <!--          'text-white hover:text-black hover:bg-white': isActiveLink.to !== menuItem.to,-->
-      <!--          'text-black bg-white hover:text-white hover:bg-black': isActiveLink.to === menuItem.to,-->
-      <!--          'cursor-not-allowed': menuItem.disabled,-->
-      <!--        }]"-->
-      <!--        :to="menuItem.to"-->
-      <!--      >-->
-      <!--        {{ menuItem.title }}-->
-      <!--      </nuxt-link>-->
-
+    <div class="w-[50%] flex items-center gap-gap grow only-desktop">
       <ContactUsFeature
         size="small"
-        class="p-[1.6rem]"
+        class="grow p-[1.6rem]"
       />
+
+      <div class="shrink-0 only-desktop">
+        <SocialLinks
+          :show-only="['telegram']"
+        />
+      </div>
     </div>
 
     <div
@@ -40,6 +33,7 @@
 <script setup lang="ts">
 import ContactUsFeature from '@/features/ContactUs.vue'
 import HeaderMenuLogoLink from '@/widgets/Header/HeaderMenuLogoLink.vue'
+import { SocialLinks } from '@/global/ui/ContactsLinks'
 
 defineOptions({
   name: 'HeaderMenuWidget',

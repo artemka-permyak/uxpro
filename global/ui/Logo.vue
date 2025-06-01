@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import getImageDomainLink from '@/global/lib/imageDomainLink'
+  import getDomainLink from '~/global/lib/domainLink'
 
   defineOptions({
     name: 'LogoImg',
   })
 
-  const LOGO_PATH = getImageDomainLink('/images/logo.png')
+  const LOGO_PATH = getDomainLink('/images/logo.png')
 </script>
 
 <template>

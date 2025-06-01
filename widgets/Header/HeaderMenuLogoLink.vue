@@ -1,7 +1,9 @@
 <template>
   <nuxt-link
     class="block h-[2.7rem]"
-    to="/"
+    :to="{
+      name: 'index',
+    }"
   >
     <Logo class="h-full" />
   </nuxt-link>

@@ -1,12 +1,8 @@
 <template>
   <section class="flex flex-col gap-[6.4rem] px-gap mb:gap-gap mb:px-mbGap">
-    <p class="only-desktop text-grey text-[3.2rem] leading-[3.6rem]">
+    <BlockHeader>
       {{ LABELS.title }}
-    </p>
-
-    <p class="only-mobile t1sb text-grey">
-      {{ LABELS.title }}
-    </p>
+    </BlockHeader>
 
     <div class="w-full flex h-[57.8rem] mb:overflow-x-auto mb:snap-x">
       <div
@@ -79,13 +75,14 @@
 
 <script setup lang="ts">
 import EyeClosedIcon from '@/public/svgs/eyeClosed.svg'
+import { BlockHeader } from '~/features'
 
 defineOptions({
   name: 'LastProjectsWidget'
 })
 
 const LABELS = {
-  title: '(Последние проекты)',
+  title: 'Последние проекты',
   nda: 'NDA',
   direction: 'Направление',
   deadline: 'Срок исполнения'

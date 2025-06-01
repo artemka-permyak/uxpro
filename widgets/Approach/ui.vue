@@ -4,13 +4,9 @@
     class="px-gap mb:px-[1.6rem]"
   >
     <template #left>
-      <p class="text-grey text-[3.2rem] leading-[3.6rem] only-desktop">
+      <BlockHeader>
         {{ LABELS.title }}
-      </p>
-
-      <p class="text-grey t1sb only-mobile">
-        {{ LABELS.title }}
-      </p>
+      </BlockHeader>
     </template>
 
     <template #right>
@@ -39,15 +35,16 @@
 </template>
 
 <script setup lang="ts">
-import { getSplitBlockTitle, SplitBlock } from '@/global/ui'
+import { SplitBlock } from '@/global/ui'
 import ContactUsFeature from '~/features/ContactUs.vue'
+import { BlockHeader } from '~/features'
 
 defineOptions({
   name: 'ApproachWidget'
 })
 
 const LABELS = {
-  title: getSplitBlockTitle('Подход'),
+  title: 'Подход',
   info: `
     Наша специфика&nbsp;— работа в&nbsp;качестве внешней команды
     над&nbsp;цифровым продуктом крупных компаний, когда не&nbsp;хватает
