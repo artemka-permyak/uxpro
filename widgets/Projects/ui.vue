@@ -13,7 +13,7 @@
         <div
           v-for="(project, projectIndex) in items"
           :key="project.id"
-          :class="['w-[50%] grow flex gap-[9.6rem] mb:gap-[4.8rem] shrink-0 mb:w-full', {
+          :class="['w-[calc(50%-4.8rem)] grow flex gap-[9.6rem] mb:gap-[4.8rem] shrink-0 mb:w-full', {
             'justify-end': index % 2 === 1 && projectIndex % 2 === 1
           }]"
         >

@@ -5,8 +5,17 @@
       @open:modal-burger="handleOpenModalBurger"
     />
 
+    <transition name="fade">
+      <StickyHeader
+        v-if="route.name === 'index' && isShowStickyHeader"
+        class="w-full max-w-[192rem] only-desktop fixed top-0 z-20"
+        @open:modal-burger="handleOpenModalBurger"
+      />
+    </transition>
+
     <StickyHeader
-      v-if="route.name === 'index' && isShowStickyHeader"
+      v-if="route.name === 'index'"
+      class="only-mobile"
       @open:modal-burger="handleOpenModalBurger"
     />
 

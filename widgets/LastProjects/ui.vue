@@ -4,11 +4,11 @@
       {{ LABELS.title }}
     </BlockHeader>
 
-    <div class="w-full flex h-[57.8rem] mb:overflow-x-auto mb:snap-x">
+    <div class="w-full flex h-[57.8rem] overflow-x-auto snap-x">
       <div
         v-for="(project, index) in lastProjects"
         :key="project.id"
-        :class="['w-full h-full mb:min-w-[31rem] mb:snap-center', {
+        :class="['w-full h-full min-w-[30.9rem] snap-center', {
           'pt-[6.4rem]': index !== 0 && index % 3 === 1,
           'pb-[6.4rem]': index !== 0 && index % 3 === 2,
         }]"

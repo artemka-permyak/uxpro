@@ -1,7 +1,7 @@
 <template>
-  <div class="relative h-screen border-b border-b-black pt-[3.2rem] overflow-hidden">
+  <div class="relative h-screen border-b border-b-black pt-[3.2rem] overflow-hidden mb:h-[calc(100vh-6.2rem)]">
     <VideoUi
-      class="absolute inset-0 object-cover"
+      class="absolute inset-0 w-full h-full object-cover"
       :src="getDomainLink('/video/video-logo.mp4')"
       :poster="getDomainLink('/images/video-logo-poster.png')"
     />

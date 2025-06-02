@@ -5,7 +5,7 @@
     }]"
   >
     <div
-      :class="['grow', {
+      :class="['grow shrink-0', {
         'w-full': !rightStyles
       }]"
     >

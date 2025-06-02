@@ -10,16 +10,18 @@
         :key="service.id"
         class="group flex items-end px-[2.4rem] py-gap border-b border-b-darkGrey hover:text-black hover:bg-white hover:translate-x-[1.6rem] transition-all mb:flex-col mb:px-mbGap mb:py-[2.4rem] mb:gap-[1.6rem] mb:hover:translate-x-0 mb:items-start"
       >
-        <p class="w-[20.6rem] text-[2rem] leading-[2rem] only-desktop">
-          {{ getSplitBlockTitle(`0${index + 1}`) }}
-        </p>
+        <div class="flex items-end gap-[9.6rem] w-[50%]">
+          <p class="shrink-0 text-[2rem] leading-[2rem] only-desktop">
+            {{ getSplitBlockTitle(`0${index + 1}`) }}
+          </p>
 
-        <h1 class="h1 w-[80rem] mb:w-full">
-          {{ service.title }}
-        </h1>
+          <h1 class="h1 grow mb:w-full">
+            {{ service.title }}
+          </h1>
+        </div>
 
         <div
-          class="t1sb max-w-[46rem] text-grey transition-colors group-hover:text-black mb:w-full"
+          class="t1sb w-[50%] text-grey transition-colors group-hover:text-black mb:w-full"
           :style="{
             maxWidth: service.descriptionWidth
           }"

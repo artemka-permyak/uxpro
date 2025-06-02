@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex gap-gap mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory">
+  <div class="flex gap-gap mb:w-full mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory">
     <div
       v-for="award in AWARDS"
       :key="award.id"
@@ -11,8 +11,22 @@
         class="shrink-0 w-[64px] h-[64px] mb:w-[48px] mb:h-[48px]"
       />
 
-      <div class="w-[20rem] flex flex-col t1 mb:w-[15rem]">
-        {{ award.title }}
+      <div class="w-[20rem] flex flex-col t1 mb:w-max">
+        <template v-if="award.mobileTitle">
+          <span
+            class="only-desktop"
+            v-html="award.title"
+          />
+          <span
+            class="only-mobile"
+            v-html="award.mobileTitle"
+          />
+        </template>
+
+        <span
+          v-else
+          v-html="award.title"
+        />
 
         <span class="text-white/50">{{ award.description }}</span>
       </div>
@@ -39,6 +53,7 @@ const AWARDS = [
   {
     icon: dprofileAwardIcon,
     title: 'Рекомендуемое на dprofile.ru',
+    mobileTitle: 'Рекомендуемое на<br> dprofile.ru',
     id: 'dprofile',
   }
 ]
