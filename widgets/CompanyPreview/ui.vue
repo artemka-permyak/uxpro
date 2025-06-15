@@ -14,13 +14,13 @@
         <LogoImg class="w-[86rem]" />
       </div>
 
-      <div class="flex items-end justify-between gap-gap px-gap mb:items-start mb:flex-col">
+      <div class="flex items-end justify-between gap-gap px-gap mb:items-start mb:flex-col mb:px-0">
         <h2
-          class="h2 only-desktop grow"
+          class="h2 only-desktop grow mb:px-[2.4rem]"
           v-html="LABELS.title"
         />
 
-        <div class="only-mobile flex flex-col gap-[2.4rem]">
+        <div class="only-mobile flex flex-col gap-[2.4rem] mb:px-[2.4rem]">
           <h1
             class="h1"
             v-html="LABELS.mobileTitle"
@@ -31,7 +31,7 @@
           />
         </div>
 
-        <CompanyAwards class="w-auto shrink-0" />
+        <CompanyAwards class="w-auto shrink-0 mb:pl-[2.4rem]" />
       </div>
     </div>
   </div>

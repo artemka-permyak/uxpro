@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-[19.2rem] max-w-[192rem] m-auto text-white">
+  <div class="flex flex-col gap-[9.6rem] max-w-[192rem] m-auto text-white mb:gap-[6.4rem]">
     <div class="flex flex-col gap-[4.8rem]">
       <CompanyPreview />
 
