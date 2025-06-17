@@ -335,7 +335,9 @@
           <div
             v-for="index in 3"
             :key="`review-photo-${index}`"
-            class="w-full only-desktop aspect-square"
+            :class="['w-full only-desktop', {
+              'aspect-square': block.reviewer_photo,
+            }]"
             :style="{
               display: index === 2 && !block.reviewer_photo ? 'none' : '',
               minWidth: index === 1 && !block.reviewer_photo ? '60.8rem' : '',
