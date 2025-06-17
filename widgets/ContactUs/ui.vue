@@ -40,6 +40,8 @@
         </div>
 
         <EmailAndPhone class="only-mobile" />
+
+        <DownloadPresentation class="only-mobile" />
       </div>
     </div>
 
@@ -145,8 +147,6 @@
           </div>
         </transition>
       </form>
-
-      <DownloadPresentation class="px-[1.6rem] only-mobile" />
     </div>
   </div>
 </template>

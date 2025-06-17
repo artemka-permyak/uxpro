@@ -1,14 +1,14 @@
 <template>
-  <div class="flex flex-col justify-center gap-[12.8rem] mx-auto w-[96rem] pt-[12.5rem]">
-    <h1 class="h1 w-[91.2rem]">
+  <div class="flex flex-col justify-center gap-[12.8rem] mx-auto w-[96rem] pt-[12.5rem] mb:w-full mb:px-mbGap mb:gap-[6.4rem]">
+    <h1 class="h1 w-[91.2rem] mb:w-full">
       {{ LABELS.title }}
     </h1>
 
-    <div class="flex flex-col gap-[12.8rem]">
+    <div class="flex flex-col gap-[12.8rem] mb:gap-[6.4rem]">
       <div
         v-for="(dataItem, index) in data"
         :key="dataItem.id"
-        class="flex flex-col gap-gap"
+        class="flex flex-col gap-gap mb:gap-mbGap"
       >
         <h2 class="h2">
           {{ index + 1 }}. {{ dataItem.title }}
@@ -28,7 +28,7 @@
 
           <div
             v-if="child.type === 'list'"
-            class="flex flex-col gap-gap"
+            class="flex flex-col gap-gap mb:gap-mbGap"
           >
             <ol
               v-for="(listItem, listIndex) in child.value"
