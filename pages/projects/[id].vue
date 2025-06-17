@@ -331,11 +331,11 @@
           </div>
         </div>
 
-        <div class="w-full h-[60.8rem] flex gap-[1.6rem] mb:h-auto mb:flex-col">
+        <div class="w-full flex gap-[1.6rem] mb:h-auto mb:flex-col">
           <div
             v-for="index in 3"
             :key="`review-photo-${index}`"
-            class="w-full only-desktop"
+            class="w-full only-desktop aspect-square"
             :style="{
               display: index === 2 && !block.reviewer_photo ? 'none' : '',
               minWidth: index === 1 && !block.reviewer_photo ? '60.8rem' : '',
