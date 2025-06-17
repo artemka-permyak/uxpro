@@ -5,7 +5,7 @@
       :value="modelValue"
       :placeholder="placeholder"
       rows="4"
-      class="t1sb peer w-full h-[7.2rem] pb-[1.6rem] bg-transparent border-b border-grey text-white resize-none outline-none focus:border-white transition-all placeholder:text-grey"
+      class="t1sb peer w-full h-[7.2rem] pb-[1.6rem] bg-transparent border-b rounded-none border-grey text-white resize-none outline-none focus:border-white transition-all placeholder:text-grey"
       @input="handleInput"
     />
     <label

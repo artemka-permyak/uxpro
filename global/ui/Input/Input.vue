@@ -8,7 +8,7 @@
       :type="type"
       :placeholder="placeholder"
       autocomplete="off"
-      class="t1sb peer w-full bg-transparent border-b border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem] placeholder:text-grey"
+      class="t1sb peer w-full bg-transparent border-b rounded-none border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem] placeholder:text-grey"
       @input="handleInput"
     >
 
@@ -21,7 +21,7 @@
       :type="type"
       :placeholder="placeholder"
       autocomplete="off"
-      class="t1sb peer w-full bg-transparent border-b border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem] placeholder:text-grey"
+      class="t1sb peer w-full bg-transparent border-b rounded-none border-grey text-white outline-none focus:border-white transition-all pb-[1.6rem] placeholder:text-grey"
       @update:model-value="handleUpdateModelValue"
     />
     <label
