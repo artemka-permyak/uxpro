@@ -20,7 +20,7 @@
           <nuxt-link
             :class="['w-full h-fit group flex', {
               'cursor-pointer': [1, 2].includes(project.id),
-              'cursor-not-allowed': ![1, 2].includes(project.id),
+              'cursor-default': ![1, 2].includes(project.id),
               // 'w-full': !((index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1)),
               // 'w-[65.1rem] self-baseline mb:w-full': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
               'mt-[9.6rem] mb:mt-0': projectIndex % 2 === 1,

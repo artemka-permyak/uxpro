@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col max-w-[192rem] m-auto text-white pb-[2.4rem] mb:pb-mbGap">
+  <div class="flex flex-col m-auto text-white pb-[2.4rem] mb:pb-mbGap">
     <StickyHeader
       v-if="route.name !== 'index'"
       @open:modal-burger="handleOpenModalBurger"
@@ -8,7 +8,7 @@
     <transition name="fade">
       <StickyHeader
         v-if="route.name === 'index' && isShowStickyHeader"
-        class="w-full max-w-[192rem] only-desktop fixed top-0 z-20"
+        class="w-full only-desktop fixed top-0 z-20"
         @open:modal-burger="handleOpenModalBurger"
       />
     </transition>
@@ -20,14 +20,14 @@
     />
 
     <main
-      :class="{
+      :class="['max-w-[192rem] w-full m-auto', {
         'pt-[12.4rem] mb:pt-[3.2rem]': !isMain,
-      }"
+      }]"
     >
       <slot />
     </main>
 
-    <FooterWidget />
+    <FooterWidget class="max-w-[192rem] w-full m-auto" />
 
     <transition name="fade">
       <div

@@ -2,7 +2,7 @@
   <header>
     <HeaderMenuWidget
       ref="headerMenuWidget"
-      class="px-gap border-t border-solid border-darkGrey mb:px-mbGap"
+      class="border-t border-solid border-darkGrey"
       @open:modal-burger="handleOpenModalBurger"
     />
 
@@ -12,7 +12,7 @@
         class="fixed bg-black top-0 left-0 right-0 z-20"
       >
         <HeaderMenuWidget
-          class="max-w-[192rem] mx-auto shadow-xl px-gap mb:px-mbGap"
+          class="max-w-[192rem] mx-auto shadow-xl"
           @open:modal-burger="handleOpenModalBurger"
         />
       </div>

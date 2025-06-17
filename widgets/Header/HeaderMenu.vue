@@ -1,38 +1,40 @@
 <template>
-  <div class="relative z-20 h-[6.2rem] w-full flex items-center gap-gap bg-black mb:gap-mbGap">
-    <div class="grow w-[50%]">
-      <HeaderMenuLogoLink />
-    </div>
-
-    <div class="h-full w-[50%] flex items-center gap-gap grow only-desktop">
-      <ContactUsFeature
-        size="small"
-        class="grow p-[1.6rem]"
-      />
-
-      <div
-        v-if="tg"
-        class="h-full shrink-0 only-desktop"
-      >
-        <FilledLink
-          :href="tg.to"
-          target="_blank"
-          class="h-full flex items-center px-[1.6rem]"
-        >
-          {{ tg.title }}
-        </FilledLink>
+  <div class="relative z-20 h-[6.2rem] w-full bg-black mb:gap-mbGap">
+    <div class="h-full flex items-center gap-gap max-w-[192rem] m-auto px-gap mb:px-mbGap">
+      <div class="grow w-[50%]">
+        <HeaderMenuLogoLink />
       </div>
-    </div>
 
-    <div
-      class="only-mobile w-[4.8rem] flex flex-col gap-[.6rem]"
-      @click="handleClickBurger"
-    >
+      <div class="h-full w-[50%] flex items-center gap-gap grow only-desktop">
+        <ContactUsFeature
+          size="small"
+          class="grow p-[1.6rem]"
+        />
+
+        <div
+          v-if="tg"
+          class="h-full shrink-0 only-desktop"
+        >
+          <FilledLink
+            :href="tg.to"
+            target="_blank"
+            class="h-full flex items-center px-[1.6rem]"
+          >
+            {{ tg.title }}
+          </FilledLink>
+        </div>
+      </div>
+
       <div
-        v-for="item in 2"
-        :key="`burger-mobile-${item}`"
-        class="w-full h-[.2rem] bg-white"
-      />
+        class="only-mobile w-[4.8rem] flex flex-col gap-[.6rem]"
+        @click="handleClickBurger"
+      >
+        <div
+          v-for="item in 2"
+          :key="`burger-mobile-${item}`"
+          class="w-full h-[.2rem] bg-white"
+        />
+      </div>
     </div>
   </div>
 </template>
