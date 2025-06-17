@@ -30,7 +30,7 @@
           {{ project?.title }}
         </span>
 
-        <span>
+        <span class="shrink-0">
           {{ project?.publish_year }}
         </span>
       </h1>

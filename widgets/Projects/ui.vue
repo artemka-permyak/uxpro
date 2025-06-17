@@ -38,7 +38,7 @@
                   <NuxtImg
                     :src="project?.preview_image"
                     alt="Project image"
-                    class="w-full h-full object-cover"
+                    class="h-full object-cover"
                   />
                 </div>
               </div>

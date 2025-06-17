@@ -12,8 +12,8 @@
     <template #right>
       <div class="flex flex-col gap-[6.4rem] mb:gap-[3.2rem]">
         <div class="flex flex-col gap-gap">
-          <h1
-            class="h1"
+          <h2
+            class="h2"
             v-html="LABELS.info"
           />
 

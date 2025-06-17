@@ -1,19 +1,26 @@
 <template>
-  <div class="relative z-10 h-[6.2rem] w-full flex items-center gap-gap bg-black mb:gap-mbGap">
+  <div class="relative z-20 h-[6.2rem] w-full flex items-center gap-gap bg-black mb:gap-mbGap">
     <div class="grow w-[50%]">
       <HeaderMenuLogoLink />
     </div>
 
-    <div class="w-[50%] flex items-center gap-gap grow only-desktop">
+    <div class="h-full w-[50%] flex items-center gap-gap grow only-desktop">
       <ContactUsFeature
         size="small"
         class="grow p-[1.6rem]"
       />
 
-      <div class="shrink-0 only-desktop">
-        <SocialLinks
-          :show-only="['telegram']"
-        />
+      <div
+        v-if="tg"
+        class="h-full shrink-0 only-desktop"
+      >
+        <FilledLink
+          :href="tg.to"
+          target="_blank"
+          class="h-full flex items-center px-[1.6rem]"
+        >
+          {{ tg.title }}
+        </FilledLink>
       </div>
     </div>
 
@@ -33,7 +40,8 @@
 <script setup lang="ts">
 import ContactUsFeature from '@/features/ContactUs.vue'
 import HeaderMenuLogoLink from '@/widgets/Header/HeaderMenuLogoLink.vue'
-import { SocialLinks } from '@/global/ui/ContactsLinks'
+import { FilledLink } from '@/global/ui'
+import { SOCIAL_LINKS } from '~/global/const'
 
 defineOptions({
   name: 'HeaderMenuWidget',
@@ -42,6 +50,10 @@ defineOptions({
 const emit = defineEmits<{
   (event: 'open:modal-burger'): void
 }>()
+
+const tg = computed(() => {
+  return SOCIAL_LINKS.find(link => link.id === 'telegram')
+})
 
 // const MENU_ITEMS_ID = {
 //   PORTFOLIO: 'portfolio',

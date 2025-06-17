@@ -10,7 +10,7 @@
         :key="service.id"
         class="group flex items-end px-[2.4rem] py-gap border-b border-b-darkGrey hover:text-black hover:bg-white hover:translate-x-[1.6rem] transition-all mb:flex-col mb:px-mbGap mb:py-[2.4rem] mb:gap-[1.6rem] mb:hover:translate-x-0 mb:items-start"
       >
-        <div class="flex items-end gap-[9.6rem] w-[50%]">
+        <div class="flex items-end gap-[9.6rem] w-[50%] mb:w-full">
           <p class="shrink-0 text-[2rem] leading-[2rem] only-desktop">
             {{ getSplitBlockTitle(`0${index + 1}`) }}
           </p>

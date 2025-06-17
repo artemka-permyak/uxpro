@@ -34,8 +34,8 @@
         v-if="isShowModalBurger"
         class="fixed inset-0 bg-[#090909CC] backdrop-blur z-20"
       >
-        <div class="h-full flex flex-col gap-[1.6rem] p-[1.6rem]">
-          <div class="flex pb-[1.6rem]">
+        <div class="h-full flex flex-col gap-[1.6rem] px-[1.6rem]">
+          <div class="flex items-center h-[6.2rem]">
             <HeaderMenuLogoLink
               class="grow"
               @click="handleCloseModalBurger"

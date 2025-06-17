@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import AnimatedLink from '~/global/ui/AnimatedLink.vue'
+import { AnimatedLink } from '~/global/ui'
 import { SOCIAL_LINKS } from '~/global/const'
 
 defineOptions({

@@ -23,9 +23,7 @@
           <EmailAndPhone is-small-gap />
         </div>
 
-        <span class="t1sb">
-          {{ LABELS.address }}
-        </span>
+        <span class="t1sb" v-html="LABELS.address" />
       </div>
 
       <div class="flex flex-col justify-center gap-[2.6rem] w-[62.2rem] text-center mb:order-3 mb:w-full mb:justify-start mb:text-start">
@@ -57,7 +55,7 @@ defineOptions({
 })
 
 const LABELS = {
-  address: 'В Петербурге на улице Льва Толстого 1-3',
+  address: 'В Петербурге на улице Льва Толстого 1&#8209;3',
   mainText: 'Ведем путь к идеальным цифровым <span class="underline underline-offset-4 decoration-2">решениям</span>',
 }
 

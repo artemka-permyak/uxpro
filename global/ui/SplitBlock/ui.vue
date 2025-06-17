@@ -6,14 +6,14 @@
   >
     <div
       :class="['grow shrink-0', {
-        'w-full': !rightStyles
+        'w-[50%]': !rightStyles
       }]"
     >
       <slot name="left" />
     </div>
 
     <div
-      class="w-full grow only-desktop"
+      class="w-[50%] grow only-desktop"
       :style="rightStyles"
     >
       <slot name="right" />

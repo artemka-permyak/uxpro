@@ -1,9 +1,13 @@
 <template>
-  <div class="h-screen border-b border-b-black pt-[3.2rem] overflow-hidden mb:h-[calc(100vh-6.2rem)]">
+  <div class="h-dvh border-b border-b-black pt-[3.2rem] overflow-hidden mb:h-[calc(100vh-6.2rem)]">
     <VideoUi
       class="absolute top-0 left-0 right-0 w-full h-screen max-h-screen object-cover"
       :src="getDomainLink('/video/video-logo.mp4')"
       :poster="getDomainLink('/images/video-logo-poster.png')"
+    />
+
+    <div
+      class="absolute z-10 top-0 left-0 right-0 h-screen max-h-screen bg-black/[68%]"
     />
 
     <div class="h-full relative z-10 flex flex-col justify-between pb-[4.8rem] mb:justify-end mb:pb-[2.4rem]">

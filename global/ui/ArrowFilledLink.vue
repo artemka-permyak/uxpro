@@ -1,10 +1,9 @@
 <template>
-  <component
-    :is="asButton ? NuxtLink : AnimatedLink"
+  <FilledLink
+    :as-button="asButton"
     :to="to"
     :href="href"
     :target="target"
-    class="group w-full"
   >
     <div
       :class="['flex items-center', {
@@ -31,13 +30,12 @@
         />
       </div>
     </div>
-  </component>
+  </FilledLink>
 </template>
 
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
-import AnimatedLink from '~/global/ui/AnimatedLink.vue'
-import { NuxtLink } from '#components'
+import { FilledLink } from '@/global/ui'
 
 defineOptions({
   name: 'ArrowFilledLink'
