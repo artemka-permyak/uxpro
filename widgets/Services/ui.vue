@@ -15,9 +15,9 @@
             {{ getSplitBlockTitle(`0${index + 1}`) }}
           </p>
 
-          <h1 class="h1 grow mb:w-full">
+          <h2 class="h2 grow mb:w-full">
             {{ service.title }}
-          </h1>
+          </h2>
         </div>
 
         <div
