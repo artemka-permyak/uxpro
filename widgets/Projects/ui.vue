@@ -31,7 +31,7 @@
             <div class="w-full flex flex-col gap-mbGap">
               <div class="group overflow-hidden">
                 <div
-                  :class="['w-full aspect-square duration-500 transition-transform overflow-hidden', {
+                  :class="['relative w-full aspect-square duration-500 transition-transform overflow-hidden', {
                     'group-hover:scale-105': [1, 2].includes(project.id),
                   }]"
                 >
@@ -40,6 +40,20 @@
                     alt="Project image"
                     class="h-full object-cover"
                   />
+
+                  <div
+                    v-if="project.id === 3"
+                    class="flex items-center justify-center absolute inset-0 z-10 bg-black/[66%] backdrop-blur-[.4rem]"
+                  >
+                    <div class="flex items-center gap-[1rem] rounded-full px-[1.6rem] py-[.7rem] text-[1.6rem] leading-[2.2rem] bg-black/[30%] border border-white/[36%]">
+                      <SpinnerIcon
+                        width="20"
+                        height="20"
+                      />
+
+                      {{ LABELS.inWork }}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -78,6 +92,7 @@
 
 <script setup lang="ts">
 import ArrowRight from 'public/svgs/arrowRight.svg'
+import SpinnerIcon from 'public/svgs/spinner.svg'
 import { BlockHeader } from '~/features'
 
 defineOptions({
@@ -85,7 +100,8 @@ defineOptions({
 })
 
 const LABELS = {
-  title: 'Проекты'
+  title: 'Проекты',
+  inWork: 'В проработке',
 }
 
 const props = defineProps<{

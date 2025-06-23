@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-gap mb:w-full mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory">
+  <div class="flex gap-[4rem] mb:w-full mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory">
     <div
       v-for="award in AWARDS"
       :key="award.id"
@@ -8,10 +8,10 @@
       <component
         :is="award.icon"
         key="desktop"
-        class="shrink-0 w-[64px] h-[64px] mb:w-[48px] mb:h-[48px]"
+        class="shrink-0 w-[48px] h-[48px]"
       />
 
-      <div class="w-[20rem] flex flex-col t1 mb:w-max">
+      <div class="max-w-[15.8rem] flex flex-col text-[1.6rem] leading-[2.2rem] mb:w-max">
         <template v-if="award.mobileTitle">
           <span
             class="only-desktop"
@@ -35,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+import RunetAwardIcon from '@/public/svgs/runetAward.svg'
 import WDAAwardIcon from '@/public/svgs/WDAAward.svg'
 import dprofileAwardIcon from '@/public/svgs/dprofileAward.svg'
 
@@ -43,6 +44,13 @@ defineOptions({
 })
 
 const AWARDS = [
+  {
+    icon: RunetAwardIcon,
+    title: 'Продуктовый дизайн',
+    description: '46 место',
+    id: 'runet',
+  },
+
   {
     icon: WDAAwardIcon,
     title: 'Победитель WDA',
