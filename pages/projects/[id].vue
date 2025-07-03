@@ -5,13 +5,25 @@
         :project="project"
       />
 
-      <NuxtImg
-        :src="project?.app_image"
-        format="webp"
-        preload
-        alt="Главное изображение"
-        class="w-full p-gap object-cover mb:px-0 mb:py-mbGap"
-      />
+      <div
+        v-for="media in project?.media"
+        :key="media.src"
+        class="w-full p-gap mb:px-0 mb:py-mbGap"
+      >
+        <NuxtImg
+          v-if="getFileType(media.src) === 'image'"
+          :src="media.src"
+          alt="Главное изображение"
+          format="webp"
+          class="w-full object-cover"
+        />
+
+        <VideoUi
+          v-else
+          :src="media.src"
+          :poster="media.poster"
+        />
+      </div>
     </div>
 
     <div
@@ -411,29 +423,33 @@
 
       <SplitBlock v-if="block.type === 'author'">
         <template #right>
-          <div class="flex flex-col gap-[6.4rem] mb:gap-mbGap mb:px-mbGap">
+          <div class="flex flex-col gap-[6.4rem] mb:gap-[2.4rem] mb:px-mbGap">
             <h1 class="h1">
               {{ block.title }}
             </h1>
 
-            <div class="flex flex-col border-t border-t-solid border-t-darkGrey">
-              <div
-                v-for="(author, authorIndex) in block.content"
-                :key="`author-${authorIndex}`"
-                class="flex justify-between py-gap border-b border-b-solid border-b-darkGrey mb:flex-col mb:gap-mbGap"
-              >
-                <h3 class="h3">
-                  {{ author.name }}
-                </h3>
+            <div class="flex flex-col gap-[6.4rem]">
+              <div class="flex flex-col border-t border-t-solid border-t-darkGrey">
+                <div
+                  v-for="(author, authorIndex) in block.content"
+                  :key="`author-${authorIndex}`"
+                  class="flex justify-between py-gap border-b border-b-solid border-b-darkGrey mb:flex-col mb:gap-mbGap"
+                >
+                  <h3 class="h3">
+                    {{ author.name }}
+                  </h3>
 
-                <h3 class="h3 only-desktop">
-                  {{ author.job_title }}
-                </h3>
+                  <h3 class="h3 only-desktop">
+                    {{ author.job_title }}
+                  </h3>
 
-                <p class="t1sb only-mobile text-grey">
-                  {{ author.job_title }}
-                </p>
+                  <p class="t1sb only-mobile text-grey">
+                    {{ author.job_title }}
+                  </p>
+                </div>
               </div>
+
+              <ContactUsFeature />
             </div>
           </div>
         </template>
@@ -485,7 +501,7 @@ function getSplitBlockIndex(block: object) {
   if (index === -1) {
     return `0`
   } else {
-    return `0${index + 1}`
+    return `${index + 1 < 10 ? 0 : ''}${index + 1}`
   }
 }
 
@@ -505,7 +521,6 @@ function getCenteredBlockImageDimensions(block: object, itemContentIndex: number
   const img = centeredBlockImages.value[sum + imageIndex].$el;
   const width = img.naturalWidth;
   const height = img.naturalHeight;
-  console.log(`Ширина: ${width}, Высота: ${height}`);
 }
 
 </script>

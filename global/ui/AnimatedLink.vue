@@ -3,8 +3,8 @@
     :is="isNuxtLink ? NuxtLink : 'a'"
     :href="props.href"
     :to="props.to"
-    v-bind="$attrs"
     class="t1sb relative z-10 overflow-hidden group transition-colors hover:text-black"
+    v-bind="$attrs"
     @click="handleClick"
   >
     <span class="relative z-10">

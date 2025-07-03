@@ -28,7 +28,7 @@
           />
         </div>
 
-        <ContactUsFeature size="large" />
+        <ContactUsFeature />
       </div>
     </template>
   </SplitBlock>

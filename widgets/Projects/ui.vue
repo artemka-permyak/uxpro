@@ -19,20 +19,20 @@
         >
           <nuxt-link
             :class="['w-full h-fit group flex', {
-              'cursor-pointer': [1, 2].includes(project.id),
-              'cursor-default': ![1, 2].includes(project.id),
+              'cursor-pointer': [1, 2, 4].includes(project.id),
+              'cursor-default': ![1, 2, 4].includes(project.id),
               // 'w-full': !((index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1)),
               // 'w-[65.1rem] self-baseline mb:w-full': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
               'mt-[9.6rem] mb:mt-0': projectIndex % 2 === 1,
               '': (index % 2 === 0 && projectIndex % 2 === 0) || (index % 2 === 1 && projectIndex % 2 === 1),
             }]"
-            :to="[1, 2].includes(project.id) ? `projects/${project.id}` : ''"
+            :to="[1, 2, 4].includes(project.id) ? `projects/${project.id}` : ''"
           >
             <div class="w-full flex flex-col gap-mbGap">
               <div class="group overflow-hidden">
                 <div
                   :class="['relative w-full aspect-square duration-500 transition-transform overflow-hidden', {
-                    'group-hover:scale-105': [1, 2].includes(project.id),
+                    'group-hover:scale-105': [1, 2, 4].includes(project.id),
                   }]"
                 >
                   <NuxtImg
@@ -59,7 +59,7 @@
 
               <div
                 :class="['group t1sb transition-colors w-full inline-block', {
-                  'group-hover:text-black group-hover:bg-white': [1, 2].includes(project.id)
+                  'group-hover:text-black group-hover:bg-white': [1, 2, 4].includes(project.id)
                 }]"
               >
                 <ArrowRight
@@ -74,7 +74,7 @@
 
                 <div
                   :class="['w-[1rem] h-[1rem] min-w-[1rem] rotate-45 bg-white inline-block mr-[.8rem] mb-[.25rem] align-middle', {
-                    'group-hover:bg-black': [1, 2].includes(project.id)
+                    'group-hover:bg-black': [1, 2, 4].includes(project.id)
                   }]"
                 />
 

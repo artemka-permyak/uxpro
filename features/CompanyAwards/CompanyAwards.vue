@@ -5,39 +5,16 @@
       :key="award.id"
       class="flex gap-mbGap items-center snap-center"
     >
-      <component
-        :is="award.icon"
-        key="desktop"
-        class="shrink-0 w-[48px] h-[48px]"
-      />
-
-      <div class="max-w-[15.8rem] flex flex-col text-[1.6rem] leading-[2.2rem] mb:w-max">
-        <template v-if="award.mobileTitle">
-          <span
-            class="only-desktop"
-            v-html="award.title"
-          />
-          <span
-            class="only-mobile"
-            v-html="award.mobileTitle"
-          />
-        </template>
-
-        <span
-          v-else
-          v-html="award.title"
-        />
-
-        <span class="text-white/50">{{ award.description }}</span>
-      </div>
+      <CompanyAward v-bind="award" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import RunetAwardIcon from '@/public/svgs/runetAward.svg'
-import WDAAwardIcon from '@/public/svgs/WDAAward.svg'
-import dprofileAwardIcon from '@/public/svgs/dprofileAward.svg'
+import RunetAwardIcon from 'public/svgs/runetAward.svg'
+import WDAAwardIcon from 'public/svgs/WDAAward.svg'
+import dprofileAwardIcon from 'public/svgs/dprofileAward.svg'
+import CompanyAward from '~/features/CompanyAwards/CompanyAward.vue'
 
 defineOptions({
   name: 'CompanyAwards'

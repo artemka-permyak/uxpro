@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex p-gap gap-gap border-b border-b-solid border-b-darkGrey mb:flex-col mb:p-mbGap mb:border-none">
     <div class="w-full grow">
-      <div class="w-[64rem] flex flex-col gap-[5.6rem] mb:w-full pb-[8.8rem]">
+      <div class="w-[64rem] flex flex-col gap-[5.6rem] pb-[8.8rem] mb:w-full mb:gap-[2.4rem] mb:pb-0">
         <div class="flex flex-wrap gap-[1.6rem] mb:gap-[.8rem]">
           <div
             v-for="(tag, index) in project?.tags"
@@ -21,11 +21,17 @@
             {{ work }}
           </div>
         </div>
+
+        <ArrowBottom
+          width="24"
+          height="24"
+          class="only-mobile"
+        />
       </div>
     </div>
 
     <div class="w-full grow mb:flex mb:flex-col mb:gap-gap">
-      <h1 class="h1 flex justify-between pb-[4.8rem] gap-[1.2rem] mb:flex-col mb:pb-0">
+      <h1 class="h1 flex justify-between pb-[3.2rem] gap-[1.2rem] mb:flex-col mb:pb-0">
         <span>
           {{ project?.title }}
         </span>
@@ -43,6 +49,20 @@
           {{ item }}
         </p>
       </div>
+
+      <div
+        v-if="project?.awards"
+        class="flex gap-[4rem] mb:w-full mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory pt-[4.8rem] only-desktop"
+      >
+        <CompanyAward
+          v-for="award in project.awards"
+          :title="award.title"
+          :mobile-title="award.mobileTitle"
+          :icon="award.src"
+          :description="award.description"
+          class="flex gap-mbGap items-center snap-center"
+        />
+      </div>
     </div>
 
     <ArrowBottom
@@ -55,13 +75,14 @@
 
 <script setup lang="ts">
 import ArrowBottom from '@/public/svgs/arrowBottom.svg'
+import { CompanyAward } from '~/features'
 
 defineOptions({
   name: 'ProjectPageHeader'
 })
 
 const props = defineProps<{
-  project: object
+  project?: object
 }>()
 
 const {

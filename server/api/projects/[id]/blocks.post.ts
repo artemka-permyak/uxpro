@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     const { rows } = await query(
       `INSERT INTO blocks (project_id, type, review, reviewer_photo, reviewer_name, reviewer_job_title, title, description, dedicated_description,  content, media, media_position, "order")
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *`,
-      [projectId, type, review, reviewer_photo, reviewer_name, reviewer_job_title, title, description, dedicatedDescription, JSON.stringify(content), JSON.stringify(media), media_position, maxOrder + 1]
+      [projectId, type, review, reviewer_photo, reviewer_name, reviewer_job_title, title, description, dedicatedDescription, JSON.stringify(content), JSON.stringify(media), media_position, order || maxOrder + 1]
     );
 
     return getSuccessResponse(rows[0]);
