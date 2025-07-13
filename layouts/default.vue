@@ -21,7 +21,8 @@
 
     <main
       :class="['max-w-[192rem] w-full m-auto', {
-        'pt-[12.4rem] mb:pt-[3.2rem]': !isMain,
+        'pt-[12.4rem] mb:pt-[3.2rem]': !isMain && route.name !== 'projects-id',
+        'mb:pt-[3.2rem]': route.name === 'projects-id',
       }]"
     >
       <slot />

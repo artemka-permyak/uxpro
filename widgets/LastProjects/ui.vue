@@ -13,20 +13,20 @@
           'pb-[6.4rem]': index !== 0 && index % 3 === 2,
         }]"
       >
-        <div :class="['relative group hover:bg-white transition-colors w-full h-full flex flex-col gap-mbGap p-gap border-t border-b border-darkGrey', {
+        <div :class="['relative transition-colors w-full h-full flex flex-col gap-mbGap p-gap border-t border-b border-darkGrey', {
           'border-l border-r': index % 3 === 0,
           'border-r': index !== 0 && index % 3 === 1 || index === lastProjects.length - 1,
           'before:h-[6.4rem] before:bg-darkGrey before:border-l before:border-darkGrey before:absolute before:left-[-.05rem] before:top-[-.05rem] mb:before:left-[-.1rem] mb:before:top-[-.1rem]': index !== 0 && index % 3 === 2,
         }]">
           <div class="group flex flex-col grow gap-mbGap">
             <div class="group flex justify-between gap-mbGap">
-              <p class="text-[1.8rem] leading-[2.4rem] transition-colors group-hover:text-black">
+              <p class="text-[1.8rem] leading-[2.4rem] transition-colors">
                 0{{ project.position }}
               </p>
 
               <div
                 v-if="project.is_nda"
-                class="flex gap-[.2rem] text-[1.4rem] leading-[2rem] px-[1.2rem] py-[.4rem] font-medium rounded-full border border-white transition-colors group-hover:border-black group-hover:text-black"
+                class="flex gap-[.2rem] text-[1.4rem] leading-[2rem] px-[1.2rem] py-[.4rem] font-medium rounded-full border border-white transition-colors"
               >
                 <EyeClosedIcon
                   width="20"
@@ -35,7 +35,7 @@
               </div>
             </div>
 
-            <p class="t1sb transition-colors group-hover:text-black">
+            <p class="t1sb transition-colors">
               {{ project.title }}
             </p>
           </div>
@@ -51,7 +51,7 @@
                   {{ item.title }}
                 </p>
 
-                <p class="text-[1.6rem] leading-[2.2rem] font-medium transition-colors group-hover:text-black">
+                <p class="text-[1.6rem] leading-[2.2rem] font-medium transition-colors">
                   {{ item.value }}
                 </p>
               </div>
@@ -61,7 +61,7 @@
               <div
                 v-for="tag in project.tags"
                 :key="`project-${project.id}-tag-${tag}`"
-                class="text-[1.8rem] leading-[2.4rem] text-grey group-hover:text-black"
+                class="text-[1.8rem] leading-[2.4rem] text-grey"
               >
                 {{ tag }}
               </div>

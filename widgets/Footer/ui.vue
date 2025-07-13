@@ -56,7 +56,7 @@ defineOptions({
 
 const LABELS = {
   address: 'В Петербурге на улице Льва Толстого 1&#8209;3',
-  mainText: 'Ведем путь к идеальным цифровым <span class="underline underline-offset-4 decoration-2">решениям</span>',
+  mainText: 'Ведем путь к идеальным цифровым решениям',
 }
 
 const copyright = computed(() => {

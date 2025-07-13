@@ -30,7 +30,7 @@ const AWARDS = [
 
   {
     icon: WDAAwardIcon,
-    title: 'Победитель WDA',
+    title: 'Призер WDA',
     description: '2 место',
     id: 'wda',
   },

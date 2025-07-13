@@ -3,7 +3,9 @@
 --
 
 -- Dumped from database version 17.2
--- Dumped by pg_dump version 17.2 (Homebrew)
+-- Dumped by pg_dump version 17.5 (Homebrew)
+
+-- Started on 2025-07-03 20:45:58 +05
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,6 +24,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- TOC entry 217 (class 1259 OID 16390)
 -- Name: blocks; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -50,6 +53,7 @@ CREATE TABLE public.blocks (
 ALTER TABLE public.blocks OWNER TO postgres;
 
 --
+-- TOC entry 218 (class 1259 OID 16399)
 -- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -65,6 +69,8 @@ CREATE SEQUENCE public.blocks_id_seq
 ALTER SEQUENCE public.blocks_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3636 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -72,6 +78,7 @@ ALTER SEQUENCE public.blocks_id_seq OWNED BY public.blocks.id;
 
 
 --
+-- TOC entry 222 (class 1259 OID 16429)
 -- Name: last_projects; Type: TABLE; Schema: public; Owner: artem
 --
 
@@ -90,6 +97,7 @@ CREATE TABLE public.last_projects (
 ALTER TABLE public.last_projects OWNER TO artem;
 
 --
+-- TOC entry 221 (class 1259 OID 16428)
 -- Name: last_projects_id_seq; Type: SEQUENCE; Schema: public; Owner: artem
 --
 
@@ -105,6 +113,8 @@ CREATE SEQUENCE public.last_projects_id_seq
 ALTER SEQUENCE public.last_projects_id_seq OWNER TO artem;
 
 --
+-- TOC entry 3637 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: last_projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: artem
 --
 
@@ -112,6 +122,7 @@ ALTER SEQUENCE public.last_projects_id_seq OWNED BY public.last_projects.id;
 
 
 --
+-- TOC entry 219 (class 1259 OID 16400)
 -- Name: projects; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -123,16 +134,18 @@ CREATE TABLE public.projects (
     completed_works_titles character varying[],
     preview_image text,
     preview_description text,
-    app_image text,
     tags character varying[],
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    media jsonb,
+    awards jsonb DEFAULT '[]'::jsonb
 );
 
 
 ALTER TABLE public.projects OWNER TO postgres;
 
 --
+-- TOC entry 220 (class 1259 OID 16407)
 -- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -148,6 +161,8 @@ CREATE SEQUENCE public.projects_id_seq
 ALTER SEQUENCE public.projects_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3639 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -155,6 +170,7 @@ ALTER SEQUENCE public.projects_id_seq OWNED BY public.projects.id;
 
 
 --
+-- TOC entry 3460 (class 2604 OID 16408)
 -- Name: blocks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -162,6 +178,7 @@ ALTER TABLE ONLY public.blocks ALTER COLUMN id SET DEFAULT nextval('public.block
 
 
 --
+-- TOC entry 3468 (class 2604 OID 16432)
 -- Name: last_projects id; Type: DEFAULT; Schema: public; Owner: artem
 --
 
@@ -169,6 +186,7 @@ ALTER TABLE ONLY public.last_projects ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
+-- TOC entry 3464 (class 2604 OID 16409)
 -- Name: projects id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -176,6 +194,8 @@ ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.pro
 
 
 --
+-- TOC entry 3625 (class 0 OID 16390)
+-- Dependencies: 217
 -- Data for Name: blocks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -198,44 +218,63 @@ COPY public.blocks (id, project_id, type, title, content, ordinary_title, ordina
 15	2	splitBlock	Мы проработали два механизма, чтобы поставщик мог поощрять продавцов баллами: акции и задачи	\N	\N	\N	2025-01-13 18:19:44.1788	2025-01-13 18:56:05.75451	\N	6	\N	\N	\N	\N	[{"src": "https://uxpro.ru/images/profibonus/promotions-and-tasks-1.png", "type": "image", "description": "Создает акцию или задачу"}, {"src": "https://uxpro.ru/images/profibonus/promotions-and-tasks-2.png", "type": "image", "description": "Переписка между поставщиком и продавцом — также в Profibonus"}, {"src": "https://uxpro.ru/images/profibonus/promotions-and-tasks-3.png", "type": "image", "description": "За выполнение  начисляются баллы"}, {"src": "https://uxpro.ru/images/profibonus/promotions-and-tasks-4.png", "type": "image"}]	\N	one-to-two
 16	2	splitBlock	Продавцы	\N	\N	\N	2025-01-13 18:23:32.90762	2025-01-13 18:57:20.003684	{"Сервис спроектирован так, чтобы продавцы могли легко активировать QR-коды, следить за акциями и выполнять задачи, зарабатывая бонусы и обменивая их на деньги или сертификаты"}	7	\N	\N	\N	\N	[{"src": "https://uxpro.ru/images/profibonus/sellers-1.png", "type": "image", "description": "Баллы — это деньги"}, {"src": "https://uxpro.ru/images/profibonus/sellers-2.png", "type": "image", "description": "Баллы — это сертификаты"}]	\N	two-to-two
 17	2	splitBlock	Web & App	\N	\N	\N	2025-01-13 18:25:01.885495	2025-01-13 18:59:24.164089	{"Веб-версия, адаптивы для всех разрешений, приложения для обеих ролей"}	8	\N	\N	\N	\N	[{"src": "https://uxpro.ru/images/profibonus/web-app-1.png", "type": "image"}, {"src": "https://uxpro.ru/images/profibonus/web-app-2.png", "type": "image"}]	\N	one-to-one
-10	2	splitBlock	Постановка задачи	[{"title": "Проблемы", "dedicatedDescription": ["Мы реализовали несколько похожих проектов управления лояльностью. Из анализа и исследований знаем, что у продавцов вызывает трудность процесс активации QR-кодов. Особенно, если их сразу несколько или они плохо считываются. Также возникают сложности с выводом накопленных баллов. Поставщикам не хватает детальной статистики по расходам денежных средств и активации кодов. Нет инструмента быстрого информирования продавцов об актуальных акциях и бонусах за их выполнение"]}, {"title": "Результат", "dedicatedDescription": ["Мы объединили в одном сервисе все механики взаимодействия поставщиков и продавцов, придумали удобный и «воздушный» дизайн. Сервис доступен на всех платформах и устройствах — разработали Web- и App-версии. Ниже расскажем, как всё работает"]}, {"statistics": [{"title": "1005", "description": "Экранов"}, {"title": "7", "description": "Месяцев"}, {"title": "732", "description": "Часа"}]}]	\N	\N	2025-01-13 16:16:15.884377	2025-01-13 19:42:21.146845	{}	1	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/profibonus/stages-of-work-1.png", "type": "image"}]	{"Нужен сервис, который объединит поставщиков и продавцов, упростит их коммуникацию и позволит быстро приходить к общему результату — увеличению продаж","Поставщикам важно получить инструмент, с помощью которого можно следить за статистикой сбыта по регионам, поощрять продавцов за высокие показатели продаж, запуская акции и ставя задачи. А продавцам — монетизировать свои профессиональные компетенции и конвертировать бонусы в деньги"}	one-to-two
+29	4	review	\N	\N	\N	\N	2025-07-03 20:17:23.277155	2025-07-03 20:17:23.277155	\N	10	{"Благодарим дизайн-студию UxPRO за проделанную работу. Проект был непростым из-за сложной специфики и требований разработчиков","Однако команда смогла глубоко погрузиться в нашу специфику, что было критически важно для успеха проекта. Хочется отметить прозрачность процесса — на каждом этапе мы понимали, что происходит, и могли вносить корректировки. Системность работы и внимание к деталям дали нам уверенность в результате","Уровень дизайна оказался не только эстетичным, но и функциональным, что крайне важно для наших программистов. Кроме того, коммуникация была всегда чёткой и оперативной"}	Евгений Цымбалюк	https://uxpro.ru/images/jarvis/reviewer-photo.png	Руководитель проекта	\N	\N	\N
+24	4	splitBlock	Собрали систему бронирования переговорных зон — как онлайн, так и офлайн, для обсуждения рабочих задач. В ней можно создавать повторяющиеся встречи по логическому правилу	\N	\N	\N	2025-07-03 19:42:04.805849	2025-07-03 20:07:14.916026	{}	6	\N	\N	\N	\N	[{"src": "http://uxpro.ru/video/jarvis/booking-system-video.mp4", "type": "video", "poster": "http://uxpro.ru/images/jarvis/booking-system-video-poster.png"}, {"src": "http://uxpro.ru/images/jarvis/booking-system-1.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/booking-system-2.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/booking-system-3.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/booking-system-4.png", "type": "image"}]	\N	one-to-one
+10	2	splitBlock	Постановка задачи	[{"title": "Проблемы", "dedicatedDescription": ["Мы реализовали несколько похожих проектов управления лояльностью. Из анализа и исследований знаем, что у продавцов вызывает трудность процесс активации QR-кодов. Особенно, если их сразу несколько или они плохо считываются. Также возникают сложности с выводом накопленных баллов. Поставщикам не хватает детальной статистики по расходам денежных средств и активации кодов. Нет инструмента быстрого информирования продавцов об актуальных акциях и бонусах за их выполнение"]}, {"title": "Результат", "dedicatedDescription": ["Мы объединили в одном сервисе все механики взаимодействия поставщиков и продавцов, придумали удобный и «воздушный» дизайн. Сервис доступен на всех платформах и устройствах — разработали Web- и App-версии. Ниже расскажем, как всё работает"]}, {"statistics": [{"title": "1005", "description": "Экранов"}, {"title": "7", "description": "Месяцев"}, {"title": "732", "description": "Часа"}]}]	\N	\N	2025-01-13 16:16:15.884377	2025-06-24 11:34:18.197114	{}	1	\N	\N	\N	\N	[]	{"Нужен сервис, который объединит поставщиков и продавцов, упростит их коммуникацию и позволит быстро приходить к общему результату — увеличению продаж","Поставщикам важно получить инструмент, с помощью которого можно следить за статистикой сбыта по регионам, поощрять продавцов за высокие показатели продаж, запуская акции и ставя задачи. А продавцам — монетизировать свои профессиональные компетенции и конвертировать бонусы в деньги"}	one-to-two
+20	4	splitBlock	Какая задача поступила	\N	\N	\N	2025-07-03 19:26:41.646057	2025-07-03 19:26:41.646057	{"К нам обратилась международная компания — издатель видеоигр. Требовалось обновить дизайн интерфейса внутреннего продукта — сервиса для разработчиков, улучшить его пользовательские свойства, эргономику и информационную архитектуру, а также систематизировать работу над дизайном"}	1	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/task.png", "type": "image"}]	\N	one-to-two
+21	4	splitBlock	Проблемы текущего MVP	\N	\N	\N	2025-07-03 19:28:21.25443	2025-07-03 19:28:21.25443	{"Использование готового UI-кита привело к тому, что интерфейс продукта получился неорганичным и неудобным в использовании. Это не позволяло визуально отслеживать процессы внутри системы. Продукт обладал низкой масштабируемостью, а его элементы плохо сочетались друг с другом"}	2	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/current-mvp-problems.png", "type": "image"}]	\N	one-to-two
+22	4	splitBlockDivided	Этапы работы	[{"title": "Анализ", "dedicatedDescription": "Сбор информации, интервью, требования"}, {"title": "Проектирование", "dedicatedDescription": "Сборка флоу, информационная архитектура, прототипирование"}, {"title": "Дизайн", "dedicatedDescription": "Концепция, макеты, UI-kit"}]	\N	\N	2025-07-03 19:33:14.87629	2025-07-03 19:33:14.87629	\N	3	\N	\N	\N	\N	[{"src": "https://uxpro.ru/images/jarvis/stage-of-works-1.png", "type": "image"}, {"src": "https://uxpro.ru/images/jarvis/stage-of-works-2.png", "type": "image"}]	\N	two-to-two
+23	4	splitBlock	Над чем мы работали и что получилось	\N	\N	\N	2025-07-03 19:37:19.228745	2025-07-03 19:37:19.228745	{"Усовершенствовали систему запуска и проверки билдов, а также упростили логику сервиса, который автоматизирует процесс мониторинга ошибок в коде","В результате получился удобный продукт для разработчиков геймдев-компании. Мы помогли оптимизировать затраты на проверку кода  и улучшить метрики эффективности","Также систематизировали работу над дизайном, что снизило издержки на разработку при масштабировании проекта"}	4	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/work-and-results-1.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/work-and-results-2.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/work-and-results-3.png", "type": "image"}]	\N	one-to-one
+25	4	splitBlock	Адаптировали дизайн под мобильную версию, чтобы разработчики могли видеть, насколько успешно запускаются и отрабатываются билды	\N	\N	\N	2025-07-03 19:52:12.801719	2025-07-03 20:07:36.26111	{}	7	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/mobile-design.png", "type": "image"}]	\N	one-to-one
+27	4	splitBlock	Прототип	\N	\N	\N	2025-07-03 20:12:43.18231	2025-07-03 20:12:43.18231	{"Исходя из бизнес-требований изучили подходящие референсы и спроектировали дизайн в соответствии с общим лэйаутом интерфейса, уменьшили количество паттернов, улучшили эргономику продукта и избавились от ненужных элементов"}	8	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/prototype-1.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/prototype-2.png", "type": "image"}]	\N	one-to-one
+26	4	splitBlock	На экране отображаются списки билдов и стадии его отработки с возможностью детального просмотра и отслеживания проблемных мест	\N	\N	\N	2025-07-03 19:59:27.362675	2025-07-03 20:03:12.296065	{}	5	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/build-list-1.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/build-list-2.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/build-list-3.png", "type": "image"}, {"src": "http://uxpro.ru/images/jarvis/build-list-4.png", "type": "image"}]	\N	one-to-one
+28	4	splitBlock	UI-kit	\N	\N	\N	2025-07-03 20:13:50.523251	2025-07-03 20:13:50.523251	{}	9	\N	\N	\N	\N	[{"src": "http://uxpro.ru/images/jarvis/ui-kit.png", "type": "image"}]	\N	one-to-one
+30	4	author	Авторы	[{"name": "Сергей Мерзлов", "job_title": "Проектирование, UX/UI"}, {"name": "Артур Хестанов", "job_title": "Оформление кейса"}]	\N	\N	2025-07-03 20:19:49.145399	2025-07-03 20:19:49.145399	\N	11	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
 --
+-- TOC entry 3630 (class 0 OID 16429)
+-- Dependencies: 222
 -- Data for Name: last_projects; Type: TABLE DATA; Schema: public; Owner: artem
 --
 
 COPY public.last_projects (id, is_nda, title, direction, deadline, tags, "position") FROM stdin;
 2	t	Сервис по ведению внешней экономической деятельности	ВЭД	5 месяцев	{Проектирование,UX/UI}	2
-4	t	Мобильное приложение для модулей хранения	Startup	2 недели	{Проектирование}	4
 5	t	Корпоративный HR-сервис	HRM-система	2 месяца	{Проектирование,UX/UI}	5
 6	f	Рефакторинг системы лояльности	Сервис	3 месяца	{Исследование,Проектирование,UX/UI}	6
 1	t	Сервис транспортной телематики	Телематика	3 месяца	{Исследование,Проектирование,UX/UI}	1
 3	f	Сервис декларирования и прохождения таможенных процедур	ВЭД	5 месяцев	{Исследование,Проектирование,UX/UI}	3
+4	t	Мобильное приложение для модулей хранения	Стартап	2 недели	{Проектирование}	4
 \.
 
 
 --
+-- TOC entry 3627 (class 0 OID 16400)
+-- Dependencies: 219
 -- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.projects (id, title, description, publish_year, completed_works_titles, preview_image, preview_description, app_image, tags, created_at, updated_at) FROM stdin;
-1	Цифровой профиль	{"Цифровой профиль снимает нагрузку с родителей школьников. Больше не нужно проверять тетради и дневники, высчитывать вероятные оценки за четверть — достаточно просто зайти в профиль","В нём собрана вся информация — успеваемость, посещаемость, статистика, достижения, события"}	2024	{Исследования,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	https://uxpro.ru/images/digital-profile/app-image.png	Цифровой профиль ученика и педагога средней школы	https://uxpro.ru/images/digital-profile/app-image.png	{Web,Mobile,Desktop,Образование,Платформа,Ученик,Учитель,Школа}	2024-12-12 21:25:32.21398	2024-12-12 21:25:32.21398
-3	Programmatica	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/programmatica/app-image.png	Платформа для ведения рекламных кампаний	https://uxpro.ru/images/programmatica/app-image.png	{Web}	2024-12-25 18:45:39.425885	2024-12-25 18:45:39.425885
-4	Jarvis	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/jarvis/app-image.png	Сервис для разработчиков компьютерных игр	https://uxpro.ru/images/jarvis/app-image.png	{Web}	2024-12-25 18:45:39.837841	2024-12-25 18:45:39.837841
-2	Profibonus	{"Сервис управления продажами в реальном времени, где можно влиять на мотивацию продавцов и следить за динамикой продаж"}	2024	{Анализ,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	https://uxpro.ru/images/profibonus/preview-image.png	Сервис управления продажами в реальном времени	https://uxpro.ru/images/profibonus/app-image.png	{Web,App,Mobile,Desktop,Лояльность,SaaS,Платформа,Продажи}	2024-12-25 18:45:37.624012	2024-12-25 18:45:37.624012
+COPY public.projects (id, title, description, publish_year, completed_works_titles, preview_image, preview_description, tags, created_at, updated_at, media, awards) FROM stdin;
+4	Jarvis	{"Рефакторинг внутреннего сервиса для разработчиков видеоигр в международной геймдев компании Saber Interactive"}	2024	{Исследования,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	https://uxpro.ru/images/jarvis/preview-image.png	Сервис для разработчиков компьютерных игр	{Геймдев,Разработчики,Web}	2024-12-25 18:45:39.837841	2025-07-03 20:42:52.357877	[{"src": "https://uxpro.ru/images/jarvis/app-image.png", "type": "image"}, {"src": "https://uxpro.ru/video/jarvis/jarvis-main-video.mp4", "type": "video", "poster": "https://uxpro.ru/images/jarvis/jarvis-main-video-poster.png"}]	[{"src": "https://uxpro.ru/images/dprofile-award.png", "title": "Рекомендуемое на dprofile.ru"}]
+3	Programmatica	{"Разработка личного кабинета"}	2024	{Исследования}	https://uxpro.ru/images/programmatica/app-image.png	Платформа для ведения рекламных кампаний	{Web}	2024-12-25 18:45:39.425885	2024-12-25 18:45:39.425885	[{"src": "https://uxpro.ru/images/programmatica/app-image.png", "type": "image"}]	[]
+2	Profibonus	{"Сервис управления продажами в реальном времени, где можно влиять на мотивацию продавцов и следить за динамикой продаж"}	2024	{Анализ,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	https://uxpro.ru/images/profibonus/preview-image.png	Сервис управления продажами в реальном времени	{Web,App,Mobile,Desktop,Лояльность,SaaS,Платформа,Продажи}	2024-12-25 18:45:37.624012	2024-12-25 18:45:37.624012	[{"src": "https://uxpro.ru/images/profibonus/app-image.png", "type": "image"}]	[]
+1	Цифровой профиль	{"Цифровой профиль снимает нагрузку с родителей школьников. Больше не нужно проверять тетради и дневники, высчитывать вероятные оценки за четверть — достаточно просто зайти в профиль","В нём собрана вся информация — успеваемость, посещаемость, статистика, достижения, события"}	2024	{Исследования,Проектирование,"Дизайн интерфейса",Дизайн-контроль}	https://uxpro.ru/images/digital-profile/app-image.png	Цифровой профиль ученика и педагога средней школы	{Web,Mobile,Desktop,Образование,Платформа,Ученик,Учитель,Школа}	2024-12-12 21:25:32.21398	2025-07-03 20:42:45.653886	[{"src": "https://uxpro.ru/images/digital-profile/app-image.png", "type": "image"}]	[{"src": "https://uxpro.ru/images/wda-award.png", "title": "Победитель WDA", "description": "2 место"}, {"src": "https://uxpro.ru/images/dprofile-award.png", "title": "Рекомендуемое на dprofile.ru"}]
 \.
 
 
 --
+-- TOC entry 3640 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: blocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.blocks_id_seq', 20, false);
+SELECT pg_catalog.setval('public.blocks_id_seq', 30, true);
 
 
 --
+-- TOC entry 3641 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: last_projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: artem
 --
 
@@ -243,6 +282,8 @@ SELECT pg_catalog.setval('public.last_projects_id_seq', 6, true);
 
 
 --
+-- TOC entry 3642 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -250,6 +291,7 @@ SELECT pg_catalog.setval('public.projects_id_seq', 5, false);
 
 
 --
+-- TOC entry 3472 (class 2606 OID 16411)
 -- Name: blocks blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -258,6 +300,7 @@ ALTER TABLE ONLY public.blocks
 
 
 --
+-- TOC entry 3476 (class 2606 OID 16437)
 -- Name: last_projects last_projects_pkey; Type: CONSTRAINT; Schema: public; Owner: artem
 --
 
@@ -266,6 +309,7 @@ ALTER TABLE ONLY public.last_projects
 
 
 --
+-- TOC entry 3478 (class 2606 OID 16439)
 -- Name: last_projects last_projects_position_key; Type: CONSTRAINT; Schema: public; Owner: artem
 --
 
@@ -274,6 +318,7 @@ ALTER TABLE ONLY public.last_projects
 
 
 --
+-- TOC entry 3474 (class 2606 OID 16413)
 -- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -282,6 +327,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
+-- TOC entry 3479 (class 2606 OID 16414)
 -- Name: blocks blocks_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -290,11 +336,15 @@ ALTER TABLE ONLY public.blocks
 
 
 --
+-- TOC entry 3638 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: TABLE projects; Type: ACL; Schema: public; Owner: postgres
 --
 
 GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.projects TO PUBLIC;
 
+
+-- Completed on 2025-07-03 20:46:00 +05
 
 --
 -- PostgreSQL database dump complete

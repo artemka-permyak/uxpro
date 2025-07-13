@@ -37,7 +37,11 @@
       >
         <SplitBlock right-width="48%">
           <template #left>
-            <h1 class="h1 mb:px-mbGap">
+            <h2 class="h2 mb:px-mbGap only-desktop">
+              {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
+            </h2>
+
+            <h1 class="h1 mb:px-mbGap only-mobile">
               {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
             </h1>
           </template>
@@ -45,7 +49,11 @@
           <template #right>
             <div class="flex flex-col gap-[12.8rem] mb:gap-gap mb:px-mbGap">
               <div class="flex flex-col gap-[2.4rem]">
-                <h1 class="h1">
+                <h2 class="h2 only-desktop">
+                  {{ block.title }}
+                </h2>
+
+                <h1 class="h1 only-mobile">
                   {{ block.title }}
                 </h1>
 
@@ -85,9 +93,13 @@
                     :key="`divided-content-item-${itemContentIndex}`"
                     class="flex flex-col gap-[2.4rem] border-b border-b-solid border-b-darkGrey py-gap"
                   >
-                    <h2 class="h2">
+                    <h3 class="h3 only-desktop">
                       {{ itemContent.title }}
-                    </h2>
+                    </h3>
+
+                    <h4 class="h4 only-mobile">
+                      {{ itemContent.title }}
+                    </h4>
 
                     <p
                       v-if="itemContent.description"
@@ -260,9 +272,9 @@
         class="flex flex-col gap-[15.2rem] mb:gap-gap"
       >
         <div class="w-[89.6rem] mx-auto flex flex-col gap-[9.6rem] mb:w-full mb:gap-[4.8rem] mb:px-mbGap">
-          <h1 class="h1">
+          <h2 class="h2">
             {{ block.title }}
-          </h1>
+          </h2>
 
           <div
             v-for="(itemContent, itemContentIndex) in block.content"
@@ -314,17 +326,25 @@
         class="flex flex-col gap-[12.8rem] mb:gap-[6.4rem] mb:px-mbGap"
       >
         <div class="flex justify-between gap-mbGap mb:flex-col">
-          <div class="flex flex-col justify-between gap-[2.4rem]">
-            <h1 class="h1">
+          <div class="flex items-center self-baseline gap-[1.6rem] mb:flex-col mb:items-start mb:gap-[2.4rem]">
+            <h2 class="h2 only-desktop">
+              {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
+            </h2>
+
+            <h2 class="h2 only-desktop">
+              Отзыв клиента
+            </h2>
+
+            <h1 class="h1 only-mobile">
               {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
             </h1>
 
-            <h1 class="h1">
+            <h1 class="h1 only-mobile">
               Отзыв клиента
             </h1>
           </div>
 
-          <div class="only-desktop h1 w-[121.1rem] flex flex-col gap-[6.4rem]">
+          <div class="only-desktop h3 w-[121.1rem] flex flex-col gap-[6.4rem] mb:t1">
             <p
               v-for="(itemReview, itemReviewIndex) in block.review"
               :key="`review-item-${itemReviewIndex}`"
@@ -424,7 +444,11 @@
       <SplitBlock v-if="block.type === 'author'">
         <template #right>
           <div class="flex flex-col gap-[6.4rem] mb:gap-[2.4rem] mb:px-mbGap">
-            <h1 class="h1">
+            <h2 class="h2 only-desktop">
+              {{ block.title }}
+            </h2>
+
+            <h1 class="h1 only-mobile">
               {{ block.title }}
             </h1>
 
@@ -435,13 +459,17 @@
                   :key="`author-${authorIndex}`"
                   class="flex justify-between py-gap border-b border-b-solid border-b-darkGrey mb:flex-col mb:gap-mbGap"
                 >
-                  <h3 class="h3">
+                  <p class="t1sb only-desktop">
                     {{ author.name }}
-                  </h3>
+                  </p>
 
-                  <h3 class="h3 only-desktop">
+                  <h2 class="h2 only-mobile">
+                    {{ author.name }}
+                  </h2>
+
+                  <p class="t1sb only-desktop">
                     {{ author.job_title }}
-                  </h3>
+                  </p>
 
                   <p class="t1sb only-mobile text-grey">
                     {{ author.job_title }}
@@ -449,7 +477,7 @@
                 </div>
               </div>
 
-              <ContactUsFeature />
+              <ContactUsFeature class="!text-[2.4rem] !leading-[3rem]" />
             </div>
           </div>
         </template>
