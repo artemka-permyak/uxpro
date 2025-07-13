@@ -211,43 +211,90 @@
 
         <div
           v-if="block.media?.length"
-          :class="['gap-gap only-desktop', {
-            'flex flex-col': !block.media_position || ['one-to-one'].includes(block.media_position),
-            'grid grid-cols-2': ['one-to-two', 'horizontal-two-to-one', 'one-to-two-to-one', 'two-to-two'].includes(block.media_position),
+          :class="['grid gap-gap only-desktop', {
+            // 'flex flex-col': !block.media_position || ['one-to-one'].includes(block.media_position),
+            // 'grid grid-cols-2': ['one-to-two', 'horizontal-two-to-one', 'one-to-two-to-one', 'two-to-two'].includes(block.media_position),
           }]"
         >
-          <template v-for="(media, mediaIndex) in block.media">
-            <NuxtImgWithDescription
-              v-if="getFileType(media.src) === 'image'"
-              :key="`${block.title}-image-media-${mediaIndex}`"
-              :src="media.src"
-              :alt="`${block.title} Изображение`"
-              format="webp"
-              loading="lazy"
-              :description="media.description"
-              :class="[{
-                'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,
-                'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,
-              }]"
-            />
-            <VideoUi
-              v-else
-              :key="`${block.title}-video-media-${mediaIndex}`"
-              :src="media.src"
-              :poster="media.poster"
-              :class="[{
-                'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,
-                'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,
-              }]"
-            />
-          </template>
+          <div
+            v-for="(media, mediaIndex) in block.media"
+            :key="`media-${mediaIndex}`"
+            :style="media.style"
+          >
+            <div
+              v-if="media.row"
+              class="grid gap-gap"
+              :style="{
+                gridTemplateColumns: `repeat(${media.cols}, 1fr)`,
+              }"
+            >
+              <template
+                v-for="(mediaMedia, mediaMediaIndex) in media.media"
+                :key="`media-media-${mediaMediaIndex}`"
+              >
+                <NuxtImgWithDescription
+                  v-if="getFileType(mediaMedia.src) === 'image'"
+                  :key="`${block.title}-image-media-${mediaIndex}`"
+                  :src="mediaMedia.src"
+                  :alt="`${block.title} Изображение`"
+                  format="webp"
+                  loading="lazy"
+                  class="object-cover"
+                  :description="mediaMedia.description"
+                />
+                <!--                :class="[{-->
+                <!--                  'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,-->
+                <!--                  'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,-->
+                <!--                }]"-->
+
+                <VideoUi
+                  v-else
+                  :key="`${block.title}-video-media-${mediaIndex}`"
+                  :src="mediaMedia.src"
+                  :poster="mediaMedia.poster"
+                />
+                <!--                :class="[{-->
+                <!--                  'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,-->
+                <!--                  'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,-->
+                <!--                }]"-->
+              </template>
+            </div>
+
+            <template v-else>
+              <NuxtImgWithDescription
+                v-if="getFileType(media.src) === 'image'"
+                :key="`${block.title}-image-media-${mediaIndex}`"
+                :src="media.src"
+                :alt="`${block.title} Изображение`"
+                format="webp"
+                loading="lazy"
+                class="object-cover"
+                :description="media.description"
+              />
+              <!--                :class="[{-->
+              <!--                  'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,-->
+              <!--                  'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,-->
+              <!--                }]"-->
+
+              <VideoUi
+                v-else
+                :key="`${block.title}-video-media-${mediaIndex}`"
+                :src="media.src"
+                :poster="media.poster"
+              />
+              <!--                :class="[{-->
+              <!--                  'col-span-2': block.media_position === 'one-to-two' && mediaIndex % 3 === 0,-->
+              <!--                  'row-span-2': block.media_position === 'horizontal-two-to-one' && mediaIndex === 1,-->
+              <!--                }]"-->
+            </template>
+          </div>
         </div>
 
         <div
           v-if="block.media?.length"
           class="flex flex-col gap-mbGap only-mobile"
         >
-          <template v-for="(media, mediaIndex) in block.media">
+          <template v-for="(media, mediaIndex) in block.media.flatMap(item => item.row ? item.media : item)">
             <NuxtImgWithDescription
               v-if="getFileType(media.src) === 'image'"
               :key="`${block.title}-image-media-mobile-${mediaIndex}`"
@@ -255,8 +302,10 @@
               :alt="`${block.title} Изображение`"
               format="webp"
               loading="lazy"
+              class="object-cover"
               :description="media.description"
             />
+
             <VideoUi
               v-else
               :key="`${block.title}-video-media-${mediaIndex}`"
@@ -505,7 +554,7 @@ const showedSplitBlocksContentSmallTitleIds = ref<string[]>([]);
 
 const centeredBlockImages = ref();
 
-const { data: projectData } = useAsyncData('projects', async () => {
+const { data: projectData } = await useAsyncData('projects', async () => {
   return await $fetch(`/api/projects/${route.params.id}`)
 })
 
@@ -513,7 +562,7 @@ const project = computed(() => {
   return projectData?.value?.data;
 })
 
-const { data: blocksData } = useAsyncData('blocks', async () => {
+const { data: blocksData } = await useAsyncData('blocks', async () => {
   return await $fetch(`/api/projects/${route.params.id}/blocks`)
 })
 
