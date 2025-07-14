@@ -294,7 +294,10 @@
           v-if="block.media?.length"
           class="flex flex-col gap-mbGap only-mobile"
         >
-          <template v-for="(media, mediaIndex) in block.media.flatMap(item => item.row ? item.media : item)">
+          <div
+            v-for="(media, mediaIndex) in block.media.flatMap(item => item.row ? item.media : item)"
+            :style="media.style"
+          >
             <NuxtImgWithDescription
               v-if="getFileType(media.src) === 'image'"
               :key="`${block.title}-image-media-mobile-${mediaIndex}`"
@@ -312,7 +315,7 @@
               :src="media.src"
               :poster="media.poster"
             />
-          </template>
+          </div>
         </div>
       </div>
 
