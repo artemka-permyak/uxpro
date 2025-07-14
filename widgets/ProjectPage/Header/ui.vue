@@ -9,7 +9,7 @@
     </div>
 
     <div class="flex gap-gap mb:flex-col">
-      <div class="w-full grow">
+      <div class="w-[50%] grow mb:w-full">
         <div class="w-[64rem] flex flex-col gap-[5.6rem] pb-[8.8rem] mb:w-full mb:gap-[2.4rem] mb:pb-0">
           <div class="flex flex-wrap gap-[1.6rem] mb:gap-[.8rem]">
             <div
@@ -39,15 +39,15 @@
         </div>
       </div>
 
-      <div class="w-full grow mb:flex mb:flex-col mb:gap-[2.4rem]">
+      <div class="w-[50%] grow mb:w-full mb:flex mb:flex-col mb:gap-[2.4rem]">
         <h1 class="h1 flex justify-between pb-[3.2rem] gap-[1.2rem] mb:flex-col mb:pb-0">
-        <span>
-          {{ project?.title }}
-        </span>
+          <span>
+            {{ project?.title }}
+          </span>
 
           <span class="shrink-0">
-          {{ project?.publish_year }}
-        </span>
+            {{ project?.publish_year }}
+          </span>
         </h1>
 
         <div class="t1sb flex flex-col gap-[2.4rem] mb:w-full mb:gap-[1.6rem]">
@@ -61,7 +61,7 @@
 
         <div
           v-if="project?.awards"
-          class="flex gap-[4rem] mb:w-full mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory pt-[3.2rem] mb:pt-[0]"
+          class="flex gap-[4rem] mb:w-full mb:whitespace-nowrap mb:flex-row mb:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory pt-[3.2rem] mb:pt-[0]"
         >
           <CompanyAward
             v-for="award in project.awards"
