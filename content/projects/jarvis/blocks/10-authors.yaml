@@ -1,0 +1,22 @@
+id: 30
+project_id: 4
+type: author
+title: "Авторы"
+content:
+  - name: "Сергей Мерзлов"
+    job_title: "Проектирование, UX/UI"
+  - name: "Артур Хестанов"
+    job_title: "Оформление кейса"
+ordinary_title: null
+ordinary_content: null
+created_at: "2025-07-03 20:19:49.145399"
+updated_at: "2025-07-03 20:19:49.145399"
+description: []
+order: 11
+review: []
+reviewer_name: null
+reviewer_photo: null
+reviewer_job_title: null
+media: []
+dedicated_description: []
+media_position: null

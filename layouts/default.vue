@@ -1,19 +1,19 @@
 <template>
-  <div class="flex flex-col m-auto text-white pb-[2.4rem] mb:pb-mbGap">
-    <StickyHeader
+  <div class="flex flex-col m-auto text-white pb-size-6 max-xl-plus:pb-size-6">
+    <StickyHeaderWidget
       v-if="route.name !== 'index'"
       @open:modal-burger="handleOpenModalBurger"
     />
 
     <transition name="fade">
-      <StickyHeader
+      <StickyHeaderWidget
         v-if="route.name === 'index' && isShowStickyHeader"
         class="w-full only-desktop fixed top-0 z-20"
         @open:modal-burger="handleOpenModalBurger"
       />
     </transition>
 
-    <StickyHeader
+    <StickyHeaderWidget
       v-if="route.name === 'index'"
       class="only-mobile"
       @open:modal-burger="handleOpenModalBurger"
@@ -21,8 +21,8 @@
 
     <main
       :class="['max-w-[192rem] w-full m-auto', {
-        'pt-[12.4rem] mb:pt-[3.2rem]': !isMain && route.name !== 'projects-id',
-        'mb:pt-[3.2rem]': route.name === 'projects-id',
+        'pt-[12.4rem] max-xl-plus:pt-[3.2rem]': !isMain && !['projects-id', 'services'].includes(route.name),
+        'max-xl-plus:pt-[3.2rem]': route.name === 'projects-id',
       }]"
     >
       <slot />
@@ -35,9 +35,9 @@
         v-if="isShowModalBurger"
         class="fixed inset-0 bg-[#090909CC] backdrop-blur z-20"
       >
-        <div class="h-full flex flex-col gap-[1.6rem] px-[1.6rem]">
+        <div class="h-full flex flex-col gap-size-4 px-size-4 pb-size-6">
           <div class="flex items-center h-[6.2rem]">
-            <HeaderMenuLogoLink
+            <HeaderLogoLink
               class="grow"
               @click="handleCloseModalBurger"
             />
@@ -51,27 +51,25 @@
           </div>
 
           <div class="flex flex-col justify-between grow">
-            <!--            <div class="flex flex-col gap-[1.6rem]">-->
-            <!--              <nuxt-link-->
-            <!--                v-for="menuItem in MENU_ITEMS"-->
-            <!--                :key="`mobile-${menuItem.id}`"-->
-            <!--                :class="['flex items-center justify-center', {-->
-            <!--                  'text-grey': menuItem.disabled-->
-            <!--                }]"-->
-            <!--                :to="menuItem.to"-->
-            <!--                @click="menuItem.disabled ? undefined : handleCloseModalBurger()"-->
-            <!--              >-->
-            <!--                {{ menuItem.title }}-->
-            <!--              </nuxt-link>-->
-            <!--            </div>-->
+            <div class="flex self-start flex-col gap-size-4">
+              <nuxt-link
+                v-for="menuItem in mobileMenuItems"
+                :key="menuItem.id"
+                :to="menuItem.to"
+                class="self-start"
+                @click="handleCloseModalBurger()"
+              >
+                {{ menuItem.title }}
+              </nuxt-link>
+            </div>
 
-            <div class="flex flex-col gap-[2.4rem]">
+            <div class="flex flex-col gap-size-6">
               <EmailAndPhone />
 
-              <SocialLinks is-small-gap />
+              <SocialLinks class="self-start" />
 
               <ContactUsFeature
-                size="small"
+                class="self-start"
                 as-button
                 @click="handleCloseModalBurger"
               />
@@ -84,13 +82,13 @@
 </template>
 
 <script setup lang="ts">
-import { FooterWidget } from '@/widgets/Footer'
-import ContactUsFeature from '~/features/ContactUs.vue'
-import { EmailAndPhone, SocialLinks } from '~/global/ui/ContactsLinks'
-import HeaderMenuLogoLink from '~/widgets/Header/HeaderMenuLogoLink.vue'
-import Close from 'public/svgs/close.svg'
+import { FooterWidget } from '@/widgets/footer'
+import ContactUsFeature from '../features/contact-us-feature.vue'
+import { EmailAndPhone, SocialLinks } from '~/global/ui/contact-links'
+import { HeaderLogoLink } from '~/features/header'
+import Close from '@/global/assets/svg/close.svg'
 import { disablePageScroll, enablePageScroll } from '@fluejs/noscroll'
-import StickyHeader from '~/widgets/StickyHeader/ui.vue'
+import { StickyHeaderWidget } from '~/widgets/sticky-header'
 import { useHeaderStore } from '~/global/store/header'
 
 defineOptions({
@@ -108,6 +106,18 @@ const route = useRoute()
 const isShowModalBurger = ref(false)
 
 const isMain = isMainPage()
+
+const mobileMenuItems = computed(() => {
+  return [
+    {
+      id: 'services-in-menu',
+      title: 'Услуги',
+      to: {
+        name: 'services'
+      }
+    }
+  ]
+})
 
 watch(() => isShowModalBurger.value, value => {
   if (value) {

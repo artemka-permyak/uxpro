@@ -1,0 +1,26 @@
+slug: programmatica
+id: 3
+title: "Programmatica"
+
+description:
+  - "Разработка личного кабинета"
+
+publishYear: 2024
+created_at: 2024-08-12
+disabled: true
+
+completedWorksTitles:
+  - Исследования
+
+preview:
+  image: "https://uxpro.ru/images/programmatica/app-image.png"
+  description: "Платформа для ведения рекламных кампаний"
+
+tags:
+  - Web
+
+media:
+  - src: "https://uxpro.ru/images/programmatica/app-image.png"
+    type: image
+
+awards: []

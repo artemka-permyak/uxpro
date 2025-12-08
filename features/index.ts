@@ -1,13 +1,11 @@
-import ContactUsFeature from '@/features/ContactUs.vue'
-import CompanyAwards from '~/features/CompanyAwards/CompanyAwards.vue'
-import CompanyAward from '~/features/CompanyAwards/CompanyAward.vue'
-import DownloadPresentation from '@/features/DownloadPresentation.vue'
-import BlockHeader from '@/features/BlockHeader.vue'
+import ContactUsFeature from '~/features/contact-us-feature.vue'
+import DownloadPresentationFeature from '~/features/download-presentation-feature.vue'
+import NuxtImgWithDescription from '@/features/nuxt-img-with-description.vue'
 
 export {
   ContactUsFeature,
-  CompanyAwards,
-  CompanyAward,
-  DownloadPresentation,
-  BlockHeader,
+  DownloadPresentationFeature,
+  NuxtImgWithDescription,
 }
+
+export * from '@/features/services'

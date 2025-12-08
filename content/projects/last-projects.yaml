@@ -1,0 +1,63 @@
+title: 'Последние проекты'
+lastProjects:
+  - id: 1
+    isNda: true
+    title: "Сервис транспортной телематики"
+    direction: "Телематика"
+    deadline: "3 месяца"
+    tags:
+      - Исследование
+      - Проектирование
+      - UX/UI
+    position: 1
+
+  - id: 2
+    isNda: true
+    title: "Сервис по ведению внешней экономической деятельности"
+    direction: "ВЭД"
+    deadline: "5 месяцев"
+    tags:
+      - Проектирование
+      - UX/UI
+    position: 2
+
+  - id: 3
+    isNda: false
+    title: "Сервис декларирования и прохождения таможенных процедур"
+    direction: "ВЭД"
+    deadline: "5 месяцев"
+    tags:
+      - Исследование
+      - Проектирование
+      - UX/UI
+    position: 3
+
+  - id: 4
+    isNda: true
+    title: "Мобильное приложение для модулей хранения"
+    direction: "Стартап"
+    deadline: "2 недели"
+    tags:
+      - Проектирование
+    position: 4
+
+  - id: 5
+    isNda: true
+    title: "Корпоративный HR-сервис"
+    direction: "HRM-система"
+    deadline: "2 месяца"
+    tags:
+      - Проектирование
+      - UX/UI
+    position: 5
+
+  - id: 6
+    isNda: false
+    title: "Рефакторинг системы лояльности"
+    direction: "Сервис"
+    deadline: "3 месяца"
+    tags:
+      - Исследование
+      - Проектирование
+      - UX/UI
+    position: 6

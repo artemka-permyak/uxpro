@@ -1,43 +1,33 @@
 <template>
-  <div class="flex flex-col gap-[9.6rem] max-w-[192rem] m-auto text-white mb:gap-[6.4rem]">
-    <div class="flex flex-col gap-[4.8rem]">
-      <CompanyPreview />
+  <div class="flex flex-col gap-size-24 max-w-[192rem] m-auto text-white max-xl-plus:gap-size-16">
+    <div class="flex flex-col gap-size-12">
+      <CompanyPreviewWidget />
 
-      <BriefCompanyServicesOverview />
+      <BriefCompanyServicesOverviewWidget />
     </div>
 
-    <ProjectsWidget
-      v-if="projectsData?.data"
-      :projects="projectsData?.data"
-    />
+    <ProjectsWidget />
 
     <ServicesWidget />
 
     <ApproachWidget />
 
-    <LastProjectsWidget
-      v-if="lastProjectsData?.data"
-      :last-projects="lastProjectsData.data"
-    />
+    <LastProjectsWidget />
   </div>
 </template>
 
 <script setup lang="ts">
-import { CompanyPreview } from '~/widgets/CompanyPreview'
-import { BriefCompanyServicesOverview } from '~/widgets/BriefCompanyServicesOverview'
-import { ProjectsWidget } from '~/widgets/Projects'
-import { ServicesWidget } from '~/widgets/Services'
-import { ApproachWidget } from '~/widgets/Approach'
-import { LastProjectsWidget } from '~/widgets/LastProjects'
+import { CompanyPreviewWidget } from '~/widgets/company-preview'
+import { BriefCompanyServicesOverviewWidget } from '~/widgets/brief-company-services-overview'
+import { ProjectsWidget } from '~/widgets/projects'
+import { ServicesWidget } from '~/widgets/services'
+import { ApproachWidget } from '~/widgets/approach'
+import { LastProjectsWidget } from '~/widgets/last-projects'
 import { useHeaderStore } from '~/global/store/header'
 
 defineOptions({
   name: 'IndexPage',
 });
-
-const { data: projectsData } = useFetch('/api/projects')
-
-const { data: lastProjectsData } = useFetch('/api/last-projects')
 
 const headerStore = useHeaderStore()
 

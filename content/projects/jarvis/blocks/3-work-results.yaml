@@ -1,0 +1,27 @@
+id: 23
+project_id: 4
+type: splitBlock
+title: "Над чем мы работали и что получилось"
+content: null
+ordinary_title: null
+ordinary_content: null
+created_at: "2025-07-03 19:37:19.228745"
+updated_at: "2025-07-03 19:37:19.228745"
+description:
+  - "Усовершенствовали систему запуска и проверки билдов, а также упростили логику сервиса, который автоматизирует процесс мониторинга ошибок в коде"
+  - "В результате получился удобный продукт для разработчиков геймдев-компании. Мы помогли оптимизировать затраты на проверку кода  и улучшить метрики эффективности"
+  - "Также систематизировали работу над дизайном, что снизило издержки на разработку при масштабировании проекта"
+order: 4
+review: []
+reviewer_name: null
+reviewer_photo: null
+reviewer_job_title: null
+media:
+  - src: "http://uxpro.ru/images/jarvis/work-and-results-1.png"
+    type: image
+  - src: "http://uxpro.ru/images/jarvis/work-and-results-2.png"
+    type: image
+  - src: "http://uxpro.ru/images/jarvis/work-and-results-3.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-one"

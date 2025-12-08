@@ -1,23 +1,27 @@
-import { SplitBlock, getSplitBlockTitle } from '@/global/ui/SplitBlock'
-import LogoImg from '@/global/ui/Logo.vue'
-import { InputUi, MaskInputUi } from '~/global/ui/Input'
-import TextareaUi from '@/global/ui/Textarea.vue'
-import ButtonUi from '@/global/ui/Button.vue'
-import FilledLink from '@/global/ui/FilledLink.vue'
-import ArrowFilledLink from '@/global/ui/ArrowFilledLink.vue'
-import AnimatedLink from '@/global/ui/AnimatedLink.vue'
+import LogoImg from '~/global/ui/logo.vue'
+import TextareaUi from '~/global/ui/textarea.vue'
+import ButtonUi from '~/global/ui/button.vue'
+import Icon from '@/global/ui/icon.vue'
+import Link from '@/global/ui/link.vue'
+import Tag from '@/global/ui/tag.vue'
+import Container from '@/global/ui/container.vue'
+import Slider from '@/global/ui/slider.vue'
+import BlockHeader from '@/global/ui/block-header.vue'
+import VideoUi from '@/global/ui/video.vue'
 
 export {
-  SplitBlock,
-  getSplitBlockTitle,
-
   LogoImg,
-
-  InputUi,
-  MaskInputUi,
   TextareaUi,
   ButtonUi,
-  FilledLink,
-  ArrowFilledLink,
-  AnimatedLink,
+  Icon,
+  Link,
+  Tag,
+  Container,
+  Slider,
+  BlockHeader,
+  VideoUi,
 }
+
+export * from '@/global/ui/split-block'
+export * from '@/global/ui/input'
+export * from '@/global/ui/contact-links'

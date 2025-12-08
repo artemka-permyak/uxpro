@@ -1,0 +1,40 @@
+slug: "digital-profile"
+id: 1
+title: "Цифровой профиль"
+description:
+  - "Цифровой профиль снимает нагрузку с родителей школьников..."
+  - "В нём собрана вся информация — успеваемость, посещаемость, статистика..."
+publishYear: 2024
+created_at: 2025-09-01
+
+completedWorks:
+  - Исследования
+  - Проектирование
+  - Дизайн интерфейса
+  - Дизайн-контроль
+
+preview:
+  image: "https://uxpro.ru/images/digital-profile/app-image.png"
+  description: "Цифровой профиль ученика и педагога средней школы"
+
+tags:
+  - Web
+  - Mobile
+  - Desktop
+  - Образование
+  - Платформа
+  - Ученик
+  - Учитель
+  - Школа
+
+media:
+  - src: "https://uxpro.ru/images/digital-profile/app-image.png"
+    type: image
+
+awards:
+  - src: "https://uxpro.ru/images/wda-award.png"
+    title: "Призёр WDA"
+    description: "2 место"
+
+  - src: "https://uxpro.ru/images/dprofile-award.png"
+    title: "Рекомендуемое на dprofile.ru"

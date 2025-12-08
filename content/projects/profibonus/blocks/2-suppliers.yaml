@@ -1,0 +1,22 @@
+id: 12
+project_id: 2
+type: splitBlock
+title: "Поставщики"
+content: null
+ordinary_title: null
+ordinary_content: null
+created_at: "2025-01-13 16:25:24.007324"
+updated_at: "2025-01-13 21:35:58.885259"
+description:
+  - "Сервис спроектирован так, чтобы поставщик смог быстро оценить и проконтролировать сбыт. Всё движение товара в магазинах — перед глазами"
+  - "Сразу видят ключевые метрики: активированные коды, статистику и динамику сбыта"
+order: 3
+review: []
+reviewer_name: null
+reviewer_photo: null
+reviewer_job_title: null
+media:
+  - src: "http://uxpro.ru/images/profibonus/suppliers-1.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-two"

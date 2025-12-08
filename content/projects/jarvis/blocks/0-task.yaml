@@ -1,0 +1,21 @@
+id: 20
+project_id: 4
+type: splitBlock
+title: "Какая задача поступила"
+content: null
+ordinary_title: null
+ordinary_content: null
+created_at: "2025-07-03 19:26:41.646057"
+updated_at: "2025-07-03 19:26:41.646057"
+description:
+  - "К нам обратилась международная компания — издатель видеоигр. Требовалось обновить дизайн интерфейса внутреннего продукта — сервиса для разработчиков, улучшить его пользовательские свойства, эргономику и информационную архитектуру, а также систематизировать работу над дизайном"
+order: 1
+review: []
+reviewer_name: null
+reviewer_photo: null
+reviewer_job_title: null
+media:
+  - src: "http://uxpro.ru/images/jarvis/task.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-two"

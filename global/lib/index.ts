@@ -1,13 +1,11 @@
 import plural from '@/global/lib/plural'
-import isSafari from '@/global/lib/isSafari'
-import getDomainName from '@/global/lib/domainName'
-import getDomainLink from '~/global/lib/domainLink'
-import SmoothScroll from '@/global/lib/smoothScroll'
-import getFileType from '@/global/lib/fileType'
+import getDomainName from '~/global/lib/domain-name'
+import getDomainLink from '~/global/lib/domain-link'
+import SmoothScroll from '~/global/lib/smooth-scroll'
+import getFileType from '~/global/lib/file-type'
 
 export {
   plural,
-  isSafari,
   getDomainName,
   getDomainLink,
   SmoothScroll,

@@ -1,0 +1,21 @@
+id: 7
+project_id: 1
+type: splitBlock
+title: "Дизайн профиля педагога"
+content: null
+ordinary_title: null
+ordinary_content: null
+created_at: "2024-12-18 19:26:36.860805"
+updated_at: "2025-01-13 18:52:22.306509"
+description:
+  - "Для педагогов продумали удобную систему электронных дневников с разбивкой по успеваемости каждого ученика, возможность вести профессиональное портфолио и загружать методические материалы для комфортной и продуктивной работы"
+order: 6
+review: []
+reviewer_name: null
+reviewer_photo: null
+reviewer_job_title: null
+media:
+  - src: "https://uxpro.ru/images/digital-profile/teacher-profile-design-1.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-two"

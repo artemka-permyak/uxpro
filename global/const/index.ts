@@ -1,7 +1,1 @@
-import { EMAIL, PHONE, SOCIAL_LINKS } from '@/global/const/contacts'
-
-export {
-  EMAIL,
-  PHONE,
-  SOCIAL_LINKS
-}
+export * from '@/global/const/contacts'

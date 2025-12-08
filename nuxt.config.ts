@@ -1,4 +1,5 @@
 import svgLoader from 'vite-svg-loader'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -58,27 +59,15 @@ export default defineNuxtConfig({
   },
 
   css: [
-    'normalize.css',
-    '@/global/styles/index.css'
+    '@/global/assets/styles/index.css',
   ],
-
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {}
-    }
-  },
 
   modules: [
     '@nuxt/image',
     '@pinia/nuxt',
     '@nuxtjs/sitemap',
+    '@nuxt/content',
   ],
-
-  image: {
-    placeholder: 'blur',
-    blur: 30,
-  },
 
   site: {
     url: process.env.DOMAIN_NAME,
@@ -92,6 +81,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       svgLoader(),
+      tailwindcss(),
     ],
   },
 

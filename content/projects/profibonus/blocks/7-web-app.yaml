@@ -1,0 +1,23 @@
+id: 17
+project_id: 2
+type: splitBlock
+title: "Web & App"
+content: null
+ordinary_title: null
+ordinary_content: null
+created_at: "2025-01-13 18:25:01.885495"
+updated_at: "2025-01-13 18:59:24.164089"
+description:
+  - "Веб-версия, адаптивы для всех разрешений, приложения для обеих ролей"
+order: 8
+review: []
+reviewer_name: null
+reviewer_photo: null
+reviewer_job_title: null
+media:
+  - src: "https://uxpro.ru/images/profibonus/web-app-1.png"
+    type: image
+  - src: "https://uxpro.ru/images/profibonus/web-app-2.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-one"

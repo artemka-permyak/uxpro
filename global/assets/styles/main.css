@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+:root {
+    --default-transition-duration: .3s;
+
+    --size-1: 4px;
+    --size-2: 8px;
+    --size-3: 12px;
+    --size-4: 16px;
+    --size-5: 20px;
+    --size-6: 24px;
+    --size-7: 28px;
+    --size-8: 32px;
+    --size-9: 36px;
+    --size-10: 40px;
+    --size-11: 44px;
+    --size-12: 48px;
+    --size-13: 52px;
+    --size-14: 56px;
+    --size-15: 60px;
+    --size-16: 64px;
+    --size-17: 68px;
+    --size-18: 72px;
+    --size-19: 76px;
+    --size-20: 80px;
+    --size-21: 84px;
+    --size-22: 88px;
+    --size-23: 92px;
+    --size-24: 96px;
+    --size-25: 100px;
+    --size-26: 104px;
+    --size-27: 108px;
+    --size-28: 112px;
+    --size-29: 116px;
+    --size-30: 120px;
+    --size-31: 124px;
+    --size-32: 128px;
+
+    --font-base: 10px;
+
+    --font-h1: 6.4rem;
+    --font-h1--line-height: 7rem;
+    --font-h1--font-weight: 400;
+
+    --font-h2: 4.8rem;
+    --font-h2--line-height: 5.4rem;
+    --font-h2--font-weight: 400;
+
+    --font-h3: 3.2rem;
+    --font-h3--line-height: 3.8rem;
+    --font-h3--font-weight: 400;
+
+    --font-t1: 2rem;
+    --font-t1--line-height: 2.8rem;
+    --font-t1--font-weight: 400;
+    --font-t1-bold--font-weight: 500;
+
+    --font-t2: 1.6rem;
+    --font-t2--line-height: 2.4rem;
+    --font-t2--font-weight: 400;
+    --font-t2-bold--font-weight: 500;
+
+    --font-t3: 1.4rem;
+    --font-t3--line-height: 2rem;
+    --font-t3--font-weight: 400;
+    --font-t3-bold--font-weight: 500;
+
+    --font-t4: 1.2rem;
+    --font-t4--line-height: 1.6rem;
+    --font-t4--font-weight: 400;
+    --font-t4-bold--font-weight: 500;
+
+    --grey: #818181;
+    --dark-grey: #282828;
+
+    --white-100: #fff;
+    --white-8: #FFFFFF14;
+    --white-hover: #E7E7E7;
+    --white-active: #CECECE;
+
+    --black-100: #090909;
+    --black-90: #090909E5;
+}
+
+@media (max-width: 1439px) {
+    :root {
+        --font-h1: 3.2rem;
+        --font-h1--line-height: 3.8rem;
+
+        --font-h2: 2.4rem;
+        --font-h2--line-height: 3rem;
+
+        --font-t1: 1.6rem;
+        --font-t1--line-height: 2.4rem;
+    }
+}
+
+@theme {
+    --breakpoint-xl-plus: 90rem;
+
+    --spacing-size-1: var(--size-1);
+    --spacing-size-2: var(--size-2);
+    --spacing-size-3: var(--size-3);
+    --spacing-size-4: var(--size-4);
+    --spacing-size-5: var(--size-5);
+    --spacing-size-6: var(--size-6);
+    --spacing-size-7: var(--size-7);
+    --spacing-size-8: var(--size-8);
+    --spacing-size-9: var(--size-9);
+    --spacing-size-10: var(--size-10);
+    --spacing-size-11: var(--size-11);
+    --spacing-size-12: var(--size-12);
+    --spacing-size-13: var(--size-13);
+    --spacing-size-14: var(--size-14);
+    --spacing-size-15: var(--size-15);
+    --spacing-size-16: var(--size-16);
+    --spacing-size-17: var(--size-17);
+    --spacing-size-18: var(--size-18);
+    --spacing-size-19: var(--size-19);
+    --spacing-size-20: var(--size-20);
+    --spacing-size-21: var(--size-21);
+    --spacing-size-22: var(--size-22);
+    --spacing-size-23: var(--size-23);
+    --spacing-size-24: var(--size-24);
+    --spacing-size-25: var(--size-25);
+    --spacing-size-26: var(--size-26);
+    --spacing-size-27: var(--size-27);
+    --spacing-size-28: var(--size-28);
+    --spacing-size-29: var(--size-29);
+    --spacing-size-30: var(--size-30);
+    --spacing-size-31: var(--size-31);
+    --spacing-size-32: var(--size-32);
+
+    --radius-size-1: var(--size-1);
+    --radius-size-2: var(--size-2);
+    --radius-size-3: var(--size-3);
+    --radius-size-4: var(--size-4);
+    --radius-size-5: var(--size-5);
+    --radius-size-6: var(--size-6);
+    --radius-size-7: var(--size-7);
+    --radius-size-8: var(--size-8);
+    --radius-size-9: var(--size-9);
+    --radius-size-10: var(--size-10);
+    --radius-size-11: var(--size-11);
+    --radius-size-12: var(--size-12);
+    --radius-size-13: var(--size-13);
+    --radius-size-14: var(--size-14);
+    --radius-size-15: var(--size-15);
+    --radius-size-16: var(--size-16);
+    --radius-size-17: var(--size-17);
+    --radius-size-18: var(--size-18);
+    --radius-size-19: var(--size-19);
+    --radius-size-20: var(--size-20);
+    --radius-size-21: var(--size-21);
+    --radius-size-22: var(--size-22);
+    --radius-size-23: var(--size-23);
+    --radius-size-24: var(--size-24);
+    --radius-size-25: var(--size-25);
+    --radius-size-26: var(--size-26);
+    --radius-size-27: var(--size-27);
+    --radius-size-28: var(--size-28);
+    --radius-size-29: var(--size-29);
+    --radius-size-30: var(--size-30);
+    --radius-size-31: var(--size-31);
+    --radius-size-32: var(--size-32);
+
+    --text-base: var(--font-base);
+
+    --text-h1: var(--font-h1);
+    --text-h1--line-height: var(--font-h1--line-height);
+    --text-h1--font-weight: var(--font-h1--font-weight);
+
+    --text-h2: var(--font-h2);
+    --text-h2--line-height: var(--font-h2--line-height);
+    --text-h2--font-weight: var(--font-h2--font-weight);
+
+    --text-h3: var(--font-h3);
+    --text-h3--line-height: var(--font-h3--line-height);
+    --text-h3--font-weight: var(--font-h3--font-weight);
+
+    --text-t1: var(--font-t1);
+    --text-t1--line-height: var(--font-t1--line-height);
+    --text-t1--font-weight: var(--font-t1--font-weight);
+
+    --text-t1-bold: var(--font-t1);
+    --text-t1-bold--line-height: var(--font-t1--line-height);
+    --text-t1-bold--font-weight: var(--font-t1-bold--font-weight);
+
+    --text-t2: var(--font-t2);
+    --text-t2--line-height: var(--font-t2--line-height);
+    --text-t2--font-weight: var(--font-t2--font-weight);
+
+    --text-t2-bold: var(--font-t2);
+    --text-t2-bold--line-height: var(--font-t2--line-height);
+    --text-t2-bold--font-weight: var(--font-t2-bold--font-weight);
+
+    --text-t3: var(--font-t3);
+    --text-t3--line-height: var(--font-t3--line-height);
+    --text-t3--font-weight: var(--font-t3--font-weight);
+
+    --text-t3-bold: var(--font-t3);
+    --text-t3-bold--line-height: var(--font-t3--line-height);
+    --text-t3-bold--font-weight: var(--font-t3-bold--font-weight);
+
+    --text-t4: var(--font-t4);
+    --text-t4--line-height: var(--font-t4--line-height);
+    --text-t4--font-weight: var(--font-t4--font-weight);
+
+    --text-t4-bold: var(--font-t4);
+    --text-t4-bold--line-height: var(--font-t4--line-height);
+    --text-t4-bold--font-weight: var(--font-t4-bold--font-weight);
+
+    --color-grey: var(--grey);
+    --color-dark-grey: var(--dark-grey);
+
+    --color-white-100: var(--white-100);
+    --color-white-8: var(--white-8);
+    --color-white-hover: var(--white-hover);
+    --color-white-active: var(--white-active);
+
+    --color-black-100: var(--black-100);
+    --color-black-90: var(--black-90);
+
+    --font-soyuz-grotesk: 'Soyuz Grotesk', sans-serif;
+}
+
+html {
+    font-size: var(--font-base);
+    font-family: 'Aeonik Pro', sans-serif;
+    font-weight: 400;
+    word-break: break-word;
+}
