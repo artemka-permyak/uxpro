@@ -11,7 +11,7 @@
 
     <div class="flex items-center gap-size-6">
       <NuxtImg
-        :src="getDomainLink('/images/contacts/sergey-logo.png')"
+        :src="getStorageLink('/images/contacts/sergey-logo.png')"
         :alt="author.name"
         class="w-[8rem] h-[8rem] rounded-full object-cover"
       />
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { getDomainLink } from '~/global/lib'
+import { getStorageLink } from '~/global/lib'
 import { Container, Icon } from '~/global/ui'
 
 defineOptions({

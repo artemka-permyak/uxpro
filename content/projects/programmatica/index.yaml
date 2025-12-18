@@ -13,14 +13,14 @@ completedWorksTitles:
   - Исследования
 
 preview:
-  image: "https://uxpro.ru/images/programmatica/app-image.png"
+  image: "https://storage.yandexcloud.net/uxpro/images/programmatica/app-image.png"
   description: "Платформа для ведения рекламных кампаний"
 
 tags:
   - Web
 
 media:
-  - src: "https://uxpro.ru/images/programmatica/app-image.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/programmatica/app-image.png"
     type: image
 
 awards: []

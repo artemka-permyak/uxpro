@@ -8,11 +8,11 @@
 </template>
 
 <script setup lang="ts">
-import getDomainLink from '~/global/lib/domain-link'
+import getStorageLink from '~/global/lib/storage-link'
 
 defineOptions({
   name: 'LogoImg',
 })
 
-const LOGO_PATH = getDomainLink('/images/logo.png')
+const LOGO_PATH = getStorageLink('/images/logo.png')
 </script>

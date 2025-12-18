@@ -23,9 +23,9 @@ media:
   - row: true
     cols: 2
     media:
-      - src: "https://uxpro.ru/images/jarvis/stage-of-works-1.png"
+      - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/stage-of-works-1.png"
         type: image
-      - src: "https://uxpro.ru/images/jarvis/stage-of-works-2.png"
+      - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/stage-of-works-2.png"
         type: image
 dedicated_description: []
 media_position: "two-to-two"

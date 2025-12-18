@@ -18,10 +18,10 @@ media:
   - row: true
     cols: 2
     media:
-      - src: "https://uxpro.ru/images/profibonus/sellers-1.png"
+      - src: "https://storage.yandexcloud.net/uxpro/images/profibonus/sellers-1.png"
         type: image
         description: "Баллы — это деньги"
-      - src: "https://uxpro.ru/images/profibonus/sellers-2.png"
+      - src: "https://storage.yandexcloud.net/uxpro/images/profibonus/sellers-2.png"
         type: image
         description: "Баллы — это сертификаты"
 dedicated_description: []

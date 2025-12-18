@@ -14,7 +14,7 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "https://uxpro.ru/images/jarvis/ui-kit.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/ui-kit.png"
     type: image
     style:
       padding: "0 16px"

@@ -15,7 +15,7 @@ completedWorksTitles:
   - Дизайн-контроль
 
 preview:
-  image: "https://uxpro.ru/images/jarvis/preview-image.png"
+  image: "https://storage.yandexcloud.net/uxpro/images/jarvis/preview-image.png"
   description: "Сервис для разработчиков компьютерных игр"
 
 tags:
@@ -24,12 +24,12 @@ tags:
   - Web
 
 media:
-  - src: "https://uxpro.ru/images/jarvis/app-image.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/app-image.png"
     type: image
-  - src: "https://uxpro.ru/video/jarvis/jarvis-main-video.mp4"
+  - src: "https://storage.yandexcloud.net/uxpro/video/jarvis/jarvis-main-video.mp4"
     type: video
-    poster: "https://uxpro.ru/images/jarvis/jarvis-main-video-poster.png"
+    poster: "https://storage.yandexcloud.net/uxpro/images/jarvis/jarvis-main-video-poster.png"
 
 awards:
-  - src: "https://uxpro.ru/images/dprofile-award.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/dprofile-award.png"
     title: "Рекомендуемое на<br> dprofile.ru"

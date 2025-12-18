@@ -2,8 +2,8 @@
   <div class="h-svh border-b border-b-black pt-size-8 overflow-hidden max-xl-plus:h-[calc(100svh-6.2rem)]">
     <VideoUi
       class="absolute top-0 left-0 right-0 w-full h-svh max-h-svh object-cover"
-      :src="getDomainLink('/video/video-logo.mp4')"
-      :poster="getDomainLink('/images/video-logo-poster.png')"
+      :src="getStorageLink('/video/video-logo.mp4')"
+      :poster="getStorageLink('/images/video-logo-poster.png')"
     />
 
 <!--    TODO 68% -->
@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import { CompanyAwards } from '~/features/company-awards'
-import { getDomainLink } from '~/global/lib'
+import { getStorageLink } from '~/global/lib'
 import { useHeaderStore } from '~/global/store/header'
 import { ButtonUi, LogoImg, VideoUi } from '~/global/ui'
 

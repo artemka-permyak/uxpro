@@ -56,7 +56,7 @@
 
             <div class="flex items-center gap-size-6">
               <NuxtImg
-                :src="getDomainLink('/images/contacts/sergey-logo.png')"
+                :src="review.author.image"
                 :alt="review.author.name"
                 class="w-[6.4rem] h-[6.4rem] rounded-full object-cover"
               />
@@ -106,7 +106,7 @@
 
             <div class="flex items-center gap-size-6">
               <NuxtImg
-                :src="getDomainLink('/images/contacts/sergey-logo.png')"
+                :src="review.author.image"
                 :alt="review.author.name"
                 class="w-[6.4rem] h-[6.4rem] rounded-full object-cover"
               />
@@ -130,7 +130,7 @@
 
 <script setup lang="ts">
 import { Slider, Icon, Container } from '~/global/ui'
-import { getDomainLink } from '~/global/lib'
+import { getStorageLink } from '~/global/lib'
 
 defineOptions({
   name: 'ServicesPageReviews'

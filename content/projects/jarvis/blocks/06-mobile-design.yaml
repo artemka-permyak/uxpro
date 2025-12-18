@@ -14,7 +14,7 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "https://uxpro.ru/images/jarvis/mobile-design.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/mobile-design.png"
     type: image
 dedicated_description: []
 media_position: "one-to-one"

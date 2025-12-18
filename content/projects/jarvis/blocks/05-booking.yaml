@@ -14,19 +14,19 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "https://uxpro.ru/video/jarvis/booking-system-video.mp4"
+  - src: "https://storage.yandexcloud.net/uxpro/video/jarvis/booking-system-video.mp4"
     type: video
-    poster: "https://uxpro.ru/images/jarvis/booking-system-video-poster.png"
-  - src: "https://uxpro.ru/images/jarvis/booking-system-1.png"
+    poster: "https://storage.yandexcloud.net/uxpro/images/jarvis/booking-system-video-poster.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/booking-system-1.png"
     type: image
-  - src: "https://uxpro.ru/images/jarvis/booking-system-2.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/booking-system-2.png"
     type: image
   - row: true
     cols: 2
     media:
-      - src: "https://uxpro.ru/images/jarvis/booking-system-3.png"
+      - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/booking-system-3.png"
         type: image
-      - src: "https://uxpro.ru/images/jarvis/booking-system-4.png"
+      - src: "https://storage.yandexcloud.net/uxpro/images/jarvis/booking-system-4.png"
         type: image
 dedicated_description: []
 media_position: "one-to-one"

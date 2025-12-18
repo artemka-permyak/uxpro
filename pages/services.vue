@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-size-32 max-xl-plus:gap-size-18">
     <Container class="flex flex-col gap-size-12">
       <NuxtImg
-        :src="getDomainLink('/images/project/project-bg.png')"
+        :src="getStorageLink('/images/project/project-bg.png')"
         alt="Лого проекта"
         class="w-full min-h-[20rem] object-cover"
       />
@@ -83,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { getDomainLink } from '~/global/lib'
+import { getStorageLink } from '~/global/lib'
 import ContactUsFeature from '../features/contact-us-feature.vue'
 import { Tag, Icon, Container, Slider } from '@/global/ui'
 import { ServicesList } from '~/features'

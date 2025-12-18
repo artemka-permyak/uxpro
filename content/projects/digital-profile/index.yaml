@@ -14,7 +14,7 @@ completedWorks:
   - Дизайн-контроль
 
 preview:
-  image: "https://uxpro.ru/images/digital-profile/app-image.png"
+  image: "https://storage.yandexcloud.net/uxpro/images/digital-profile/app-image.png"
   description: "Цифровой профиль ученика и педагога средней школы"
 
 tags:
@@ -28,13 +28,13 @@ tags:
   - Школа
 
 media:
-  - src: "https://uxpro.ru/images/digital-profile/app-image.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/digital-profile/app-image.png"
     type: image
 
 awards:
-  - src: "https://uxpro.ru/images/wda-award.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/wda-award.png"
     title: "Призёр WDA"
     description: "2 место"
 
-  - src: "https://uxpro.ru/images/dprofile-award.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/dprofile-award.png"
     title: "Рекомендуемое на dprofile.ru"

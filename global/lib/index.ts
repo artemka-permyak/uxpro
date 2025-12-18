@@ -1,13 +1,13 @@
 import plural from '@/global/lib/plural'
-import getDomainName from '~/global/lib/domain-name'
-import getDomainLink from '~/global/lib/domain-link'
+import getStorageName from '~/global/lib/storage-name'
+import getStorageLink from '~/global/lib/storage-link'
 import SmoothScroll from '~/global/lib/smooth-scroll'
 import getFileType from '~/global/lib/file-type'
 
 export {
   plural,
-  getDomainName,
-  getDomainLink,
+  getStorageName,
+  getStorageLink,
   SmoothScroll,
   getFileType
 }

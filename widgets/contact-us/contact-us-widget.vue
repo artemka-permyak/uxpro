@@ -16,7 +16,7 @@
 
       <div class="flex gap-size-6 max-xl-plus:flex-col max-xl-plus:gap-size-4">
         <NuxtImg
-          :src="getDomainLink('/images/contacts/sergey-logo.png')"
+          :src="getStorageLink('/images/contacts/sergey-logo.png')"
           alt="Сергей UxPro"
           class="w-[9rem] h-[9rem] rounded-full"
         />
@@ -138,7 +138,7 @@
 import Close from '@/global/assets/svg/close.svg'
 import Check from '@/global/assets/svg/check.svg'
 import { InputUi, TextareaUi, ButtonUi, Link, Icon } from '@/global/ui'
-import { getDomainLink, plural } from '@/global/lib'
+import { getStorageLink, plural } from '@/global/lib'
 import { SOCIAL_LINKS_TO } from '~/global/const/contacts'
 import { EmailAndPhone } from '~/global/ui/contact-links'
 import { DownloadPresentationFeature } from '~/features'

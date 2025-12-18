@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex flex-col p-size-8 gap-size-8 border-b border-b-solid border-b-dark-grey max-xl-plus:p-size-6 max-xl-plus:border-none">
     <NuxtImg
-      :src="getDomainLink('/images/project/project-bg.png')"
+      :src="getStorageLink('/images/project/project-bg.png')"
       alt="Лого проекта"
       class="only-desktop w-full object-contain"
     />
@@ -97,7 +97,7 @@
 <script setup lang="ts">
 import ArrowBottom from '@/global/assets/svg/arrow-bottom.svg'
 import { CompanyAward } from '~/features/company-awards'
-import { getDomainLink } from '~/global/lib'
+import { getStorageLink } from '~/global/lib'
 
 defineOptions({
   name: 'ProjectPageHeader'

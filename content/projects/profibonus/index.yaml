@@ -15,7 +15,7 @@ completedWorksTitles:
   - Дизайн-контроль
 
 preview:
-  image: "https://uxpro.ru/images/profibonus/preview-image.png"
+  image: "https://storage.yandexcloud.net/uxpro/images/profibonus/preview-image.png"
   description: "Сервис управления продажами в реальном времени"
 
 tags:
@@ -29,7 +29,7 @@ tags:
   - Продажи
 
 media:
-  - src: "https://uxpro.ru/images/profibonus/app-image.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/profibonus/app-image.png"
     type: image
 
 awards: []

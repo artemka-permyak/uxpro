@@ -7,7 +7,7 @@ reviews:
     id: 'review-1'
     author:
       name: 'Павел Бобро'
-      image: ''
+      image: 'https://storage.yandexcloud.net/uxpro/images/people/pavel-bobro.png'
       description: 'PM'
 
   - description:
@@ -16,7 +16,7 @@ reviews:
     id: 'review-2'
     author:
       name: 'Евгений Цымбалюк'
-      image: ''
+      image: 'https://storage.yandexcloud.net/uxpro/images/people/evgeny-tsymbalyuk.png'
       description: 'Руководитель проекта'
 
   - description:
@@ -24,7 +24,7 @@ reviews:
     id: 'review-3'
     author:
       name: 'Чернышев Сергей'
-      image: ''
+      image: 'https://storage.yandexcloud.net/uxpro/images/people/sergey-chernyshev.jpg'
       description: 'Генеральный директор'
 
   - description:

@@ -15,9 +15,9 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "https://uxpro.ru/images/digital-profile/design-1.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/digital-profile/design-1.png"
     type: image
-  - src: "https://uxpro.ru/images/digital-profile/design-2.png"
+  - src: "https://storage.yandexcloud.net/uxpro/images/digital-profile/design-2.png"
     type: image
 dedicated_description: []
 media_position: "one-to-one"

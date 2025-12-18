@@ -1,6 +1,6 @@
 <template>
   <Link
-    :href="getDomainLink('/files/uxpro-presentation.pdf')"
+    :href="getStorageLink('/files/uxpro-presentation.pdf')"
     target="_blank"
     download
   >
@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { Link, Icon } from '@/global/ui'
-import { getDomainLink } from '@/global/lib'
+import { getStorageLink } from '@/global/lib'
 
 defineOptions({
   name: 'DownloadPresentation'
