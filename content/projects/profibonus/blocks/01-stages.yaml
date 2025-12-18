@@ -1,0 +1,24 @@
+blockId: 11
+projectId: 2
+type: splitBlockDivided
+title: "Этапы работы"
+content:
+  - title: "Анализ"
+    dedicatedDescription: "Сбор информации, интервью, требования"
+  - title: "Проектирование"
+    dedicatedDescription: "Сборка флоу, информационная архитектура, прототипирование, UX-тексты"
+  - title: "Дизайн"
+    dedicatedDescription: "Концепция, макеты, UI–кит, дизайн-контроль"
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-01-13 16:23:55.788642"
+updatedAt: "2025-01-13 16:23:55.788642"
+description: []
+order: 2
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media: []
+dedicated_description: []
+media_position: "one-to-two"

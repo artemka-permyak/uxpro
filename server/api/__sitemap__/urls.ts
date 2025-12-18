@@ -1,4 +1,4 @@
-export default defineSitemapEventHandler(async () => {
+export default defineSitemapEventHandler(async (event) => {
   const slugs = [
     'digital-profile',
     'jarvis',

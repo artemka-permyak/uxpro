@@ -99,31 +99,19 @@ const LABELS = {
 }
 
 const props = withDefaults(defineProps<{
-  filterFn?: Function
   limit?: number
   noSteps?: boolean
 }>(), {
-  limit: 4
+  limit: 8
 })
 
 const {
-  filterFn,
   limit,
   noSteps,
 } = toRefs(props)
 
-const response = await queryCollection('projects')
+const projects = await queryCollection('projects')
   .limit(limit.value)
+  .order('createdAt', 'DESC')
   .all()
-
-const projects = computed(() => {
-  const sortedProjects = (response || [])
-    .map(item => item.body)
-    .slice()
-    .sort((a, b) => a.id - b.id)
-
-  return filterFn.value
-    ? filterFn.value(sortedProjects)
-    : sortedProjects
-})
 </script>

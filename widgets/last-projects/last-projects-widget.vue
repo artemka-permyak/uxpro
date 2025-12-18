@@ -6,7 +6,7 @@
 
     <div class="w-full flex h-[51.2rem] overflow-x-auto snap-x">
       <div
-        v-for="(project, index) in lastProjects"
+        v-for="(project, index) in projects"
         :key="project.id"
         :class="['w-full h-full min-w-[30.9rem] snap-center', {
           'xl-plus:pt-size-16': index !== 0 && index % 3 === 1,
@@ -15,7 +15,7 @@
       >
         <div :class="['relative transition-colors w-full h-full flex flex-col gap-size-6 p-size-8 border-t border-b border-dark-grey', {
           'border-l border-r': index % 3 === 0,
-          'border-r': index !== 0 && index % 3 === 1 || index === lastProjects.length - 1,
+          'border-r': index !== 0 && index % 3 === 1 || index === projects.length - 1,
           'before:h-size-16 before:bg-dark-grey before:border-l before:border-dark-grey before:absolute before:left-[-.05rem] before:top-[-.05rem] max-xl-plus:before:left-[-.1rem] max-xl-plus:before:top-[-.1rem]': index !== 0 && index % 3 === 2,
         }]">
           <div class="group flex flex-col grow gap-size-6">
@@ -88,10 +88,8 @@ const LABELS = {
 }
 
 const {
-  body: {
-    title,
-    lastProjects,
-  }
+  title,
+  projects,
 } = await queryCollection('lastProjects')
   .first()
 

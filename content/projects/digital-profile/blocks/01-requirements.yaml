@@ -1,0 +1,19 @@
+blockId: 2
+projectId: 1
+type: splitBlock
+title: "Сбор требований"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2024-12-18 17:22:59.098137"
+updatedAt: "2024-12-18 17:56:28.305134"
+description:
+  - "Встретились с заказчиком для обсуждения концепции. Определили самые важные требования, договорились о сроках, зафиксировали базовый набор фич для MVP"
+order: 1
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media: []
+dedicated_description: []
+media_position: "one-to-two"

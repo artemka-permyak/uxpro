@@ -1,0 +1,23 @@
+blockId: 4
+projectId: 1
+type: splitBlock
+title: "Проектирование"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2024-12-18 18:20:22.202733"
+updatedAt: "2025-01-13 18:49:32.036147"
+description:
+  - "Интерфейс проектировали, исходя из потребностей родителей. Чтобы, посмотрев на экран, они сразу получили понятный и развёрнутый ответ на вопрос, как дела у ребёнка в школе"
+order: 3
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - src: "http://uxpro.ru/images/digital-profile/design-1.png"
+    type: image
+  - src: "http://uxpro.ru/images/digital-profile/design-2.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-one"

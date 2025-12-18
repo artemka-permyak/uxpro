@@ -35,6 +35,24 @@
     --size-30: 120px;
     --size-31: 124px;
     --size-32: 128px;
+    --size-33: 132px;
+    --size-34: 136px;
+    --size-35: 140px;
+    --size-36: 144px;
+    --size-37: 148px;
+    --size-38: 152px;
+    --size-39: 156px;
+    --size-40: 160px;
+    --size-41: 164px;
+    --size-42: 168px;
+    --size-43: 172px;
+    --size-44: 176px;
+    --size-45: 180px;
+    --size-46: 184px;
+    --size-47: 188px;
+    --size-48: 192px;
+    --size-49: 196px;
+    --size-50: 200px;
 
     --font-base: 10px;
 
@@ -130,6 +148,24 @@
     --spacing-size-30: var(--size-30);
     --spacing-size-31: var(--size-31);
     --spacing-size-32: var(--size-32);
+    --spacing-size-33: var(--size-33);
+    --spacing-size-34: var(--size-34);
+    --spacing-size-35: var(--size-35);
+    --spacing-size-36: var(--size-36);
+    --spacing-size-37: var(--size-37);
+    --spacing-size-38: var(--size-38);
+    --spacing-size-39: var(--size-39);
+    --spacing-size-40: var(--size-40);
+    --spacing-size-41: var(--size-41);
+    --spacing-size-42: var(--size-42);
+    --spacing-size-43: var(--size-43);
+    --spacing-size-44: var(--size-44);
+    --spacing-size-45: var(--size-45);
+    --spacing-size-46: var(--size-46);
+    --spacing-size-47: var(--size-47);
+    --spacing-size-48: var(--size-48);
+    --spacing-size-49: var(--size-49);
+    --spacing-size-50: var(--size-50);
 
     --radius-size-1: var(--size-1);
     --radius-size-2: var(--size-2);
@@ -163,6 +199,24 @@
     --radius-size-30: var(--size-30);
     --radius-size-31: var(--size-31);
     --radius-size-32: var(--size-32);
+    --radius-size-33: var(--size-33);
+    --radius-size-34: var(--size-34);
+    --radius-size-35: var(--size-35);
+    --radius-size-36: var(--size-36);
+    --radius-size-37: var(--size-37);
+    --radius-size-38: var(--size-38);
+    --radius-size-39: var(--size-39);
+    --radius-size-40: var(--size-40);
+    --radius-size-41: var(--size-41);
+    --radius-size-42: var(--size-42);
+    --radius-size-43: var(--size-43);
+    --radius-size-44: var(--size-44);
+    --radius-size-45: var(--size-45);
+    --radius-size-46: var(--size-46);
+    --radius-size-47: var(--size-47);
+    --radius-size-48: var(--size-48);
+    --radius-size-49: var(--size-49);
+    --radius-size-50: var(--size-50);
 
     --text-base: var(--font-base);
 

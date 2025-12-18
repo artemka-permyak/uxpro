@@ -1,5 +1,5 @@
-id: 10
-project_id: 2
+blockId: 10
+projectId: 2
 type: splitBlock
 title: "Постановка задачи"
 content:
@@ -16,16 +16,16 @@ content:
         description: "Месяцев"
       - title: "732"
         description: "Часа"
-ordinary_title: null
-ordinary_content: null
-created_at: "2025-01-13 16:16:15.884377"
-updated_at: "2025-06-24 11:34:18.197114"
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-01-13 16:16:15.884377"
+updatedAt: "2025-06-24 11:34:18.197114"
 description: []
 order: 1
 review: []
-reviewer_name: null
-reviewer_photo: null
-reviewer_job_title: null
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
 media: []
 dedicated_description:
   - "Нужен сервис, который объединит поставщиков и продавцов, упростит их коммуникацию и позволит быстро приходить к общему результату — увеличению продаж"

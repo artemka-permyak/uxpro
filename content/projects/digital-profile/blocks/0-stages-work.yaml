@@ -1,5 +1,5 @@
-id: 1
-project_id: 1
+blockId: 1
+projectId: 1
 type: splitBlockDivided
 title: "Этапы работы"
 content:
@@ -11,16 +11,16 @@ content:
     dedicatedDescription: "Информационная архитектура, прототипы, UX–тексты"
   - title: "Дизайн"
     dedicatedDescription: "Концепция, макеты, UI–кит, контроль"
-ordinary_title: null
-ordinary_content: null
-created_at: "2024-12-18 16:36:39.720666"
-updated_at: "2025-07-13 13:58:52.287044"
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2024-12-18 16:36:39.720666"
+updatedAt: "2025-07-13 13:58:52.287044"
 description: []
 order: 0
 review: []
-reviewer_name: null
-reviewer_photo: null
-reviewer_job_title: null
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
 media:
   - src: "http://uxpro.ru/video/digital-profile/stages-of-work.mp4"
     type: "video"

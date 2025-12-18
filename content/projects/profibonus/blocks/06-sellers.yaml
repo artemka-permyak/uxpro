@@ -1,0 +1,28 @@
+blockId: 16
+projectId: 2
+type: splitBlock
+title: "Продавцы"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-01-13 18:23:32.90762"
+updatedAt: "2025-07-13 14:05:38.162506"
+description:
+  - "Сервис спроектирован так, чтобы продавцы могли легко активировать QR-коды, следить за акциями и выполнять задачи, зарабатывая бонусы и обменивая их на деньги или сертификаты"
+order: 7
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - row: true
+    cols: 2
+    media:
+      - src: "https://uxpro.ru/images/profibonus/sellers-1.png"
+        type: image
+        description: "Баллы — это деньги"
+      - src: "https://uxpro.ru/images/profibonus/sellers-2.png"
+        type: image
+        description: "Баллы — это сертификаты"
+dedicated_description: []
+media_position: "two-to-two"

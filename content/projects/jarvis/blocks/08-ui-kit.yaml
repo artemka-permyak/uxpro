@@ -1,0 +1,22 @@
+blockId: 28
+projectId: 4
+type: splitBlock
+title: "UI-kit"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-07-03 20:13:50.523251"
+updatedAt: "2025-07-14 16:54:16.869061"
+description: {}
+order: 9
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - src: "http://uxpro.ru/images/jarvis/ui-kit.png"
+    type: image
+    style:
+      padding: "0 16px"
+dedicated_description: []
+media_position: "one-to-one"

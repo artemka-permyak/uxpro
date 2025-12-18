@@ -1,0 +1,29 @@
+blockId: 26
+projectId: 4
+type: splitBlock
+title: "На экране отображаются списки билдов и стадии его отработки с возможностью детального просмотра и отслеживания проблемных мест"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-07-03 19:59:27.362675"
+updatedAt: "2025-07-13 13:39:10.778843"
+description: {}
+order: 5
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - src: "http://uxpro.ru/images/jarvis/build-list-1.png"
+    type: image
+  - row: true
+    cols: 2
+    media:
+      - src: "http://uxpro.ru/images/jarvis/build-list-2.png"
+        type: image
+      - src: "http://uxpro.ru/images/jarvis/build-list-3.png"
+        type: image
+  - src: "http://uxpro.ru/images/jarvis/build-list-4.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-one"

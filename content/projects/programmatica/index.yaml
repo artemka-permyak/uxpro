@@ -1,12 +1,12 @@
 slug: programmatica
-id: 3
+projectId: 3
 title: "Programmatica"
 
 description:
   - "Разработка личного кабинета"
 
 publishYear: 2024
-created_at: 2024-08-12
+createdAt: 2024-08-12
 disabled: true
 
 completedWorksTitles:

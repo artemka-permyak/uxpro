@@ -50,10 +50,7 @@ const props = defineProps<{
 }>()
 
 const {
-  meta: {
-    services
-  }
+  services
 } = await queryCollection('services')
-  .where('stem', '=', 'services/services')
   .first()
 </script>

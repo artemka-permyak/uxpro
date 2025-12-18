@@ -1,17 +1,17 @@
 slug: profibonus
-id: 2
+projectId: 2
 title: "Profibonus"
 
 description:
   - "Сервис управления продажами в реальном времени, где можно влиять на мотивацию продавцов и следить за динамикой продаж"
 
 publishYear: 2024
-created_at: 2024-04-06
+createdAt: 2024-04-06
 
 completedWorksTitles:
   - Анализ
   - Проектирование
-  - "Дизайн интерфейса"
+  - Дизайн интерфейса
   - Дизайн-контроль
 
 preview:

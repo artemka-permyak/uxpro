@@ -60,11 +60,11 @@ paths:
                           items:
                             type: string
                             example: "Web"
-                        created_at:
+                        createdAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
-                        updated_at:
+                        updatedAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
@@ -161,11 +161,11 @@ paths:
                           items:
                             type: string
                             example: "Web"
-                        created_at:
+                        createdAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
-                        updated_at:
+                        updatedAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
@@ -233,11 +233,11 @@ paths:
                           items:
                             type: string
                             example: "Web"
-                        created_at:
+                        createdAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
-                        updated_at:
+                        updatedAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
@@ -407,11 +407,11 @@ paths:
                           items:
                             type: string
                             example: "Web"
-                        created_at:
+                        createdAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
-                        updated_at:
+                        updatedAt:
                           type: string
                           format: date-time
                           example: "2024-12-12T16:25:32.213Z"
@@ -460,7 +460,7 @@ paths:
                         id:
                           type: integer
                           example: 9
-                        project_id:
+                        projectId:
                           type: integer
                           example: 2
                         type:
@@ -487,11 +487,11 @@ paths:
                           items:
                             type: string
                             example: "http://uxpro.ru/images/digital-profile/study-1.png"
-                        created_at:
+                        createdAt:
                           type: string
                           format: date-time
                           example: "2024-12-18T12:43:04.837Z"
-                        updated_at:
+                        updatedAt:
                           type: string
                           format: date-time
                           example: "2024-12-18T13:13:26.420Z"
@@ -509,15 +509,15 @@ paths:
                           type: string
                           example: ''
                           nullable: true
-                        reviewer_name:
+                        reviewerName:
                           type: string
                           example: ''
                           nullable: true
-                        reviewer_photo:
+                        reviewerPhoto:
                           type: string
                           example: ''
                           nullable: true
-                        reviewer_job_title:
+                        reviewerJobTitle:
                           type: string
                           example: ''
                           nullable: true

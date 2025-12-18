@@ -1,0 +1,36 @@
+blockId: 3
+projectId: 1
+type: splitBlock
+title: "Исследование"
+content:
+  - smallTitle: "#интервью"
+    dedicatedDescription:
+      - "«У меня из-за сильной занятости на работе нет времени особо вникать..."
+      - "«Мы хотим поступить в МГУ..."
+      - "«Не следила, пока не узнала..."
+      - "«Была слишком занята личной жизнью..."
+      - "«У меня из-за сильной занятости..."
+      - "«Текущие оценки не смотрю..."
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2024-12-18 17:43:04.837064"
+updatedAt: "2025-07-13 14:26:35.949317"
+description:
+  - "Провели интервью с родителями школьников. Получили ответы на главные вопросы: как относятся к процессу школьного образования, на что обращают внимание, следят ли за успеваемостью"
+order: 2
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - src: "http://uxpro.ru/images/digital-profile/study-1.png"
+    type: image
+  - src: "http://uxpro.ru/images/digital-profile/study-3.png"
+    type: image
+    style:
+      grid-row: "1 / 3"
+      grid-column-start: "2"
+  - src: "http://uxpro.ru/images/digital-profile/study-2.png"
+    type: image
+dedicated_description: []
+media_position: "horizontal-two-to-one"

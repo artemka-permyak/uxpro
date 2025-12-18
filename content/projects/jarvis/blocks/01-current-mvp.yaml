@@ -1,0 +1,21 @@
+blockId: 21
+projectId: 4
+type: splitBlock
+title: "Проблемы текущего MVP"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-07-03 19:28:21.25443"
+updatedAt: "2025-07-03 19:28:21.25443"
+description:
+  - "Использование готового UI-кита привело к тому, что интерфейс продукта получился неорганичным и неудобным в использовании. Это не позволяло визуально отслеживать процессы внутри системы. Продукт обладал низкой масштабируемостью, а его элементы плохо сочетались друг с другом"
+order: 2
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - src: "http://uxpro.ru/images/jarvis/current-mvp-problems.png"
+    type: image
+dedicated_description: []
+media_position: "one-to-two"

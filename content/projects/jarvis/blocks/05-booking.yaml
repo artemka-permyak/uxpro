@@ -1,0 +1,32 @@
+blockId: 24
+projectId: 4
+type: splitBlock
+title: "Собрали систему бронирования переговорных зон — как онлайн, так и офлайн, для обсуждения рабочих задач. В ней можно создавать повторяющиеся встречи по логическому правилу"
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-07-03 19:42:04.805849"
+updatedAt: "2025-07-13 13:58:07.364419"
+description: {}
+order: 6
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media:
+  - src: "http://uxpro.ru/video/jarvis/booking-system-video.mp4"
+    type: video
+    poster: "http://uxpro.ru/images/jarvis/booking-system-video-poster.png"
+  - src: "http://uxpro.ru/images/jarvis/booking-system-1.png"
+    type: image
+  - src: "http://uxpro.ru/images/jarvis/booking-system-2.png"
+    type: image
+  - row: true
+    cols: 2
+    media:
+      - src: "http://uxpro.ru/images/jarvis/booking-system-3.png"
+        type: image
+      - src: "http://uxpro.ru/images/jarvis/booking-system-4.png"
+        type: image
+dedicated_description: []
+media_position: "one-to-one"

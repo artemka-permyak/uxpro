@@ -34,23 +34,25 @@
       class="max-xl-plus:hidden"
     >
       <div
-        v-for="review in servicesReviews"
+        v-for="review in reviews"
         :key="review.id"
         class="flex-[0_0_75%] min-w-0 px-size-2 translate-z-0"
       >
-        <div class="bg-white-8 p-size-12 rounded-size-4">
-          <div class="flex flex-col gap-size-8">
-            <Icon
-              name="review-quotes"
-              size="2xl"
-            />
+        <div class="h-full bg-white-8 p-size-12 rounded-size-4">
+          <div class="h-full flex flex-col gap-size-8 justify-between">
+            <div class="flex flex-col gap-size-8">
+              <Icon
+                name="review-quotes"
+                size="2xl"
+              />
 
-            <p
-              v-for="(description, index) in review.description"
-              :key="`description-${index}`"
-            >
-              {{ description }}
-            </p>
+              <p
+                v-for="(description, index) in review.description"
+                :key="`description-${index}`"
+              >
+                {{ description }}
+              </p>
+            </div>
 
             <div class="flex items-center gap-size-6">
               <NuxtImg
@@ -82,23 +84,25 @@
       class="xl-plus:hidden"
     >
       <div
-        v-for="review in servicesReviews"
+        v-for="review in reviews"
         :key="review.id"
         class="flex-[0_0_90%] min-w-0 px-size-2 translate-z-0"
       >
-        <div class="h-full bg-white-8 p-size-12 rounded-size-4">
-          <div class="flex flex-col gap-size-8">
-            <Icon
-              name="review-quotes"
-              size="2xl"
-            />
+        <div class="h-full bg-white-8 p-size-6 rounded-size-4">
+          <div class="h-full flex flex-col gap-size-6 justify-between">
+            <div class="flex flex-col gap-size-6">
+              <Icon
+                name="review-quotes"
+                size="2xl"
+              />
 
-            <p
-              v-for="(description, index) in review.description"
-              :key="`description-${index}`"
-            >
-              {{ description }}
-            </p>
+              <p
+                v-for="(description, index) in review.description"
+                :key="`description-${index}`"
+              >
+                {{ description }}
+              </p>
+            </div>
 
             <div class="flex items-center gap-size-6">
               <NuxtImg
@@ -133,12 +137,9 @@ defineOptions({
 })
 
 const {
-  body: {
-    title,
-    servicesReviews,
-  }
-} = await queryCollection('services')
-  .where('stem', '=', 'services/services-reviews')
+  title,
+  reviews,
+} = await queryCollection('servicesReviews')
   .first()
 
 const slider = ref(null)

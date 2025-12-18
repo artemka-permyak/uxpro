@@ -1,9 +1,9 @@
 <template>
   <Container>
-    <SplitBlock right-width="66%">
+    <SplitBlock>
       <template #left>
         <BlockHeader>
-          {{ servicesApproach.title }}
+          {{ title }}
         </BlockHeader>
       </template>
 
@@ -12,18 +12,17 @@
           <div class="flex flex-col gap-size-6">
             <h2
               class="text-h2"
-              v-html="servicesApproach.info"
+              v-html="info"
             />
 
-            <p
-              class="text-grey max-w-[98.8rem] only-desktop"
-              v-html="servicesApproach.infoDescription"
-            />
-
-            <p
-              class="w-full text-grey only-mobile"
-              v-html="servicesApproach.infoDescription"
-            />
+            <div class="flex flex-col gap-size-6 text-grey max-w-[98.8rem] max-xl-plus:w-full">
+              <p
+                v-for="description in infoDescription"
+                :key="description"
+              >
+                {{ description }}
+              </p>
+            </div>
           </div>
 
           <ContactUsFeature
@@ -56,8 +55,9 @@ const LABELS = {
 }
 
 const {
-  body: servicesApproach
-} = await queryCollection('services')
-  .where('stem', '=', 'services/services-approach')
+  title,
+  info,
+  infoDescription,
+} = await queryCollection('servicesApproach')
   .first()
 </script>

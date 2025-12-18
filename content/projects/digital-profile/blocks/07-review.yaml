@@ -1,0 +1,19 @@
+blockId: 8
+projectId: 1
+type: review
+title: null
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2024-12-18 19:36:43.557069"
+updatedAt: "2024-12-18 19:36:43.557069"
+description: []
+order: 7
+review:
+  - "В процессе работы мы обсуждали концепцию профиля и дизайн-макетов интерфейса системы. Все наши пожелания были учтены, и результат нас полностью удовлетворил. Кроме того, Сергей со своей комадой работал быстро и качественно"
+reviewerName: "Сергей Чернышев"
+reviewerPhoto: "http://uxpro.ru/images/digital-profile/reviewer-photo.png"
+reviewerJobTitle: "Генеральный директор"
+media: []
+dedicated_description: []
+media_position: "one-to-two"

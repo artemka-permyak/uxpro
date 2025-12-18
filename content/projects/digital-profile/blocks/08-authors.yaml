@@ -1,0 +1,22 @@
+blockId: 9
+projectId: 1
+type: author
+title: "Авторы"
+content:
+  - name: "Сергей Мерзлов"
+    job_title: "Проектирование, UX/UI"
+  - name: "Артур Хестанов"
+    job_title: "Оформление кейса"
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2024-12-18 20:18:08.995136"
+updatedAt: "2024-12-18 20:20:03.850504"
+description: []
+order: 8
+review: []
+reviewerName: null
+reviewerPhoto: null
+reviewerJobTitle: null
+media: []
+dedicated_description: []
+media_position: "one-to-two"

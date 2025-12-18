@@ -1,0 +1,20 @@
+blockId: 18
+projectId: 2
+type: review
+title: null
+content: null
+ordinaryTitle: null
+ordinaryContent: null
+createdAt: "2025-01-13 18:30:09.874215"
+updatedAt: "2025-01-13 18:30:09.874215"
+description: []
+order: 9
+review:
+  - "Благодаря большой работе, которую проделала команда UxPRO, программой так просто и удобно пользоваться!"
+  - "Дальнейший текст уже не имеет значения, потому что не сможет передать как квалификация и опыт, чёткая организация процесса и грамотное взаимодействие Сергея с командой разработки привели к созданию такого продуманного и современного продукта как Profibonus"
+reviewerName: "Павел Щелманов"
+reviewerPhoto: null
+reviewerJobTitle: "Руководитель проекта"
+media: []
+dedicated_description: []
+media_position: "one-to-two"

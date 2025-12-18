@@ -1,5 +1,5 @@
 title: 'Последние проекты'
-lastProjects:
+projects:
   - id: 1
     isNda: true
     title: "Сервис транспортной телематики"

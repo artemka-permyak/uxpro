@@ -28,7 +28,7 @@
 
     <div
       v-for="block in blocks"
-      :key="block.id"
+      :key="block.blockId"
       class="px-size-8 max-xl-plus:px-0"
     >
       <div
@@ -69,11 +69,11 @@
                 </div>
 
                 <div
-                  v-if="block.dedicated_description?.length"
+                  v-if="block.dedicatedDescription?.length"
                   class="flex flex-col gap-size-8"
                 >
                   <p
-                    v-for="(description, descriptionIndex) in block.dedicated_description"
+                    v-for="(description, descriptionIndex) in block.dedicatedDescription"
                     :key="`dedicated-description-${descriptionIndex}`"
                     class="text-grey"
                   >
@@ -348,7 +348,6 @@
                 }"
                 format="webp"
                 loading="lazy"
-                @load="getCenteredBlockImageDimensions(block, itemContentIndex, imageIndex)"
               />
             </div>
           </div>
@@ -413,12 +412,12 @@
             v-for="index in 3"
             :key="`review-photo-${index}`"
             :class="['w-full only-desktop', {
-              'aspect-square': block.reviewer_photo,
+              'aspect-square': block.reviewerPhoto,
             }]"
             :style="{
-              display: index === 2 && !block.reviewer_photo ? 'none' : '',
-              minWidth: index === 1 && !block.reviewer_photo ? '60.8rem' : '',
-              width: index === 1 && !block.reviewer_photo ? '60.8rem' : '',
+              display: index === 2 && !block.reviewerPhoto ? 'none' : '',
+              minWidth: index === 1 && !block.reviewerPhoto ? '60.8rem' : '',
+              width: index === 1 && !block.reviewerPhoto ? '60.8rem' : '',
             }"
           >
             <ReviewQuotes
@@ -429,8 +428,8 @@
             />
 
             <NuxtImg
-              v-if="index === 2 && block.reviewer_photo"
-              :src="block.reviewer_photo"
+              v-if="index === 2 && block.reviewerPhoto"
+              :src="block.reviewerPhoto"
               alt="Клиент"
               class="w-full h-full object-cover"
               format="webp"
@@ -442,11 +441,11 @@
               class="w-full h-full flex flex-col justify-end gap-[1rem] bg-dark-grey p-size-8 max-xl-plus:aspect-square"
             >
               <h2 class="text-h2">
-                {{ block.reviewer_name }}
+                {{ block.reviewerName }}
               </h2>
 
               <p>
-                {{ block.reviewer_job_title }}
+                {{ block.reviewerJobTitle }}
               </p>
             </div>
           </div>
@@ -462,8 +461,8 @@
             />
 
             <NuxtImg
-              v-if="index === 2 && block.reviewer_photo"
-              :src="block.reviewer_photo"
+              v-if="index === 2 && block.reviewerPhoto"
+              :src="block.reviewerPhoto"
               alt="Клиент"
               class="w-full h-full object-cover"
               format="webp"
@@ -475,11 +474,11 @@
               class="w-full h-full flex flex-col justify-end gap-[1rem] bg-dark-grey p-size-8 max-xl-plus:aspect-square"
             >
               <h2 class="text-h2">
-                {{ block.reviewer_name }}
+                {{ block.reviewerName }}
               </h2>
 
               <p>
-                {{ block.reviewer_job_title }}
+                {{ block.reviewerJobTitle }}
               </p>
             </div>
           </div>
@@ -544,39 +543,26 @@ defineOptions({
   name: 'ProjectPage',
 })
 
+definePageMeta({
+  middleware: 'project-id-redirect',
+})
+
 const route = useRoute();
 
 const showedSplitBlocksContentSmallTitleIds = ref<string[]>([]);
 
 const centeredBlockImages = ref();
 
-// const { data: projectData } = await useAsyncData('projects', async () => {
-//   return await $fetch(`/api/projects/${route.params.id}`)
-// })
-
-const {
-  body: project
-} = await queryCollection('projects')
-  .where('stem', 'LIKE', `projects/${route.params.slug}%`)
+const project = await queryCollection('projects')
+  .where('slug', '=', route.params.slug)
   .first()
 
-const projectBlockData = await queryCollection('projectsBlocks')
-  .where('stem', 'LIKE', `projects/${route.params.slug}/blocks/%`)
+const blocks = await queryCollection('projectsBlocks')
+  .where('projectId', '=', project.projectId)
   .all()
 
-// const { data: blocksData } = await useAsyncData('blocks', async () => {
-//   return await $fetch(`/api/projects/${route.params.id}/blocks`)
-// })
-
-const blocks = computed(() => {
-  return (projectBlockData || [])
-    .map(item => item.body)
-    .slice()
-    .sort((a, b) => a.order - b.order);
-})
-
 function getSplitBlockIndex(block: object) {
-  const splitBlocks = blocks.value.filter(block => ['splitBlock', 'splitBlockDivided', 'review'].includes(block.type))
+  const splitBlocks = blocks.filter(block => ['splitBlock', 'splitBlockDivided', 'review'].includes(block.type))
 
   const index = splitBlocks.findIndex(splitBlock => splitBlock.id === block.id)
 
@@ -590,19 +576,4 @@ function getSplitBlockIndex(block: object) {
 function showSplitBlockContentSmallTitle(id: string) {
   showedSplitBlocksContentSmallTitleIds.value.push(id);
 }
-
-function getCenteredBlockImageDimensions(block: object, itemContentIndex: number, imageIndex: number) {
-  let sum = 0;
-
-  for (let i = itemContentIndex - 1; i >= 0; i--) {
-    const prevLength = block.content[i].images.length;
-
-    sum += prevLength
-  }
-
-  const img = centeredBlockImages.value[sum + imageIndex].$el;
-  const width = img.naturalWidth;
-  const height = img.naturalHeight;
-}
-
 </script>
