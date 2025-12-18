@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { masks } from '~/global/ui/Input/lib'
+import { masks } from '~/global/ui/input/lib'
 
 defineOptions({
   name: 'MaskInputUi'
