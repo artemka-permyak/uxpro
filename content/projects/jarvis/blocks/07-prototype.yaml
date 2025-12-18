@@ -15,9 +15,9 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "http://uxpro.ru/images/jarvis/prototype-1.png"
+  - src: "https://uxpro.ru/images/jarvis/prototype-1.png"
     type: image
-  - src: "http://uxpro.ru/images/jarvis/prototype-2.png"
+  - src: "https://uxpro.ru/images/jarvis/prototype-2.png"
     type: image
 dedicated_description: []
 media_position: "one-to-one"

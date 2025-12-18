@@ -15,7 +15,7 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "http://uxpro.ru/images/jarvis/task.png"
+  - src: "https://uxpro.ru/images/jarvis/task.png"
     type: image
 dedicated_description: []
 media_position: "one-to-two"

@@ -22,15 +22,15 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "http://uxpro.ru/video/digital-profile/stages-of-work.mp4"
+  - src: "https://uxpro.ru/video/digital-profile/stages-of-work.mp4"
     type: "video"
-    poster: "http://uxpro.ru/images/digital-profile/stages-of-work-1.png"
+    poster: "https://uxpro.ru/images/digital-profile/stages-of-work-1.png"
   - row: true
     cols: 2
     media:
-      - src: "http://uxpro.ru/images/digital-profile/stages-of-work-2.png"
+      - src: "https://uxpro.ru/images/digital-profile/stages-of-work-2.png"
         type: image
-      - src: "http://uxpro.ru/images/digital-profile/stages-of-work-3.png"
+      - src: "https://uxpro.ru/images/digital-profile/stages-of-work-3.png"
         type: image
 dedicated_description: []
 media_position: "one-to-two"

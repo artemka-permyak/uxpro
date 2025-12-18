@@ -14,15 +14,15 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "http://uxpro.ru/images/profibonus/qr-generation-1.png"
+  - src: "https://uxpro.ru/images/profibonus/qr-generation-1.png"
     type: image
   - row: true
     cols: 2
     media:
-      - src: "http://uxpro.ru/images/profibonus/qr-generation-2.png"
+      - src: "https://uxpro.ru/images/profibonus/qr-generation-2.png"
         type: image
         description: "Коды поставщиков"
-      - src: "http://uxpro.ru/images/profibonus/qr-generation-3.png"
+      - src: "https://uxpro.ru/images/profibonus/qr-generation-3.png"
         type: image
         description: "Баллы продавцов"
 dedicated_description:

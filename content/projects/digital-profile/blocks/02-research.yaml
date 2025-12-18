@@ -23,14 +23,14 @@ reviewerName: null
 reviewerPhoto: null
 reviewerJobTitle: null
 media:
-  - src: "http://uxpro.ru/images/digital-profile/study-1.png"
+  - src: "https://uxpro.ru/images/digital-profile/study-1.png"
     type: image
-  - src: "http://uxpro.ru/images/digital-profile/study-3.png"
+  - src: "https://uxpro.ru/images/digital-profile/study-3.png"
     type: image
     style:
       grid-row: "1 / 3"
       grid-column-start: "2"
-  - src: "http://uxpro.ru/images/digital-profile/study-2.png"
+  - src: "https://uxpro.ru/images/digital-profile/study-2.png"
     type: image
 dedicated_description: []
 media_position: "horizontal-two-to-one"
