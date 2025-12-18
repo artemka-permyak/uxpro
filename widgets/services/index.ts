@@ -1,4 +1,4 @@
-import ServicesWidget from '~/widgets/Services/services-widget.vue'
+import ServicesWidget from '~/widgets/services/services-widget.vue'
 
 export {
   ServicesWidget
