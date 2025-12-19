@@ -3,7 +3,7 @@
     <Container
       v-for="(service, index) in services"
       :key="service.id"
-      class="group grid grid-cols-2 max-xl-plus:grid-cols-1 items-center py-size-8 border-b border-b-dark-grey hover:text-black hover:bg-white transition-all max-xl-plus:flex-col max-xl-plus:py-size-6 max-xl-plus:gap-size-4 max-xl-plus:items-start"
+      class="group grid grid-cols-2 gap-size-12 max-xl-plus:grid-cols-1 items-center py-size-8 border-b border-b-dark-grey hover:text-black hover:bg-white transition-all max-xl-plus:flex-col max-xl-plus:py-size-6 max-xl-plus:gap-size-4 max-xl-plus:items-start"
     >
       <div class="flex items-end gap-size-24 max-xl-plus:w-full">
         <p

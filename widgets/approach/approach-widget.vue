@@ -28,13 +28,13 @@
           <ContactUsFeature
             class="w-max text-h3 max-xl-plus:hidden"
             icon-size="2xl"
-            :label="LABELS.contactUs"
+            as-button
           />
 
           <ContactUsFeature
             class="w-max text-h2 xl-plus:hidden"
             icon-size="lg"
-            :label="LABELS.contactUs"
+            as-button
           />
         </div>
       </template>
@@ -49,10 +49,6 @@ import ContactUsFeature from '../../features/contact-us-feature.vue'
 defineOptions({
   name: 'ApproachWidget'
 })
-
-const LABELS = {
-  contactUs: 'Связаться с нами',
-}
 
 const {
   title,

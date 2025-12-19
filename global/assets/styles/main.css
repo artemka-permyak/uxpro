@@ -58,15 +58,15 @@
 
     --font-h1: 6.4rem;
     --font-h1--line-height: 7rem;
-    --font-h1--font-weight: 400;
+    --font-h1--font-weight: 500;
 
     --font-h2: 4.8rem;
     --font-h2--line-height: 5.4rem;
-    --font-h2--font-weight: 400;
+    --font-h2--font-weight: 500;
 
     --font-h3: 3.2rem;
     --font-h3--line-height: 3.8rem;
-    --font-h3--font-weight: 400;
+    --font-h3--font-weight: 500;
 
     --font-t1: 2rem;
     --font-t1--line-height: 2.8rem;
@@ -217,6 +217,11 @@
     --radius-size-48: var(--size-48);
     --radius-size-49: var(--size-49);
     --radius-size-50: var(--size-50);
+
+    --blur-size-1: var(--size-1);
+    --blur-size-2: var(--size-2);
+    --blur-size-3: var(--size-3);
+    --blur-size-4: var(--size-4);
 
     --text-base: var(--font-base);
 

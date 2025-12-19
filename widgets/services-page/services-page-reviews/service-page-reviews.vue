@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col gap-size-16">
+  <section class="flex flex-col gap-size-12 max-xl-plus:gap-size-6">
     <Container class="flex">
       <h3 class="text-h3 text-grey grow max-xl-plus:hidden">
         {{ title }}
@@ -36,7 +36,7 @@
       <div
         v-for="review in reviews"
         :key="review.id"
-        class="flex-[0_0_75%] min-w-0 px-size-2 translate-z-0"
+        class="flex-[0_0_800px] min-w-0 px-size-2 translate-z-0"
       >
         <div class="h-full bg-white-8 p-size-12 rounded-size-4">
           <div class="h-full flex flex-col gap-size-8 justify-between">

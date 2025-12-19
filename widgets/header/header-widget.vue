@@ -1,6 +1,6 @@
 <template>
-  <div class="relative z-20 h-[6.2rem] w-full bg-black max-xl-plus:gap-size-6">
-    <div class="h-full flex items-center gap-size-8 max-w-[192rem] m-auto px-size-8 max-xl-plus:px-size-4">
+  <div class="relative z-20 h-[5.6rem] w-full bg-black-90 max-xl-plus:gap-size-6">
+    <div class="h-full flex items-center gap-size-8 max-w-[192rem] m-auto px-size-8 max-xl-plus:px-size-4 border-b border-b-dark-grey backdrop-blur-size-4">
       <div class="h-full grow flex items-center gap-size-6 w-[50%]">
         <HeaderLogoLink />
 
@@ -14,9 +14,9 @@
         </Link>
       </div>
 
-      <div class="h-full w-[50%] flex items-center gap-size-8 grow max-xl-plus:hidden">
+      <div class="h-full w-[50%] flex items-center grow max-xl-plus:hidden">
         <ContactUsFeature
-          class="h-full justify-start grow"
+          class="h-full justify-start grow px-size-7"
         />
 
         <div
@@ -28,6 +28,11 @@
             target="_blank"
             class="h-full px-size-7"
           >
+            <Icon
+              name="telegram"
+              size="lg"
+            />
+
             {{ tg.title }}
           </Link>
         </div>
@@ -52,6 +57,7 @@ import ContactUsFeature from '../../features/contact-us-feature.vue'
 import { HeaderLogoLink } from '~/features/header'
 import { Link } from '@/global/ui'
 import { SOCIAL_LINKS } from '~/global/const'
+import { Icon } from '~/global/ui'
 
 defineOptions({
   name: 'HeaderMenuWidget',
