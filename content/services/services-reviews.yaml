@@ -6,8 +6,8 @@ reviews:
       - 'Четкая организация процесса и грамотное взаимодействие команды UxPRO привели к созданию такого продуманного и современного продукта как Profibonus'
     id: 'review-1'
     author:
-      name: 'Павел Бобро'
-      image: 'https://storage.yandexcloud.net/uxpro/images/people/pavel-bobro.png'
+      name: 'Павел Щелманов'
+      image: 'https://storage.yandexcloud.net/uxpro/images/people/pavel-shchelmanov.png'
       description: 'PM'
 
   - description:
@@ -32,5 +32,5 @@ reviews:
     id: 'review-4'
     author:
       name: 'Павел Бобро'
-      image: ''
+      image: 'https://storage.yandexcloud.net/uxpro/images/people/pavel-bobro.png'
       description: 'PM'

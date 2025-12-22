@@ -9,7 +9,7 @@
     <transition name="fade">
       <div
         v-if="isShowStickyTopHeader"
-        class="fixed bg-black top-0 left-0 right-0 z-20"
+        class="fixed top-0 left-0 right-0 z-20"
       >
         <HeaderWidget
           class="max-w-[192rem] mx-auto shadow-xl"
