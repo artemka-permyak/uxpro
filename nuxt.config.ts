@@ -84,6 +84,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-12-19',
 
   nitro: {
+    preset: 'node-server',
     prerender: {
       crawlLinks: true,
       routes: [
@@ -93,5 +94,10 @@ export default defineNuxtConfig({
         '/policy',
       ],
     },
+  },
+
+  routeRules: {
+    '/**': { prerender: true },
+    '/api/**': { prerender: false },
   },
 })
