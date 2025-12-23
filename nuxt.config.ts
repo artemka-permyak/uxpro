@@ -13,15 +13,16 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
       meta: [
+        { name: 'description', content: 'UxPro — создаём дизайн и проектируем сложные цифровые продукты' },
         { name: 'google-site-verification', content: 'Gi3XVUeVE1iajZmK4RWzziUDv3YzbC8dys2nPpfBR5k' },
         { name: 'yandex-verification', content: '669143fa93eb9342' },
         { name: 'yandex-verification', content: '905c7da07180171d' },
 
         { key: 'og:title', property: 'og:title', content: 'UxPRO' },
-        { key: 'og:description', property: 'og:description', content: 'UxPRO' },
+        { key: 'og:description', property: 'og:description', content: 'UxPro — создаём дизайн и проектируем сложные цифровые продукты' },
 
         { key: 'twitter:title', name: 'twitter:title', content: 'UxPRO' },
-        { key: 'twitter:description', name: 'twitter:description', content: 'UxPRO' },
+        { key: 'twitter:description', name: 'twitter:description', content: 'UxPro — создаём дизайн и проектируем сложные цифровые продукты' },
       ],
 
       script: [
