@@ -43,6 +43,7 @@ export default defineNuxtConfig({
               webvisor:true
             });`,
           type: 'text/javascript',
+          defer: true,
         }
       ],
       noscript: [
@@ -81,4 +82,16 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-12-19',
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/services',
+        '/contact-us',
+        '/policy',
+      ],
+    },
+  },
 })

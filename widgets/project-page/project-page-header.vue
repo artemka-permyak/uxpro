@@ -4,6 +4,7 @@
       :src="getStorageLink('/images/project/project-bg.png')"
       alt="Лого проекта"
       class="only-desktop w-full object-contain"
+      format="webp"
     />
 
     <div class="flex gap-size-8 max-xl-plus:flex-col">
@@ -38,7 +39,7 @@
       </div>
 
       <div class="w-[50%] grow max-xl-plus:w-full max-xl-plus:flex max-xl-plus:flex-col max-xl-plus:gap-[2.4rem]">
-        <h1 class="h1 flex justify-between pb-[3.2rem] gap-[1.2rem] max-xl-plus:flex-col max-xl-plus:pb-0">
+        <h1 class="text-h1 flex justify-between pb-[3.2rem] gap-[1.2rem] max-xl-plus:flex-col max-xl-plus:pb-0">
           <span>
             {{ project?.title }}
           </span>

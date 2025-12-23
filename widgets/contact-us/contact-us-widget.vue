@@ -19,6 +19,8 @@
           :src="getStorageLink('/images/contacts/sergey-logo.png')"
           alt="Сергей UxPro"
           class="w-[9rem] h-[9rem] rounded-full"
+          loading="lazy"
+          format="webp"
         />
 
         <div class="flex flex-col gap-[.8rem]">

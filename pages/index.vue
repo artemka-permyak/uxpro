@@ -6,24 +6,33 @@
       <BriefCompanyServicesOverviewWidget />
     </div>
 
-    <ProjectsWidget />
+    <LazyProjectsWidget />
 
-    <ServicesWidget />
+    <LazyServicesWidget />
 
-    <ApproachWidget />
+    <LazyApproachWidget />
 
-    <LastProjectsWidget />
+    <LazyLastProjectsWidget />
   </div>
 </template>
 
 <script setup lang="ts">
 import { CompanyPreviewWidget } from '~/widgets/company-preview'
 import { BriefCompanyServicesOverviewWidget } from '~/widgets/brief-company-services-overview'
-import { ProjectsWidget } from '~/widgets/projects'
-import { ServicesWidget } from '~/widgets/services'
-import { ApproachWidget } from '~/widgets/approach'
-import { LastProjectsWidget } from '~/widgets/last-projects'
 import { useHeaderStore } from '~/global/store/header'
+
+const LazyProjectsWidget = defineAsyncComponent(() =>
+  import('~/widgets/projects').then(m => m.ProjectsWidget)
+)
+const LazyServicesWidget = defineAsyncComponent(() =>
+  import('~/widgets/services').then(m => m.ServicesWidget)
+)
+const LazyApproachWidget = defineAsyncComponent(() =>
+  import('~/widgets/approach').then(m => m.ApproachWidget)
+)
+const LazyLastProjectsWidget = defineAsyncComponent(() =>
+  import('~/widgets/last-projects').then(m => m.LastProjectsWidget)
+)
 
 defineOptions({
   name: 'IndexPage',

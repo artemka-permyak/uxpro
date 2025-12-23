@@ -76,9 +76,8 @@
                     v-for="(description, descriptionIndex) in block.dedicatedDescription"
                     :key="`dedicated-description-${descriptionIndex}`"
                     class="text-grey"
-                  >
-                    {{ description }}
-                  </p>
+                    v-html="description"
+                 />
                 </div>
               </div>
 
@@ -103,6 +102,7 @@
                     <p v-if="itemContent.description">
                       {{ itemContent.description }}
                     </p>
+
                     <p
                       v-else
                       class="text-grey"
@@ -140,26 +140,23 @@
                         v-for="(description, descriptionIndex) in itemContent.dedicatedDescription"
                         :key="`split-block-description-${descriptionIndex}`"
                         class="only-desktop"
-                      >
-                        {{ description }}
-                      </p>
+                        v-html="description"
+                      />
 
                       <p
                         v-for="(description, descriptionIndex) in itemContent.dedicatedDescription.slice(0, 1)"
                         :key="`split-block-description-mobile-${descriptionIndex}`"
                         class="only-mobile"
-                      >
-                        {{ description }}
-                      </p>
+                        v-html="description"
+                      />
 
                       <template v-if="showedSplitBlocksContentSmallTitleIds.includes(block.id)">
                         <p
                           v-for="(description, descriptionIndex) in itemContent.dedicatedDescription.slice(1)"
                           :key="`split-block-description-mobile-${descriptionIndex + 1}`"
                           class="only-mobile"
-                        >
-                          {{ description }}
-                        </p>
+                          v-html="description"
+                        />
                       </template>
 
                       <div

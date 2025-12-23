@@ -17,12 +17,14 @@ const props = withDefaults(defineProps<{
   poster?: string
   loop?: boolean
   playsinline?: boolean
+  preload?: 'auto' | 'metadata' | 'none'
 }>(), {
   autoplay: true,
   controls: false,
   muted: true,
   poster: '',
   loop: true,
-  playsinline: true
+  playsinline: true,
+  preload: 'auto',
 })
 </script>

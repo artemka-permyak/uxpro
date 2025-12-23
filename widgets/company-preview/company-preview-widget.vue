@@ -4,6 +4,7 @@
       class="absolute top-0 left-0 right-0 w-full h-svh max-h-svh object-cover"
       :src="getStorageLink('/video/video-logo.mp4')"
       :poster="getStorageLink('/images/video-logo-poster.png')"
+      preload="metadata"
     />
 
 <!--    TODO 68% -->

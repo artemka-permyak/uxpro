@@ -4,12 +4,16 @@
       :src="getStorageLink('/images/footer-bg.png')"
       alt="Footer"
       class="only-desktop object-contain"
+      loading="lazy"
+      format="webp"
     />
 
     <NuxtImg
       :src="getStorageLink('/images/footer-mobile-bg.png')"
       alt="Footer"
       class="only-mobile"
+      loading="lazy"
+      format="webp"
     />
 
     <div class="w-full flex justify-between max-xl-plus:flex-col max-xl-plus:justify-start max-xl-plus:gap-size-8">

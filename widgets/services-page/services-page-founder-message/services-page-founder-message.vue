@@ -11,9 +11,11 @@
 
     <div class="flex items-center gap-size-6">
       <NuxtImg
-        :src="getStorageLink('/images/contacts/sergey-logo.png')"
+        :src="author.src"
         :alt="author.name"
         class="w-[8rem] h-[8rem] rounded-full object-cover"
+        loading="lazy"
+        format="webp"
       />
 
       <div class="flex flex-col gap-size-1">

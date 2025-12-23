@@ -35,6 +35,8 @@
                     :src="project?.preview.image"
                     alt="Project image"
                     class="h-full object-cover"
+                    loading="lazy"
+                    format="webp"
                   />
 
                   <div
