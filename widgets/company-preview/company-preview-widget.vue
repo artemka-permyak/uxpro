@@ -1,10 +1,23 @@
 <template>
   <div class="h-svh border-b border-b-black pt-size-8 overflow-hidden max-xl-plus:h-[calc(100svh-6.2rem)]">
-    <VideoUi
+    <NuxtImg
+      v-if="!isVideoLoaded"
+      :src="POSTER_PATH"
+      alt="UxPRO"
       class="absolute top-0 left-0 right-0 w-full h-svh max-h-svh object-cover"
-      :src="getStorageLink('/video/video-logo.mp4')"
-      :poster="getStorageLink('/images/video-logo-poster.png')"
-      preload="metadata"
+      fetchpriority="high"
+      loading="eager"
+      format="webp"
+    />
+
+    <VideoUi
+      v-show="isVideoLoaded"
+      ref="videoRef"
+      class="absolute top-0 left-0 right-0 w-full h-svh max-h-svh object-cover"
+      :src="VIDEO_PATH"
+      :poster="POSTER_PATH"
+      preload="none"
+      @loadeddata="handleVideoLoaded"
     />
 
 <!--    TODO 68% -->
@@ -53,6 +66,9 @@ defineOptions({
   name: 'CompanyPreviewWidget'
 })
 
+const VIDEO_PATH = getStorageLink('/video/video-logo.mp4')
+const POSTER_PATH = getStorageLink('/images/video-logo-poster.png')
+
 const LABELS = {
   title: `
     Создаём дизайн<br>
@@ -77,6 +93,8 @@ const {
 
 const observer = ref<IntersectionObserver | null>(null)
 const logo = ref<Element | null>(null)
+const videoRef = ref<HTMLVideoElement | null>(null)
+const isVideoLoaded = ref(false)
 
 onMounted(() => {
   observer.value = new IntersectionObserver(entries => {
@@ -90,5 +108,24 @@ onMounted(() => {
   if (logo.value) {
     observer.value.observe(logo.value)
   }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      if (videoRef.value) {
+        videoRef.value?.$el.load()
+      }
+    })
+  } else {
+    setTimeout(() => {
+      if (videoRef.value) {
+        videoRef.value?.$el.load()
+      }
+    }, 2000)
+  }
 })
+
+function handleVideoLoaded() {
+  isVideoLoaded.value = true
+}
 </script>
+
