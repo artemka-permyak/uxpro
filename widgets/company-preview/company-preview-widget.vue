@@ -1,5 +1,5 @@
 <template>
-  <div class="h-svh border-b border-b-black pt-size-8 overflow-hidden max-xl-plus:h-[calc(100svh-6.2rem)]">
+  <div class="h-svh border-b border-b-black pt-size-8 overflow-hidden max-xl:h-[calc(100svh-6.2rem)]">
     <NuxtImg
       v-if="!isVideoLoaded"
       :src="POSTER_PATH"
@@ -25,7 +25,7 @@
       class="absolute z-10 top-0 left-0 right-0 h-svh max-h-svh bg-black/[68%]"
     />
 
-    <div class="h-full relative z-10 flex flex-col justify-between pb-size-12 max-xl-plus:justify-end max-xl-plus:pb-size-6">
+    <div class="h-full relative z-10 flex flex-col justify-between pb-size-12 max-xl:justify-end max-xl:pb-size-6">
       <div
         ref="logo"
         class="px-size-8 only-desktop"
@@ -33,13 +33,13 @@
         <LogoImg class="w-[86rem]" />
       </div>
 
-      <div class="flex items-end justify-between gap-size-8 px-size-8 max-xl-plus:items-start max-xl-plus:flex-col max-xl-plus:px-0">
+      <div class="flex items-end justify-between gap-size-8 px-size-8 max-xl:items-start max-xl:flex-col max-xl:px-0">
         <h2
-          class="text-h2 only-desktop grow max-xl-plus:px-size-6"
+          class="text-h2 only-desktop grow max-xl:px-size-6"
           v-html="LABELS.title"
         />
 
-        <div class="xl-plus:hidden flex flex-col gap-size-6 max-xl-plus:px-size-6">
+        <div class="xl:hidden flex flex-col gap-size-6 max-xl:px-size-6">
           <h1
             class="text-h1"
             v-html="LABELS.mobileTitle"
@@ -50,7 +50,7 @@
           </ButtonUi>
         </div>
 
-        <CompanyAwards class="w-auto shrink-0 max-xl-plus:pl-size-6" />
+        <CompanyAwards class="w-auto shrink-0 max-xl:pl-size-6" />
       </div>
     </div>
   </div>

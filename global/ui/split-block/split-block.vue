@@ -1,25 +1,25 @@
 <template>
   <div
-    :class="['flex max-xl-plus:flex-col max-xl-plus:gap-size-6', {
+    :class="['flex max-xl:flex-col max-xl:gap-size-6', {
       'gap-size-8': withGap
     }]"
   >
     <div
       :class="['grow shrink-0', {
-        'w-[50%] max-xl-plus:w-full': !rightStyles
+        'w-[50%] max-xl:w-full': !rightStyles
       }]"
     >
       <slot name="left" />
     </div>
 
     <div
-      class="w-[50%] grow max-xl-plus:hidden"
+      class="w-[50%] grow max-xl:hidden"
       :style="rightStyles"
     >
       <slot name="right" />
     </div>
 
-    <div class="w-full grow xl-plus:hidden">
+    <div class="w-full grow xl:hidden">
       <slot name="right" />
     </div>
   </div>

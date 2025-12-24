@@ -1,26 +1,33 @@
 <template>
-  <div class="relative flex flex-col p-size-8 gap-size-8 border-b border-b-solid border-b-dark-grey max-xl-plus:p-size-6 max-xl-plus:border-none">
+  <div class="relative flex flex-col p-size-8 pt-0 gap-size-8 border-b border-b-solid border-b-dark-grey max-xl:p-size-6 max-xl:border-none">
     <NuxtImg
-      :src="getStorageLink('/images/project/project-bg.png')"
+      :src="getStorageLink('/images/backgrounds/points.png')"
       alt="Лого проекта"
-      class="only-desktop w-full object-contain"
+      class="w-full object-contain max-xl:hidden"
       format="webp"
     />
 
-    <div class="flex gap-size-8 max-xl-plus:flex-col">
-      <div class="w-[50%] grow max-xl-plus:w-full">
-        <div class="w-[64rem] flex flex-col gap-[5.6rem] pb-[8.8rem] max-xl-plus:w-full max-xl-plus:gap-[2.4rem] max-xl-plus:pb-0">
-          <div class="flex flex-wrap gap-[1.6rem] max-xl-plus:gap-[.8rem]">
+    <NuxtImg
+      :src="getStorageLink('/images/backgrounds/points-mobile.png')"
+      alt="Лого проекта"
+      class="w-full h-[20rem] object-contain xl:hidden"
+      format="webp"
+    />
+
+    <div class="flex gap-size-8 max-xl:flex-col">
+      <div class="w-[50%] grow max-xl:w-full">
+        <div class="w-[64rem] flex flex-col gap-[5.6rem] pb-[8.8rem] max-xl:w-full max-xl:gap-[2.4rem] max-xl:pb-0">
+          <div class="flex flex-wrap gap-[1.6rem] max-xl:gap-[.8rem]">
             <div
               v-for="(tag, index) in project?.tags"
               :key="`${tag}-${index}`"
-              class="t1sb border-2 border-solid border-white rounded-full px-[2.4rem] py-[1rem] max-xl-plus:px-[1.8rem] max-xl-plus:py-[.6rem]"
+              class="t1sb border-2 border-solid border-white rounded-full px-[2.4rem] py-[1rem] max-xl:px-[1.8rem] max-xl:py-[.6rem]"
             >
               {{ tag }}
             </div>
           </div>
 
-          <div class="flex flex-col gap-[.8rem] max-xl-plus:w-full">
+          <div class="flex flex-col gap-[.8rem] max-xl:w-full">
             <div
               v-for="(work, index) in project?.completed_works_titles"
               :key="`${work}-${index}`"
@@ -38,8 +45,8 @@
         </div>
       </div>
 
-      <div class="w-[50%] grow max-xl-plus:w-full max-xl-plus:flex max-xl-plus:flex-col max-xl-plus:gap-[2.4rem]">
-        <h1 class="text-h1 flex justify-between pb-[3.2rem] gap-[1.2rem] max-xl-plus:flex-col max-xl-plus:pb-0">
+      <div class="w-[50%] grow max-xl:w-full max-xl:flex max-xl:flex-col max-xl:gap-[2.4rem]">
+        <h1 class="text-h1 flex justify-between pb-[3.2rem] gap-[1.2rem] max-xl:flex-col max-xl:pb-0">
           <span>
             {{ project?.title }}
           </span>
@@ -49,7 +56,7 @@
           </span>
         </h1>
 
-        <div class="t1sb flex flex-col gap-[2.4rem] max-xl-plus:w-full max-xl-plus:gap-[1.6rem]">
+        <div class="t1sb flex flex-col gap-[2.4rem] max-xl:w-full max-xl:gap-[1.6rem]">
           <p
             v-for="(item, index) in project?.description"
             :key="`description-${index}`"
@@ -60,7 +67,7 @@
 
         <div
           v-if="project?.awards"
-          class="flex gap-[4rem] max-xl-plus:w-full max-xl-plus:whitespace-nowrap max-xl-plus:flex-row max-xl-plus:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory pt-[3.2rem] max-xl-plus:pt-[0]"
+          class="flex gap-[4rem] max-xl:w-full max-xl:whitespace-nowrap max-xl:flex-row max-xl:gap-[2.4rem] overflow-x-auto snap-x snap-mandatory pt-[3.2rem] max-xl:pt-[0]"
         >
           <CompanyAward
             v-for="award in project.awards"

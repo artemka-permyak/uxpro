@@ -2,11 +2,11 @@
   <Container>
     <SplitBlock>
       <template #left>
-        <h3 class="text-h3 text-grey max-xl-plus:hidden">
+        <h3 class="text-h3 text-grey max-xl:hidden">
           {{ title }}
         </h3>
 
-        <h2 class="text-h2 text-grey xl-plus:hidden">
+        <h2 class="text-h2 text-grey xl:hidden">
           {{ title }}
         </h2>
       </template>

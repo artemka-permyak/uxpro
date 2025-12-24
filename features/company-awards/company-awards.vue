@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-size-6 max-xl-plus:w-full max-xl-plus:flex-row overflow-x-auto snap-x snap-mandatory">
+  <div class="flex gap-size-6 max-xl:w-full max-xl:flex-row overflow-x-auto snap-x snap-mandatory">
     <div
       v-for="award in AWARDS"
       :key="award.id"

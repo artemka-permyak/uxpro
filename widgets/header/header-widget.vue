@@ -1,6 +1,6 @@
 <template>
-  <div class="relative z-20 h-[5.6rem] w-full bg-black-90 max-xl-plus:gap-size-6">
-    <div class="h-full flex items-center gap-size-8 max-w-[192rem] m-auto px-size-8 max-xl-plus:px-size-4 border-b border-b-dark-grey backdrop-blur-size-4">
+  <div class="relative z-20 h-[5.6rem] w-full bg-black-90 max-xl:gap-size-6">
+    <div class="h-full flex items-center gap-size-8 max-w-[192rem] m-auto px-size-8 max-xl:px-size-4 border-b border-b-dark-grey backdrop-blur-size-4">
       <div class="h-full grow flex items-center gap-size-6 w-[50%]">
         <HeaderLogoLink />
 
@@ -8,13 +8,13 @@
           :to="{
             name: 'services'
           }"
-          class="h-full px-size-7 max-xl-plus:hidden"
+          class="h-full px-size-7 max-xl:hidden"
         >
           {{ LABELS.services }}
         </Link>
       </div>
 
-      <div class="h-full w-[50%] flex items-center grow max-xl-plus:hidden">
+      <div class="h-full w-[50%] flex items-center grow max-xl:hidden">
         <ContactUsFeature
           class="h-full justify-start grow px-size-7"
         />

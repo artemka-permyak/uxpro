@@ -3,7 +3,7 @@
     id="contactUsFormWidget"
     class="flex flex-col gap-size-8"
   >
-    <div class="flex justify-between border-b border-dark-grey pb-size-8 px-size-8 max-xl-plus:flex-col max-xl-plus:gap-size-8 max-xl-plus:px-size-6">
+    <div class="flex justify-between border-b border-dark-grey pb-size-8 px-size-8 max-xl:flex-col max-xl:gap-size-8 max-xl:px-size-6">
       <h2
         class="text-h2 only-desktop"
         v-html="LABELS.title"
@@ -14,7 +14,7 @@
         v-html="LABELS.mobileTitle"
       />
 
-      <div class="flex gap-size-6 max-xl-plus:flex-col max-xl-plus:gap-size-4">
+      <div class="flex gap-size-6 max-xl:flex-col max-xl:gap-size-4">
         <NuxtImg
           :src="getStorageLink('/images/contacts/sergey-logo.png')"
           alt="Сергей UxPro"
@@ -45,22 +45,22 @@
           </Link>
         </div>
 
-        <EmailAndPhone class="xl-plus:hidden" />
+        <EmailAndPhone class="xl:hidden" />
 
-        <DownloadPresentationFeature class="self-start xl-plus:hidden" />
+        <DownloadPresentationFeature class="self-start xl:hidden" />
       </div>
     </div>
 
     <div class="flex flex-col gap-size-16">
       <form
-        class="relative flex flex-col gap-size-16 px-size-8 grow max-xl-plus:gap-size-8 max-xl-plus:px-size-6"
+        class="relative flex flex-col gap-size-16 px-size-8 grow max-xl:gap-size-8 max-xl:px-size-6"
         @submit.prevent="handleSubmitForm"
       >
-        <div class="w-[50%] max-xl-plus:w-full">
+        <div class="w-[50%] max-xl:w-full">
           <div
             v-for="input in FORM_INPUTS"
             :key="input.id"
-            :class="['pb-size-16 last:pb-0 max-xl-plus:pb-size-8', input.class]"
+            :class="['pb-size-16 last:pb-0 max-xl:pb-size-8', input.class]"
           >
             <component
               :is="input.component"
@@ -74,8 +74,8 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-2 max-xl-plus:grid-cols-1 gap-size-8">
-          <div class="flex flex-col gap-size-16 max-xl-plus:gap-size-8">
+        <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-size-8">
+          <div class="flex flex-col gap-size-16 max-xl:gap-size-8">
             <p class="text-grey">
               Нажимая «Отправить», вы соглашаетесь с <RouterLink
                 to="/policy"
@@ -94,7 +94,7 @@
             </ButtonUi>
           </div>
 
-          <div class="w-full flex flex-col gap-size-4 items-end grow w-[50%] max-xl-plus:hidden">
+          <div class="w-full flex flex-col gap-size-4 items-end grow w-[50%] max-xl:hidden">
             <EmailAndPhone />
 
             <DownloadPresentationFeature />
@@ -177,7 +177,7 @@ const FORM_INPUTS = computed(() => {
       validation: {
         min: 2,
       },
-      class: 'inline-block w-[50%] pr-size-4 max-xl-plus:block max-xl-plus:w-full max-xl-plus:pr-0'
+      class: 'inline-block w-[50%] pr-size-4 max-xl:block max-xl:w-full max-xl:pr-0'
     },
 
     {
@@ -191,7 +191,7 @@ const FORM_INPUTS = computed(() => {
       validation: {
         match: /^\+7 \(\d{3}\) \d{3} \d{4}.?$/,
       },
-      class: 'inline-block w-[50%] pl-size-4 max-xl-plus:block max-xl-plus:w-full max-xl-plus:pl-0',
+      class: 'inline-block w-[50%] pl-size-4 max-xl:block max-xl:w-full max-xl:pl-0',
     },
 
     {

@@ -26,7 +26,7 @@
     />
 
     <div
-      :class="['flex flex-col max-xl-plus:w-max', {
+      :class="['flex flex-col max-xl:w-max', {
         'max-w-[15.8rem] text-[1.6rem] leading-[2.2rem]': size === 'small',
         'max-w-[22rem] t1': size === 'large',
       }]"

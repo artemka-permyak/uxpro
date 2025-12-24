@@ -1,25 +1,25 @@
 <template>
-  <section class="flex flex-col gap-size-12 px-size-8 max-xl-plus:px-size-6">
+  <section class="flex flex-col gap-size-12 px-size-8 max-xl:px-size-6">
     <BlockHeader>
       {{ LABELS.title }}
     </BlockHeader>
 
-    <div class="grid grid-cols-2 gap-size-24 max-xl-plus:grid-cols-1 max-xl-plus:gap-size-16">
+    <div class="grid grid-cols-2 gap-size-24 max-xl:grid-cols-1 max-xl:gap-size-16">
       <div
         v-for="(project, index) in projects"
         :key="project.id"
-        class="w-full gap-size-24 max-xl-plus:flex-col max-xl-plus:gap-size-12"
+        class="w-full gap-size-24 max-xl:flex-col max-xl:gap-size-12"
       >
         <div
           :class="['w-full grow shrink-0', {
-            'justify-end max-xl-plus:justify-start': index % 2 === 1 && index % 2 === 1
+            'justify-end max-xl:justify-start': index % 2 === 1 && index % 2 === 1
           }]"
         >
           <nuxt-link
-            :class="['w-full h-fit group flex max-xl-plus:w-auto', {
+            :class="['w-full h-fit group flex max-xl:w-auto', {
               'cursor-pointer': !project.disabled,
               'cursor-not-allowed': project.disabled,
-              'mt-size-24 max-xl-plus:mt-0': !noSteps && index % 2 === 1,
+              'mt-size-24 max-xl:mt-0': !noSteps && index % 2 === 1,
               '': (index % 2 === 0 && index % 2 === 0) || (index % 2 === 1 && index % 2 === 1),
             }]"
             :to="!project.disabled ? `projects/${project.slug}` : ''"

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-size-16 max-xl-plus:gap-size-8">
-    <BlockHeader class="px-size-8 max-xl-plus:px-size-6">
+  <div class="flex flex-col gap-size-16 max-xl:gap-size-8">
+    <BlockHeader class="px-size-8 max-xl:px-size-6">
       {{ LABELS.title }}
     </BlockHeader>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-[12.8rem] max-xl-plus:gap-size-20">
+  <div class="flex flex-col gap-[12.8rem] max-xl:gap-size-20">
     <div class="flex flex-col">
       <ProjectPageHeader
         :project="project"
@@ -8,7 +8,7 @@
       <div
         v-for="media in project?.media"
         :key="media.src"
-        class="w-full p-size-8 max-xl-plus:px-0 max-xl-plus:py-size-6"
+        class="w-full p-size-8 max-xl:px-0 max-xl:py-size-6"
       >
         <NuxtImg
           v-if="getFileType(media.src) === 'image'"
@@ -29,25 +29,25 @@
     <div
       v-for="block in blocks"
       :key="block.blockId"
-      class="px-size-8 max-xl-plus:px-0"
+      class="px-size-8 max-xl:px-0"
     >
       <div
         v-if="['splitBlock', 'splitBlockDivided'].includes(block.type)"
-        class="flex flex-col gap-[16rem] max-xl-plus:gap-size-20"
+        class="flex flex-col gap-[16rem] max-xl:gap-size-20"
       >
         <SplitBlock right-width="48%">
           <template #left>
-            <h2 class="text-h2 max-xl-plus:px-size-6 only-desktop">
+            <h2 class="text-h2 max-xl:px-size-6 only-desktop">
               {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
             </h2>
 
-            <h1 class="text-h1 max-xl-plus:px-size-6 only-mobile">
+            <h1 class="text-h1 max-xl:px-size-6 only-mobile">
               {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
             </h1>
           </template>
 
           <template #right>
-            <div class="flex flex-col gap-size-16 max-xl-plus:gap-size-8 max-xl-plus:px-size-6">
+            <div class="flex flex-col gap-size-16 max-xl:gap-size-8 max-xl:px-size-6">
               <div class="flex flex-col gap-size-6">
                 <h2 class="text-h2 only-desktop">
                   {{ block.title }}
@@ -114,7 +114,7 @@
 
                 <div
                   v-if="block.type === 'splitBlock'"
-                  class="flex flex-col gap-[12.8rem] max-xl-plus:gap-[6.4rem]"
+                  class="flex flex-col gap-[12.8rem] max-xl:gap-[6.4rem]"
                 >
                   <div
                     v-for="(itemContent, itemContentIndex) in block.content"
@@ -179,7 +179,7 @@
                       >
                         <h1
                           v-if="statisticsItem.title"
-                          class="text-[12.8rem] leading-[12.8rem] max-xl-plus:text-[6.4rem] max-xl-plus:leading-[7rem]"
+                          class="text-[12.8rem] leading-[12.8rem] max-xl:text-[6.4rem] max-xl:leading-[7rem]"
                         >
                           {{ statisticsItem.title }}
                         </h1>
@@ -311,9 +311,9 @@
 
       <div
         v-if="block.type === 'centeredBlock' && block.content?.length"
-        class="flex flex-col gap-[15.2rem] max-xl-plus:gap-size-8"
+        class="flex flex-col gap-[15.2rem] max-xl:gap-size-8"
       >
-        <div class="w-[89.6rem] mx-auto flex flex-col gap-[9.6rem] max-xl-plus:w-full max-xl-plus:gap-[4.8rem] max-xl-plus:px-size-6">
+        <div class="w-[89.6rem] mx-auto flex flex-col gap-[9.6rem] max-xl:w-full max-xl:gap-[4.8rem] max-xl:px-size-6">
           <h2 class="text-h2">
             {{ block.title }}
           </h2>
@@ -321,7 +321,7 @@
           <div
             v-for="(itemContent, itemContentIndex) in block.content"
             :key="`centered-block-content-item-${itemContentIndex}`"
-            class="flex flex-col gap-[6.4rem] max-xl-plus:gap-[3.2rem]"
+            class="flex flex-col gap-[6.4rem] max-xl:gap-[3.2rem]"
           >
             <div class="flex flex-col gap-size-6">
               <h2 class="text-h2">
@@ -332,14 +332,14 @@
                 {{ itemContent.description }}
               </p>
             </div>
-            <div class="flex gap-size-6 max-xl-plus:overflow-x-auto max-xl-plus:snap-x">
+            <div class="flex gap-size-6 max-xl:overflow-x-auto max-xl:snap-x">
               <NuxtImg
                 v-for="(image, imageIndex) in itemContent.images"
                 ref="centeredBlockImages"
                 :key="`centered-block-content-item-image-${imageIndex}`"
                 :src="image"
                 :alt="`${block.title} ${itemContent.title} Контент Изображение`"
-                :class="`h-auto flex-1 max-xl-plus:snap-center`"
+                :class="`h-auto flex-1 max-xl:snap-center`"
                 :style="{
                   width: `calc(100% / ${itemContent.images.length})`,
                 }"
@@ -364,10 +364,10 @@
 
       <div
         v-if="block.type === 'review'"
-        class="flex flex-col gap-[12.8rem] max-xl-plus:gap-[6.4rem] max-xl-plus:px-size-6"
+        class="flex flex-col gap-[12.8rem] max-xl:gap-[6.4rem] max-xl:px-size-6"
       >
-        <div class="flex justify-between gap-size-6 max-xl-plus:flex-col">
-          <div class="flex items-center self-baseline gap-[1.6rem] max-xl-plus:flex-col max-xl-plus:items-start max-xl-plus:gap-size-6">
+        <div class="flex justify-between gap-size-6 max-xl:flex-col">
+          <div class="flex items-center self-baseline gap-[1.6rem] max-xl:flex-col max-xl:items-start max-xl:gap-size-6">
             <h2 class="text-h2 only-desktop">
               {{ getSplitBlockTitle(getSplitBlockIndex(block)) }}
             </h2>
@@ -385,7 +385,7 @@
             </h1>
           </div>
 
-          <div class="only-desktop text-h1 w-[121.1rem] flex flex-col gap-[6.4rem] max-xl-plus:t1">
+          <div class="only-desktop text-h1 w-[121.1rem] flex flex-col gap-[6.4rem] max-xl:t1">
             <p
               v-for="(itemReview, itemReviewIndex) in block.review"
               :key="`review-item-${itemReviewIndex}`"
@@ -404,7 +404,7 @@
           </div>
         </div>
 
-        <div class="w-full flex gap-[1.6rem] max-xl-plus:h-auto max-xl-plus:flex-col">
+        <div class="w-full flex gap-[1.6rem] max-xl:h-auto max-xl:flex-col">
           <div
             v-for="index in 3"
             :key="`review-photo-${index}`"
@@ -435,7 +435,7 @@
 
             <div
               v-if="index === 3"
-              class="w-full h-full flex flex-col justify-end gap-[1rem] bg-dark-grey p-size-8 max-xl-plus:aspect-square"
+              class="w-full h-full flex flex-col justify-end gap-[1rem] bg-dark-grey p-size-8 max-xl:aspect-square"
             >
               <h2 class="text-h2">
                 {{ block.reviewerName }}
@@ -468,7 +468,7 @@
 
             <div
               v-if="index === 3"
-              class="w-full h-full flex flex-col justify-end gap-[1rem] bg-dark-grey p-size-8 max-xl-plus:aspect-square"
+              class="w-full h-full flex flex-col justify-end gap-[1rem] bg-dark-grey p-size-8 max-xl:aspect-square"
             >
               <h2 class="text-h2">
                 {{ block.reviewerName }}
@@ -484,7 +484,7 @@
 
       <SplitBlock v-if="block.type === 'author'">
         <template #right>
-          <div class="flex flex-col gap-[6.4rem] max-xl-plus:gap-size-6 max-xl-plus:px-size-6">
+          <div class="flex flex-col gap-[6.4rem] max-xl:gap-size-6 max-xl:px-size-6">
             <h2 class="text-h2 only-desktop">
               {{ block.title }}
             </h2>
@@ -498,7 +498,7 @@
                 <div
                   v-for="(author, authorIndex) in block.content"
                   :key="`author-${authorIndex}`"
-                  class="flex justify-between py-size-8 border-b border-b-solid border-b-dark-grey max-xl-plus:flex-col max-xl-plus:gap-size-6"
+                  class="flex justify-between py-size-8 border-b border-b-solid border-b-dark-grey max-xl:flex-col max-xl:gap-size-6"
                 >
                   <p class="only-desktop">
                     {{ author.name }}

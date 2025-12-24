@@ -1,10 +1,18 @@
 <template>
-  <div class="flex flex-col gap-size-32 max-xl-plus:gap-size-18">
+  <div class="flex flex-col gap-size-32 max-xl:gap-size-18 pt-size-8">
     <Container class="flex flex-col gap-size-12">
       <NuxtImg
-        :src="getStorageLink('/images/project/project-bg.png')"
+        :src="getStorageLink('/images/backgrounds/points.png')"
         alt="Лого проекта"
-        class="w-full min-h-[20rem] object-cover"
+        class="w-full min-h-[20rem] object-cover max-xl:hidden"
+        format="webp"
+      />
+
+      <NuxtImg
+        :src="getStorageLink('/images/backgrounds/points-mobile.png')"
+        alt="Лого проекта"
+        class="w-full h-[20rem] object-contain xl:hidden"
+        format="webp"
       />
 
       <div class="flex flex-col gap-size-6">
@@ -20,7 +28,7 @@
               startDelay: 0,
             })
           ]"
-          class="xl-plus:hidden shrink-0"
+          class="xl:hidden shrink-0"
         >
           <div
             v-for="service in servicesPageTags"
@@ -35,7 +43,7 @@
           {{ servicesPageTitle }}
         </h1>
 
-        <div class="grid grid-cols-2 max-xl-plus:grid-cols-1 gap-size-12">
+        <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-size-12">
           <div class="flex flex-col gap-size-8">
             <p class="text-grey">
               {{ servicesPageDescription }}
@@ -47,7 +55,7 @@
             />
           </div>
 
-          <div class="flex flex-wrap gap-size-3 max-xl-plus:hidden">
+          <div class="flex flex-wrap gap-size-3 max-xl:hidden">
             <Tag
               v-for="service in servicesPageTags"
               :key="`service-page-tag-${service}`"
@@ -58,7 +66,7 @@
       </div>
     </Container>
 
-    <div class="flex flex-col gap-size-42 max-xl-plus:gap-size-24">
+    <div class="flex flex-col gap-size-42 max-xl:gap-size-24">
       <ServicesList
         show-full-info
         without-numbering

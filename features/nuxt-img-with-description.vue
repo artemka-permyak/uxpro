@@ -12,7 +12,7 @@
         style="background: linear-gradient(179.93deg, rgba(255, 255, 255, 0) 65.26%, rgba(0, 0, 0, 0.5538) 99.94%);"
       />
 
-      <div class="absolute left-[1.6rem] bottom-[1.6rem] max-xl-plus:bottom-[.8rem]">
+      <div class="absolute left-[1.6rem] bottom-[1.6rem] max-xl:bottom-[.8rem]">
         <div class="only-desktop text-[2.4rem] leading-[2.7rem]">
           {{ props.description }}
         </div>

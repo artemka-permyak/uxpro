@@ -1,15 +1,15 @@
 <template>
-  <section class="flex flex-col gap-size-12 max-xl-plus:gap-size-6">
+  <section class="flex flex-col gap-size-12 max-xl:gap-size-6">
     <Container class="flex">
-      <h3 class="text-h3 text-grey grow max-xl-plus:hidden">
+      <h3 class="text-h3 text-grey grow max-xl:hidden">
         {{ title }}
       </h3>
 
-      <h2 class="text-h2 text-grey grow xl-plus:hidden">
+      <h2 class="text-h2 text-grey grow xl:hidden">
         {{ title }}
       </h2>
 
-      <div class="flex gap-size-4 shrink-0 cursor-pointer max-xl-plus:hidden">
+      <div class="flex gap-size-4 shrink-0 cursor-pointer max-xl:hidden">
         <Icon
           name="arrow-left"
           :size="48"
@@ -31,7 +31,7 @@
       :options="{
         loop: true,
       }"
-      class="max-xl-plus:hidden"
+      class="max-xl:hidden"
     >
       <div
         v-for="review in reviews"
@@ -81,7 +81,7 @@
         align: 'start',
         loop: true,
       }"
-      class="xl-plus:hidden"
+      class="xl:hidden"
     >
       <div
         v-for="review in reviews"

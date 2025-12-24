@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-size-24 max-w-[192rem] m-auto text-white max-xl-plus:gap-size-16">
+  <div class="flex flex-col gap-size-24 max-w-[192rem] m-auto text-white max-xl:gap-size-16">
     <div class="flex flex-col gap-size-12">
       <CompanyPreviewWidget />
 

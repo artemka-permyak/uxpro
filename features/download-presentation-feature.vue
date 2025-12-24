@@ -10,13 +10,13 @@
       <Icon
         name="download-simple"
         :size="30"
-        class="max-xl-plus:hidden"
+        class="max-xl:hidden"
       />
 
       <Icon
         name="download-simple"
         size="lg"
-        class="xl-plus:hidden"
+        class="xl:hidden"
       />
     </div>
   </Link>

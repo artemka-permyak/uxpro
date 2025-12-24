@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col m-auto text-white pb-size-6 max-xl-plus:pb-size-6">
+  <div class="flex flex-col m-auto text-white pb-size-6 max-xl:pb-size-6">
     <StickyHeaderWidget
       v-if="route.name !== 'index'"
       @open:modal-burger="handleOpenModalBurger"
@@ -21,8 +21,8 @@
 
     <main
       :class="['max-w-[192rem] w-full m-auto', {
-        'pt-[12.4rem] max-xl-plus:pt-[3.2rem]': !isMain && !['projects-slug', 'services'].includes(route.name),
-        'max-xl-plus:pt-[3.2rem]': route.name === 'projects-slug',
+        'pt-[12.4rem] max-xl:pt-[3.2rem]': !isMain && !['projects-slug', 'services'].includes(route.name),
+        'max-xl:pt-[3.2rem]': route.name === 'projects-slug',
       }]"
     >
       <slot />

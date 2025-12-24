@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col gap-size-16 px-size-8 max-xl-plus:gap-size-8 max-xl-plus:px-size-6">
+  <section class="flex flex-col gap-size-16 px-size-8 max-xl:gap-size-8 max-xl:px-size-6">
     <BlockHeader>
       {{ title }}
     </BlockHeader>
@@ -9,14 +9,14 @@
         v-for="(project, index) in projects"
         :key="project.id"
         :class="['w-full h-full min-w-[30.9rem] snap-center', {
-          'xl-plus:pt-size-16': index !== 0 && index % 3 === 1,
-          'xl-plus:pb-size-16': index !== 0 && index % 3 === 2,
+          'xl:pt-size-16': index !== 0 && index % 3 === 1,
+          'xl:pb-size-16': index !== 0 && index % 3 === 2,
         }]"
       >
         <div :class="['relative transition-colors w-full h-full flex flex-col gap-size-6 p-size-8 border-t border-b border-dark-grey', {
           'border-l border-r': index % 3 === 0,
           'border-r': index !== 0 && index % 3 === 1 || index === projects.length - 1,
-          'before:h-size-16 before:bg-dark-grey before:border-l before:border-dark-grey before:absolute before:left-[-.05rem] before:top-[-.05rem] max-xl-plus:before:left-[-.1rem] max-xl-plus:before:top-[-.1rem]': index !== 0 && index % 3 === 2,
+          'before:h-size-16 before:bg-dark-grey before:border-l before:border-dark-grey before:absolute before:left-[-.05rem] before:top-[-.05rem] max-xl:before:left-[-.1rem] max-xl:before:top-[-.1rem]': index !== 0 && index % 3 === 2,
         }]">
           <div class="group flex flex-col grow gap-size-6">
             <div class="group flex justify-between gap-size-6">
