@@ -100,7 +100,7 @@
     --black-90: #090909E5;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1279px) {
     :root {
         --font-h1: 3.2rem;
         --font-h1--line-height: 3.8rem;
