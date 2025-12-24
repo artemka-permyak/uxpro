@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-[12.8rem] max-xl:gap-size-20">
+  <div class="flex flex-col gap-[12.8rem] max-xl:gap-size-20 pt-size-8">
     <div class="flex flex-col">
       <ProjectPageHeader
         :project="project"
