@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-col p-size-8 pt-0 gap-size-8 border-b border-b-solid border-b-dark-grey max-xl:p-size-6 max-xl:border-none">
+  <div class="relative flex flex-col p-size-8 pt-0 gap-size-8 border-b border-b-solid border-b-dark-grey max-xl:p-size-6 max-xl:pt-0 max-xl:border-none">
     <NuxtImg
       :src="getStorageLink('/images/backgrounds/points.png')"
       alt="Лого проекта"
