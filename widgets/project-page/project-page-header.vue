@@ -8,9 +8,9 @@
     />
 
     <NuxtImg
-      :src="getStorageLink('/images/backgrounds/points-mobile.png')"
+      :src="getStorageLink('/images/backgrounds/points-mobile.svg')"
       alt="Лого проекта"
-      class="w-full h-[20rem] object-contain xl:hidden"
+      class="w-full object-contain xl:hidden"
       format="webp"
     />
 
