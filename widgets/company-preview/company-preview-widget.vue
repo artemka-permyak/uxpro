@@ -45,9 +45,10 @@
             v-html="LABELS.mobileTitle"
           />
 
-          <ButtonUi class="self-start">
-            {{ LABELS.contactUs }}
-          </ButtonUi>
+          <ContactUsFeature
+            as-button
+            class="self-start"
+          />
         </div>
 
         <CompanyAwards class="w-auto shrink-0 max-xl:pl-size-6" />
@@ -60,7 +61,8 @@
 import { CompanyAwards } from '~/features/company-awards'
 import { getStorageLink } from '~/global/lib'
 import { useHeaderStore } from '~/global/store/header'
-import { ButtonUi, LogoImg, VideoUi } from '~/global/ui'
+import {  LogoImg, VideoUi } from '~/global/ui'
+import { ContactUsFeature } from '@/features'
 
 defineOptions({
   name: 'CompanyPreviewWidget'
@@ -81,8 +83,6 @@ const LABELS = {
     и&nbsp;проектируем сложные
     цифровые продукты
   `,
-
-  contactUs: 'Оставить заявку',
 }
 
 const headerStore = useHeaderStore()
